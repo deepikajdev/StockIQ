@@ -114,3 +114,26 @@ class ProductSupplier(Base):
     )
 
 
+class Warehouse(Base):
+    __tablename__ = "warehouses"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    is_default: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    __table_args__ = (UniqueConstraint("business_id", "name", name="uq_warehouse_name"),)
+
+
+class Inventory(Base):
+    __tablename__ = "inventory"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+    warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, onupdate=utcnow, nullable=False)
+    __table_args__ = (
+        UniqueConstraint("product_id", "warehouse_id", name="uq_inventory_product_wh"),
+        CheckConstraint("quantity >= 0", name="ck_inventory_non_negative"),
+        Index("ix_inventory_warehouse", "warehouse_id"),
+    )
+
+
