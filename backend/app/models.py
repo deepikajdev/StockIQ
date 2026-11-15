@@ -137,3 +137,42 @@ class Inventory(Base):
     )
 
 
+class Purchase(Base):
+    __tablename__ = "purchases"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey("suppliers.id"), nullable=False)
+    warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
+    status: Mapped[str] = mapped_column(String(20), nullable=False, default="draft")  # draft|received|cancelled
+    order_date: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    received_at: Mapped[datetime | None] = mapped_column(DateTime)
+    total_cost: Mapped[Decimal] = mapped_column(Numeric(14, 2), nullable=False, default=0)
+    notes: Mapped[str | None] = mapped_column(Text)
+    created_by: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    supplier: Mapped[Supplier] = relationship(lazy="joined")
+    items: Mapped[list["PurchaseItem"]] = relationship(back_populates="purchase", cascade="all, delete-orphan", lazy="selectin")
+    __table_args__ = (
+        CheckConstraint("status IN ('draft','received','cancelled')", name="ck_purchase_status"),
+        Index("ix_purchases_business_status", "business_id", "status"),
+        Index("ix_purchases_supplier", "supplier_id"),
+        Index("ix_purchases_date", "order_date"),
+    )
+
+
+class PurchaseItem(Base):
+    __tablename__ = "purchase_items"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    purchase_id: Mapped[int] = mapped_column(ForeignKey("purchases.id"), nullable=False)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
+    unit_cost: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
+    purchase: Mapped[Purchase] = relationship(back_populates="items")
+    product: Mapped[Product] = relationship(lazy="joined")
+    __table_args__ = (
+        CheckConstraint("quantity > 0", name="ck_pi_qty"),
+        CheckConstraint("unit_cost >= 0", name="ck_pi_cost"),
+        Index("ix_pi_purchase", "purchase_id"),
+        Index("ix_pi_product", "product_id"),
+    )
+
+
