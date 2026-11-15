@@ -79,3 +79,38 @@ class Product(Base):
     )
 
 
+class Supplier(Base):
+    __tablename__ = "suppliers"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    name: Mapped[str] = mapped_column(String(150), nullable=False)
+    contact_name: Mapped[str | None] = mapped_column(String(120))
+    email: Mapped[str | None] = mapped_column(String(255))
+    phone: Mapped[str | None] = mapped_column(String(40))
+    address: Mapped[str | None] = mapped_column(Text)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    __table_args__ = (
+        UniqueConstraint("business_id", "name", name="uq_supplier_name"),
+        Index("ix_suppliers_business", "business_id"),
+    )
+
+
+class ProductSupplier(Base):
+    __tablename__ = "product_suppliers"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+    supplier_id: Mapped[int] = mapped_column(ForeignKey("suppliers.id"), nullable=False)
+    unit_cost: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))        # unknown allowed
+    lead_time_days: Mapped[int | None] = mapped_column(Integer)              # unknown allowed
+    min_order_qty: Mapped[int | None] = mapped_column(Integer)
+    is_preferred: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    supplier: Mapped[Supplier] = relationship(lazy="joined")
+    __table_args__ = (
+        UniqueConstraint("product_id", "supplier_id", name="uq_product_supplier"),
+        CheckConstraint("lead_time_days IS NULL OR lead_time_days >= 0", name="ck_ps_lead"),
+        CheckConstraint("min_order_qty IS NULL OR min_order_qty > 0", name="ck_ps_moq"),
+        Index("ix_ps_supplier", "supplier_id"),
+    )
+
+
