@@ -54,3 +54,28 @@ class Category(Base):
     __table_args__ = (UniqueConstraint("business_id", "name", name="uq_category_name"),)
 
 
+class Product(Base):
+    __tablename__ = "products"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    category_id: Mapped[int | None] = mapped_column(ForeignKey("categories.id"))
+    sku: Mapped[str] = mapped_column(String(64), nullable=False)
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
+    unit: Mapped[str] = mapped_column(String(20), nullable=False, default="pcs")
+    selling_price: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
+    cost_price: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
+    reorder_point: Mapped[int] = mapped_column(Integer, nullable=False, default=0)   # manual floor
+    safety_stock: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, onupdate=utcnow, nullable=False)
+    category: Mapped[Category | None] = relationship(lazy="joined")
+    __table_args__ = (
+        UniqueConstraint("business_id", "sku", name="uq_product_sku"),
+        CheckConstraint("selling_price >= 0 AND cost_price >= 0", name="ck_product_prices"),
+        CheckConstraint("reorder_point >= 0 AND safety_stock >= 0", name="ck_product_reorder"),
+        Index("ix_products_business_active", "business_id", "is_active"),
+        Index("ix_products_category", "category_id"),
+    )
+
+
