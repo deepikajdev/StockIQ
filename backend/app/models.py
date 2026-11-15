@@ -212,3 +212,41 @@ class SaleItem(Base):
     )
 
 
+class StockMovement(Base):
+    """Append-only ledger. The app never updates or deletes rows here."""
+    __tablename__ = "stock_movements"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+    warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
+    movement_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    quantity_change: Mapped[int] = mapped_column(Integer, nullable=False)  # signed
+    quantity_before: Mapped[int] = mapped_column(Integer, nullable=False)
+    quantity_after: Mapped[int] = mapped_column(Integer, nullable=False)
+    reference_type: Mapped[str | None] = mapped_column(String(20))  # purchase|sale|adjustment
+    reference_id: Mapped[int | None] = mapped_column(Integer)
+    reason: Mapped[str | None] = mapped_column(String(255))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    product: Mapped[Product] = relationship(lazy="joined")
+    user: Mapped[User] = relationship(lazy="joined")
+    __table_args__ = (
+        CheckConstraint("quantity_after = quantity_before + quantity_change", name="ck_sm_math"),
+        CheckConstraint("quantity_change <> 0", name="ck_sm_nonzero"),
+        Index("ix_sm_product_date", "product_id", "created_at"),
+        Index("ix_sm_business_date", "business_id", "created_at"),
+        Index("ix_sm_reference", "reference_type", "reference_id"),
+    )
+
+
+class AuditLog(Base):
+    __tablename__ = "audit_logs"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
+    action: Mapped[str] = mapped_column(String(60), nullable=False)
+    entity_type: Mapped[str] = mapped_column(String(40), nullable=False)
+    entity_id: Mapped[int | None] = mapped_column(Integer)
+    details: Mapped[dict | None] = mapped_column(JSON)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    __table_args__ = (Index("ix_audit_business_date", "business_id", "created_at"),)
