@@ -176,3 +176,39 @@ class PurchaseItem(Base):
     )
 
 
+class Sale(Base):
+    __tablename__ = "sales"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
+    warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
+    status: Mapped[str] = mapped_column(String(20), nullable=False, default="completed")  # completed|cancelled
+    sold_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    customer_name: Mapped[str | None] = mapped_column(String(120))
+    total_amount: Mapped[Decimal] = mapped_column(Numeric(14, 2), nullable=False, default=0)
+    created_by: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    items: Mapped[list["SaleItem"]] = relationship(back_populates="sale", cascade="all, delete-orphan", lazy="selectin")
+    __table_args__ = (
+        CheckConstraint("status IN ('completed','cancelled')", name="ck_sale_status"),
+        Index("ix_sales_business_date", "business_id", "sold_at"),
+        Index("ix_sales_status", "status"),
+    )
+
+
+class SaleItem(Base):
+    __tablename__ = "sale_items"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    sale_id: Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+    quantity: Mapped[int] = mapped_column(Integer, nullable=False)
+    unit_price: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
+    unit_cost: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)  # snapshot for margin reports
+    sale: Mapped[Sale] = relationship(back_populates="items")
+    product: Mapped[Product] = relationship(lazy="joined")
+    __table_args__ = (
+        CheckConstraint("quantity > 0", name="ck_si_qty"),
+        CheckConstraint("unit_price >= 0", name="ck_si_price"),
+        Index("ix_si_sale", "sale_id"),
+        Index("ix_si_product", "product_id"),
+    )
+
+
