@@ -35,6 +35,62 @@ def utcnow() -> datetime:
     return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
+CATEGORIES_DATA = [
+    "Writing Instruments",
+    "Notebooks & Notepads",
+    "Paper & Envelopes",
+    "Filing & Folders",
+    "Desk Accessories",
+    "Adhesives & Tapes",
+    "Art & Craft Supplies",
+    "Mailing & Shipping",
+]
+
+SUPPLIERS_DATA = [
+    {
+        "name": "Apex Office Wholesale",
+        "contact_name": "Marcus Vance",
+        "email": "orders@apexoffice.example.com",
+        "phone": "+1-555-0192",
+        "address": "100 Industrial Parkway, Sector 4, Chicago, IL",
+    },
+    {
+        "name": "Meridian Paper & Packaging Co",
+        "contact_name": "Elena Rostova",
+        "email": "supply@meridianpaper.example.com",
+        "phone": "+1-555-0144",
+        "address": "45 Millstream Road, Green Bay, WI",
+    },
+    {
+        "name": "Prism Art & Writing Instruments",
+        "contact_name": "Julian Chen",
+        "email": "b2b@prismart.example.com",
+        "phone": "+1-555-0188",
+        "address": "88 Creative Way, Portland, OR",
+    },
+    {
+        "name": "Global Desk Essentials Corp",
+        "contact_name": "Sarah Jenkins",
+        "email": "wholesale@globaldesk.example.com",
+        "phone": "+1-555-0133",
+        "address": "250 Logistics Blvd, Suite 300, Dallas, TX",
+    },
+    {
+        "name": "Bond & Seal Adhesive Technologies",
+        "contact_name": "Derek Miller",
+        "email": "sales@bondseal.example.com",
+        "phone": "+1-555-0177",
+        "address": "12 Polymer Drive, Akron, OH",
+    },
+    {
+        "name": "FastPack Mailing Supplies Ltd",
+        "contact_name": "Ananya Patel",
+        "email": "b2b@fastpack.example.com",
+        "phone": "+1-555-0165",
+        "address": "77 Parcel Way, Memphis, TN",
+    },
+]
+
 def run_seed(reset: bool = False):
     # Ensure tables and initial admin/staff users exist
     bootstrap()
@@ -65,7 +121,37 @@ def run_seed(reset: bool = False):
             db.execute(delete(models.Supplier))
             db.execute(delete(models.AuditLog))
             db.commit()
-            print("[+] Database cleaned successfully.")
+                        print("[+] Database cleaned successfully.")
+
+        biz = db.scalar(select(models.Business))
+        wh = db.scalar(select(models.Warehouse).where(models.Warehouse.business_id == biz.id, models.Warehouse.is_default.is_(True)))
+        admin_user = db.scalar(select(models.User).where(models.User.email == "admin@stockiq.example.com"))
+
+        print("[*] Creating 8 categories...")
+        categories_map = {}
+        for cat_name in CATEGORIES_DATA:
+            cat = models.Category(business_id=biz.id, name=cat_name)
+            db.add(cat)
+            db.flush()
+            categories_map[cat_name] = cat
+
+        print("[*] Creating 6 suppliers...")
+        suppliers_list = []
+        for s_data in SUPPLIERS_DATA:
+            sup = models.Supplier(
+                business_id=biz.id,
+                name=s_data["name"],
+                contact_name=s_data["contact_name"],
+                email=s_data["email"],
+                phone=s_data["phone"],
+                address=s_data["address"],
+                is_active=True,
+                created_at=utcnow() - timedelta(days=90),
+            )
+            db.add(sup)
+            db.flush()
+            suppliers_list.append(sup)
+        db.commit()
 
 
 if __name__ == "__main__":
