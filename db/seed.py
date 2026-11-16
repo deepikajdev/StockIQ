@@ -351,8 +351,66 @@ def run_seed(reset: bool = False):
 
         db.flush()
 
+        print("[*] Generating 6 received purchases over the last 8 weeks...")
+        # 6 purchases scheduled across weeks: -7, -6, -4, -3, -2, -1
+        purchases_schedule = [
+            (50, 48, 0, [("PEN-BALL-BLU", 50), ("PEN-BALL-BLK", 50), ("PAD-STK-3X3-YLW", 40)]),
+            (42, 40, 1, [("PPR-CPY-A4-80", 40), ("PPR-REC-A4-75", 30), ("ENV-SEC-10-100", 25)]),
+            (30, 27, 2, [("PEN-GEL-05", 40), ("PEN-FINELIN-6", 20), ("NB-DOT-A5-BUL", 20)]),
+            (21, 19, 3, [("DSK-STP-26-6", 50), ("FLD-CLR-A4-10", 40), ("BND-2RNG-A4-25", 30)]),
+            (14, 12, 4, [("ADH-TP-CLR-48", 50), ("ML-BBL-M2-25", 30), ("ML-STR-FLM-15", 20)]),
+            (7, 5, 0, [("PEN-BALL-BLU", 30), ("FLD-MNL-LTR-50", 20), ("ADH-GLU-STK-4", 30)]),
+        ]
+
+        for order_days, recv_days, sup_i, items_spec in purchases_schedule:
+            order_dt = now - timedelta(days=order_days)
+            recv_dt = now - timedelta(days=recv_days)
+            sup = suppliers_list[sup_i]
+
+            purch = models.Purchase(
+                business_id=biz.id,
+                supplier_id=sup.id,
+                warehouse_id=wh.id,
+                status="received",
+                order_date=order_dt,
+                received_at=recv_dt,
+                total_cost=Decimal("0.00"),
+                notes=f"Stock replenishment order #{order_days}d ago",
+                created_by=admin_user.id,
+            )
+            db.add(purch)
+            db.flush()
+
+            purch_total = Decimal("0.00")
+            for p_sku, p_qty in items_spec:
+                prod = products_map[p_sku]
+                cost = prod.cost_price
+                purch_item = models.PurchaseItem(
+                    purchase_id=purch.id,
+                    product_id=prod.id,
+                    quantity=p_qty,
+                    unit_cost=cost,
+                )
+                purch.items.append(purch_item)
+                purch_total += Decimal(p_qty) * cost
+
+                mv = change_stock(
+                    db,
+                    user=admin_user,
+                    product=prod,
+                    warehouse_id=wh.id,
+                    delta=p_qty,
+                    movement_type="purchase_receipt",
+                    reference_type="purchase",
+                    reference_id=purch.id,
+                )
+                mv.created_at = recv_dt
+
+            purch.total_cost = purch_total
+            db.flush()
+
                 db.commit()
-        print("[+] Opening inventory balances committed.")
+        print("[+] 6 purchase orders and goods receipt entries committed.")
 
 if __name__ == "__main__":
     reset_flag = "--reset" in sys.argv
