@@ -278,8 +278,81 @@ def run_seed(reset: bool = False):
 
         db.flush()
 
+        print("[*] Establishing opening balances via change_stock (backdated ~60 days)...")
+        # Define base opening quantities
+        opening_qty = {
+            # Writing
+            "PEN-BALL-BLU": 80,
+            "PEN-BALL-BLK": 90,
+            "PEN-GEL-05": 65,
+            "PEN-FINELIN-6": 35,
+            "PNC-HB-WOOD": 50,
+            "PNC-MECH-07": 40,
+            "MRK-HLT-PAST": 30,  # will end up near reorder
+            "MRK-WBD-4AST": 45,
+            # Notebooks
+            "NB-JRN-A5-HRD": 45,
+            "NB-SPR-B5-COL": 70,
+            "NB-GRP-A4-WIRE": 55,
+            "PAD-STK-3X3-YLW": 85,
+            "PAD-MEMO-PKT-3": 40,
+            "PAD-LGL-LTR-3": 45,
+            "NB-DOT-A5-BUL": 30,
+            "NB-EXEC-LTH-A5": 15, # zero sales
+            # Paper
+            "PPR-CPY-A4-80": 60,  # will end up near/below reorder
+            "PPR-REC-A4-75": 50,
+            "PPR-CRD-A4-WHT": 35,
+            "ENV-KRFT-C5-50": 40,
+            "ENV-SEC-10-100": 45,
+            # Filing
+            "FLD-MNL-LTR-50": 35,
+            "FLD-EXP-13PKT": 25,
+            "BND-2RNG-A4-25": 45,
+            "FLD-CLR-A4-10": 80,
+            "BND-LEV-75-BLU": 35,
+            "IDX-TAB-A4-12": 50,
+            # Desk
+            "DSK-STP-HVY-M1": 18, # will end up below reorder
+            "DSK-STP-26-6": 75,
+            "DSK-PNC-2H-30": 20,
+            "DSK-SCS-8IN-SS": 35,
+            "DSK-RLR-30-MTL": 40,
+            "DSK-ORG-CAD-ACR": 25,
+            # Adhesives
+            "ADH-TP-CLR-48": 80,
+            "ADH-TP-DBL-18": 45,
+            "ADH-GLU-STK-4": 60,
+            "ADH-GLU-ALL-120": 40,
+            "ADH-DOT-RMV-300": 35,
+            # Art
+            "ART-WTR-24HP": 20,
+            "ART-SKT-A3-PRO": 16, # zero sales
+            # Shipping
+            "ML-BBL-M2-25": 45,
+            "ML-STR-FLM-15": 25,
+            "ML-TP-FRG-48": 30,   # created 5d ago
+        }
+
+        for sku, prod in products_map.items():
+            qty = opening_qty.get(sku, 30)
+            created_ts = t_5d_ago if sku == "ML-TP-FRG-48" else (now - timedelta(days=58))
+            mv = change_stock(
+                db,
+                user=admin_user,
+                product=prod,
+                warehouse_id=wh.id,
+                delta=qty,
+                movement_type="adjustment",
+                reference_type="adjustment",
+                reason="opening_balance",
+            )
+            mv.created_at = created_ts
+
+        db.flush()
+
                 db.commit()
-        print("[+] Seed categories, suppliers, and 40 products committed.")
+        print("[+] Opening inventory balances committed.")
 
 if __name__ == "__main__":
     reset_flag = "--reset" in sys.argv
