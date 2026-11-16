@@ -1,4 +1,4 @@
-﻿-- StockIQ Relational Schema (MySQL 8 & MariaDB 10.11 compatible)
+-- StockIQ Relational Schema (MySQL 8 & MariaDB 10.11 compatible)
 -- Character set: utf8mb4 (defaults to utf8mb4_0900_ai_ci on MySQL 8, utf8mb4_unicode_ci on MariaDB)
 -- Storage Engine: InnoDB
 -- Exact hand-written DDL equivalent to backend/app/models.py
@@ -142,6 +142,167 @@ CREATE TABLE `product_suppliers` (
     KEY `ix_ps_supplier` (`supplier_id`),
     CONSTRAINT `fk_ps_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
     CONSTRAINT `fk_ps_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 9. inventory
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `inventory`;
+CREATE TABLE `inventory` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `product_id` INT NOT NULL,
+    `warehouse_id` INT NOT NULL,
+    `quantity` INT NOT NULL DEFAULT 0,
+    `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `uq_inventory_product_wh` UNIQUE (`product_id`, `warehouse_id`),
+    CONSTRAINT `ck_inventory_non_negative` CHECK (`quantity` >= 0),
+    KEY `ix_inventory_warehouse` (`warehouse_id`),
+    CONSTRAINT `fk_inventory_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+    CONSTRAINT `fk_inventory_warehouse` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 10. purchases
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `purchases`;
+CREATE TABLE `purchases` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `supplier_id` INT NOT NULL,
+    `warehouse_id` INT NOT NULL,
+    `status` VARCHAR(20) NOT NULL DEFAULT 'draft',
+    `order_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `received_at` DATETIME NULL,
+    `total_cost` DECIMAL(14, 2) NOT NULL DEFAULT 0.00,
+    `notes` TEXT NULL,
+    `created_by` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `ck_purchase_status` CHECK (`status` IN ('draft', 'received', 'cancelled')),
+    KEY `ix_purchases_business_status` (`business_id`, `status`),
+    KEY `ix_purchases_supplier` (`supplier_id`),
+    KEY `ix_purchases_date` (`order_date`),
+    KEY `ix_purchases_warehouse` (`warehouse_id`),
+    KEY `ix_purchases_created_by` (`created_by`),
+    CONSTRAINT `fk_purchases_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`),
+    CONSTRAINT `fk_purchases_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
+    CONSTRAINT `fk_purchases_warehouse` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`),
+    CONSTRAINT `fk_purchases_user` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 11. purchase_items
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `purchase_items`;
+CREATE TABLE `purchase_items` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `purchase_id` INT NOT NULL,
+    `product_id` INT NOT NULL,
+    `quantity` INT NOT NULL,
+    `unit_cost` DECIMAL(12, 2) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `ck_pi_qty` CHECK (`quantity` > 0),
+    CONSTRAINT `ck_pi_cost` CHECK (`unit_cost` >= 0),
+    KEY `ix_pi_purchase` (`purchase_id`),
+    KEY `ix_pi_product` (`product_id`),
+    CONSTRAINT `fk_pi_purchase` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`),
+    CONSTRAINT `fk_pi_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 12. sales
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `sales`;
+CREATE TABLE `sales` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `warehouse_id` INT NOT NULL,
+    `status` VARCHAR(20) NOT NULL DEFAULT 'completed',
+    `sold_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `customer_name` VARCHAR(120) NULL,
+    `total_amount` DECIMAL(14, 2) NOT NULL DEFAULT 0.00,
+    `created_by` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `ck_sale_status` CHECK (`status` IN ('completed', 'cancelled')),
+    KEY `ix_sales_business_date` (`business_id`, `sold_at`),
+    KEY `ix_sales_status` (`status`),
+    KEY `ix_sales_warehouse` (`warehouse_id`),
+    KEY `ix_sales_created_by` (`created_by`),
+    CONSTRAINT `fk_sales_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`),
+    CONSTRAINT `fk_sales_warehouse` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`),
+    CONSTRAINT `fk_sales_user` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 13. sale_items
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `sale_items`;
+CREATE TABLE `sale_items` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `sale_id` INT NOT NULL,
+    `product_id` INT NOT NULL,
+    `quantity` INT NOT NULL,
+    `unit_price` DECIMAL(12, 2) NOT NULL,
+    `unit_cost` DECIMAL(12, 2) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `ck_si_qty` CHECK (`quantity` > 0),
+    CONSTRAINT `ck_si_price` CHECK (`unit_price` >= 0),
+    KEY `ix_si_sale` (`sale_id`),
+    KEY `ix_si_product` (`product_id`),
+    CONSTRAINT `fk_si_sale` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`),
+    CONSTRAINT `fk_si_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 14. stock_movements (append-only ledger)
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `stock_movements`;
+CREATE TABLE `stock_movements` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `product_id` INT NOT NULL,
+    `warehouse_id` INT NOT NULL,
+    `movement_type` VARCHAR(30) NOT NULL,
+    `quantity_change` INT NOT NULL,
+    `quantity_before` INT NOT NULL,
+    `quantity_after` INT NOT NULL,
+    `reference_type` VARCHAR(20) NULL,
+    `reference_id` INT NULL,
+    `reason` VARCHAR(255) NULL,
+    `user_id` INT NOT NULL,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `ck_sm_math` CHECK (`quantity_after` = `quantity_before` + `quantity_change`),
+    CONSTRAINT `ck_sm_nonzero` CHECK (`quantity_change` <> 0),
+    KEY `ix_sm_product_date` (`product_id`, `created_at`),
+    KEY `ix_sm_business_date` (`business_id`, `created_at`),
+    KEY `ix_sm_reference` (`reference_type`, `reference_id`),
+    KEY `ix_sm_warehouse` (`warehouse_id`),
+    KEY `ix_sm_user` (`user_id`),
+    CONSTRAINT `fk_sm_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`),
+    CONSTRAINT `fk_sm_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+    CONSTRAINT `fk_sm_warehouse` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`),
+    CONSTRAINT `fk_sm_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 15. audit_logs
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `audit_logs`;
+CREATE TABLE `audit_logs` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `user_id` INT NULL,
+    `action` VARCHAR(60) NOT NULL,
+    `entity_type` VARCHAR(40) NOT NULL,
+    `entity_id` INT NULL,
+    `details` JSON NULL,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `ix_audit_business_date` (`business_id`, `created_at`),
+    KEY `ix_audit_user` (`user_id`),
+    CONSTRAINT `fk_audit_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`),
+    CONSTRAINT `fk_audit_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS = 1;
