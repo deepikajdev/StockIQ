@@ -1,4 +1,4 @@
-﻿"""Seed script for StockIQ demo stationery shop.
+"""Seed script for StockIQ demo stationery shop.
 
 Requirements:
 - 8 categories
@@ -409,8 +409,216 @@ def run_seed(reset: bool = False):
             purch.total_cost = purch_total
             db.flush()
 
-                db.commit()
-        print("[+] 6 purchase orders and goods receipt entries committed.")
+        print("[*] Generating ~8 weeks of daily sales with realistic variation...")
+        # Configure sales patterns:
+        # Fast movers: sold in almost every day (1-5 units)
+        fast_movers = [
+            "PPR-CPY-A4-80", "PAD-STK-3X3-YLW", "PEN-BALL-BLU", "PEN-BALL-BLK",
+            "PEN-GEL-05", "ADH-TP-CLR-48", "PPR-REC-A4-75", "FLD-CLR-A4-10"
+        ]
+        # Moderate movers: sold every 2-4 days
+        moderate_movers = [
+            "NB-JRN-A5-HRD", "NB-SPR-B5-COL", "NB-GRP-A4-WIRE", "PNC-HB-WOOD",
+            "MRK-HLT-PAST", "MRK-WBD-4AST", "PAD-LGL-LTR-3", "PAD-MEMO-PKT-3",
+            "ENV-KRFT-C5-50", "ENV-SEC-10-100", "FLD-MNL-LTR-50", "BND-2RNG-A4-25",
+            "BND-LEV-75-BLU", "DSK-STP-26-6", "DSK-SCS-8IN-SS", "ADH-GLU-STK-4",
+            "ML-BBL-M2-25"
+        ]
+        # Slow movers: sold once every 1-2 weeks
+        slow_movers = [
+            "PEN-FINELIN-6", "PNC-MECH-07", "NB-DOT-A5-BUL", "PPR-CRD-A4-WHT",
+            "FLD-EXP-13PKT", "IDX-TAB-A4-12", "DSK-STP-HVY-M1", "DSK-PNC-2H-30",
+            "DSK-RLR-30-MTL", "DSK-ORG-CAD-ACR", "ADH-TP-DBL-18", "ADH-GLU-ALL-120",
+            "ADH-DOT-RMV-300", "ART-WTR-24HP", "ML-STR-FLM-15"
+        ]
+        # Deliberately zero sales in 60d:
+        # "NB-EXEC-LTH-A5", "ART-SKT-A3-PRO"
+        # <7 days of history: "ML-TP-FRG-48" (only sold in last 4 days)
+
+        customers = [
+            "Walk-in Customer", "Metro Design Studio", "Acme Logistics", "Greenwood Academy",
+            "Civic Law Partners", "Horizon Tech Labs", "Dr. Robert Smith", "Sarah Jenkins",
+            "Downtown Accounting", "Apex Retail", "Bright Sparks Learning", "Express Print Co"
+        ]
+
+        # Deterministic seed for reproducible believable numbers
+        rng = random.Random(42)
+
+        # Loop through each day from 56 days ago (8 weeks) up to today
+        for day_offset in range(56, -1, -1):
+            sale_date = now - timedelta(days=day_offset, hours=rng.randint(2, 8), minutes=rng.randint(5, 50))
+            
+            # Number of transactions on this day: 2 to 5 sales per day
+            num_sales_today = rng.randint(2, 5)
+            for s_idx in range(num_sales_today):
+                sold_at_time = sale_date + timedelta(minutes=s_idx * 45 + rng.randint(5, 25))
+                cust = rng.choice(customers)
+
+                # Select 1 to 3 items for this basket
+                candidates = []
+
+                # Always pick 1-2 fast movers
+                candidates.extend(rng.sample(fast_movers, k=rng.randint(1, 2)))
+
+                # 50% chance of a moderate mover
+                if rng.random() < 0.5:
+                    candidates.append(rng.choice(moderate_movers))
+
+                # 20% chance of a slow mover
+                if rng.random() < 0.2:
+                    candidates.append(rng.choice(slow_movers))
+
+                # Newest product: only eligible if day_offset <= 4
+                if day_offset <= 4 and rng.random() < 0.35:
+                    candidates.append("ML-TP-FRG-48")
+
+                # Remove duplicates in single sale
+                candidates = list(dict.fromkeys(candidates))
+
+                # Check inventory availability before attempting sale
+                items_to_sell = []
+                for sku in sorted(candidates):
+                    prod = products_map[sku]
+                    cur_inv = db.scalar(select(models.Inventory).where(
+                        models.Inventory.product_id == prod.id,
+                        models.Inventory.warehouse_id == wh.id
+                    ))
+                    avail = cur_inv.quantity if cur_inv else 0
+                    
+                    # Specific constraints:
+                    # Keep PPR-CPY-A4-80 near/below reorder_point (30) -> e.g. target 12
+                    # Keep MRK-HLT-PAST near reorder_point (18) -> e.g. target 14
+                    # Keep DSK-STP-HVY-M1 below reorder_point (10) -> e.g. target 6
+                    qty_to_buy = rng.randint(1, 3)
+                    if sku == "PPR-CPY-A4-80" and avail - qty_to_buy < 12:
+                        qty_to_buy = max(0, avail - 12)
+                    elif sku == "MRK-HLT-PAST" and avail - qty_to_buy < 14:
+                        qty_to_buy = max(0, avail - 14)
+                    elif sku == "DSK-STP-HVY-M1" and avail - qty_to_buy < 6:
+                        qty_to_buy = max(0, avail - 6)
+
+                    if qty_to_buy > 0 and avail >= qty_to_buy:
+                        items_to_sell.append((prod, qty_to_buy))
+
+                if not items_to_sell:
+                    continue
+
+                sale = models.Sale(
+                    business_id=biz.id,
+                    warehouse_id=wh.id,
+                    status="completed",
+                    sold_at=sold_at_time,
+                    customer_name=cust,
+                    total_amount=Decimal("0.00"),
+                    created_by=staff_user.id,
+                )
+                db.add(sale)
+                db.flush()
+
+                sale_total = Decimal("0.00")
+                for prod, qty in items_to_sell:
+                    mv = change_stock(
+                        db,
+                        user=staff_user,
+                        product=prod,
+                        warehouse_id=wh.id,
+                        delta=-qty,
+                        movement_type="sale",
+                        reference_type="sale",
+                        reference_id=sale.id,
+                    )
+                    mv.created_at = sold_at_time
+
+                    sale_item = models.SaleItem(
+                        sale_id=sale.id,
+                        product_id=prod.id,
+                        quantity=qty,
+                        unit_price=prod.selling_price,
+                        unit_cost=prod.cost_price,
+                    )
+                    sale.items.append(sale_item)
+                    sale_total += Decimal(qty) * prod.selling_price
+
+                sale.total_amount = sale_total
+                db.flush()
+
+        # Add 2 cancelled sales with reversal movements to demonstrate cancelled sales
+        print("[*] Creating 2 cancelled sales with proper stock_reversal ledger entries...")
+        cancelled_cases = [
+            (15, "Metro Design Studio", [("NB-JRN-A5-HRD", 3), ("PEN-FINELIN-6", 2)]),
+            (5, "Acme Logistics", [("ML-BBL-M2-25", 5)]),
+        ]
+        for days_ago, cust, c_items in cancelled_cases:
+            s_time = now - timedelta(days=days_ago, hours=10)
+            c_sale = models.Sale(
+                business_id=biz.id,
+                warehouse_id=wh.id,
+                status="cancelled",
+                sold_at=s_time,
+                customer_name=cust,
+                total_amount=Decimal("0.00"),
+                created_by=staff_user.id,
+            )
+            db.add(c_sale)
+            db.flush()
+
+            c_total = Decimal("0.00")
+            for c_sku, c_qty in c_items:
+                prod = products_map[c_sku]
+                # First, sale deduction
+                mv_sale = change_stock(
+                    db,
+                    user=staff_user,
+                    product=prod,
+                    warehouse_id=wh.id,
+                    delta=-c_qty,
+                    movement_type="sale",
+                    reference_type="sale",
+                    reference_id=c_sale.id,
+                )
+                mv_sale.created_at = s_time
+
+                c_item = models.SaleItem(
+                    sale_id=c_sale.id,
+                    product_id=prod.id,
+                    quantity=c_qty,
+                    unit_price=prod.selling_price,
+                    unit_cost=prod.cost_price,
+                )
+                c_sale.items.append(c_item)
+                c_total += Decimal(c_qty) * prod.selling_price
+
+                # Immediately followed by reversal (order cancelled by customer)
+                mv_rev = change_stock(
+                    db,
+                    user=admin_user,
+                    product=prod,
+                    warehouse_id=wh.id,
+                    delta=c_qty,
+                    movement_type="sale_reversal",
+                    reference_type="sale",
+                    reference_id=c_sale.id,
+                    reason="Customer cancelled order",
+                )
+                mv_rev.created_at = s_time + timedelta(hours=1)
+
+            c_sale.total_amount = c_total
+            db.flush()
+
+        try:
+            db.execute(text("SET @STOCKIQ_ALLOW_LEDGER_MUTATION = 0"))
+        except Exception:
+            pass
+        db.commit()
+        print("[+] Seed completed successfully!")
+        print("    Summary:")
+        print(f"    - Categories: {db.scalar(select(func.count(models.Category.id)))}")
+        print(f"    - Products: {db.scalar(select(func.count(models.Product.id)))}")
+        print(f"    - Suppliers: {db.scalar(select(func.count(models.Supplier.id)))}")
+        print(f"    - Purchases: {db.scalar(select(func.count(models.Purchase.id)))}")
+        print(f"    - Sales: {db.scalar(select(func.count(models.Sale.id)))}")
+        print(f"    - Stock Movements (Ledger): {db.scalar(select(func.count(models.StockMovement.id)))}")
+
 
 if __name__ == "__main__":
     reset_flag = "--reset" in sys.argv
