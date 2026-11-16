@@ -28,7 +28,40 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------------------------------------------------------
--- 3. users
+-- 3. categories
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE `categories` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `name` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `uq_category_name` UNIQUE (`business_id`, `name`),
+    CONSTRAINT `fk_categories_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 4. suppliers
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE `suppliers` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `name` VARCHAR(150) NOT NULL,
+    `contact_name` VARCHAR(120) NULL,
+    `email` VARCHAR(255) NULL,
+    `phone` VARCHAR(40) NULL,
+    `address` TEXT NULL,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `uq_supplier_name` UNIQUE (`business_id`, `name`),
+    KEY `ix_suppliers_business` (`business_id`),
+    CONSTRAINT `fk_suppliers_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 5. users
 -- ----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -49,7 +82,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------------------------------------------------------
--- 4. warehouses
+-- 6. warehouses
 -- ----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `warehouses`;
 CREATE TABLE `warehouses` (
@@ -60,6 +93,55 @@ CREATE TABLE `warehouses` (
     PRIMARY KEY (`id`),
     CONSTRAINT `uq_warehouse_name` UNIQUE (`business_id`, `name`),
     CONSTRAINT `fk_warehouses_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 7. products
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `category_id` INT NULL,
+    `sku` VARCHAR(64) NOT NULL,
+    `name` VARCHAR(200) NOT NULL,
+    `unit` VARCHAR(20) NOT NULL DEFAULT 'pcs',
+    `selling_price` DECIMAL(12, 2) NOT NULL,
+    `cost_price` DECIMAL(12, 2) NOT NULL,
+    `reorder_point` INT NOT NULL DEFAULT 0,
+    `safety_stock` INT NOT NULL DEFAULT 0,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `uq_product_sku` UNIQUE (`business_id`, `sku`),
+    CONSTRAINT `ck_product_prices` CHECK (`selling_price` >= 0 AND `cost_price` >= 0),
+    CONSTRAINT `ck_product_reorder` CHECK (`reorder_point` >= 0 AND `safety_stock` >= 0),
+    KEY `ix_products_business_active` (`business_id`, `is_active`),
+    KEY `ix_products_category` (`category_id`),
+    CONSTRAINT `fk_products_business` FOREIGN KEY (`business_id`) REFERENCES `businesses` (`id`),
+    CONSTRAINT `fk_products_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------------------------------------------
+-- 8. product_suppliers
+-- ----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `product_suppliers`;
+CREATE TABLE `product_suppliers` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `product_id` INT NOT NULL,
+    `supplier_id` INT NOT NULL,
+    `unit_cost` DECIMAL(12, 2) NULL,
+    `lead_time_days` INT NULL,
+    `min_order_qty` INT NULL,
+    `is_preferred` TINYINT(1) NOT NULL DEFAULT 0,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `uq_product_supplier` UNIQUE (`product_id`, `supplier_id`),
+    CONSTRAINT `ck_ps_lead` CHECK (`lead_time_days` IS NULL OR `lead_time_days` >= 0),
+    CONSTRAINT `ck_ps_moq` CHECK (`min_order_qty` IS NULL OR `min_order_qty` > 0),
+    KEY `ix_ps_supplier` (`supplier_id`),
+    CONSTRAINT `fk_ps_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+    CONSTRAINT `fk_ps_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS = 1;
