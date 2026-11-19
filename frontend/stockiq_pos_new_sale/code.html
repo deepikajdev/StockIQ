@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-container":"#006f66","outline-variant":"#c7c4d8","on-primary-fixed":"#0f0069","on-primary-fixed-variant":"#3323cc","primary-fixed-dim":"#c3c0ff","on-primary-container":"#dad7ff","on-secondary-fixed-variant":"#005049","surface-bright":"#faf8ff","surface-container-high":"#e2e7ff","surface":"#faf8ff","on-secondary-fixed":"#00201d","surface-container-lowest":"#ffffff","tertiary-container":"#a44100","secondary-fixed-dim":"#6bd8cb","background":"#faf8ff","surface-container":"#eaedff","on-tertiary-container":"#ffd2be","surface-tint":"#4d44e3","on-tertiary-fixed":"#351000","surface-container-low":"#f2f3ff","on-surface-variant":"#464555","surface-dim":"#d2d9f4","on-tertiary-fixed-variant":"#7b2f00","on-surface":"#131b2e","on-error":"#ffffff","error":"#ba1a1a","primary-fixed":"#e2dfff","tertiary-fixed-dim":"#ffb695","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","tertiary":"#7e3000","on-primary":"#ffffff","primary":"#3525cd","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","outline":"#777587","inverse-primary":"#c3c0ff","inverse-surface":"#283044","on-background":"#131b2e","tertiary-fixed":"#ffdbcc","on-secondary":"#ffffff","surface-variant":"#dae2fd","primary-container":"#4f46e5","secondary-fixed":"#89f5e7","secondary":"#006a61","error-container":"#ffdad6","secondary-container":"#86f2e4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","space-2xl":"3rem","space-xl":"2rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","gutter":"1rem"},"fontFamily":{"page-title":["Inter"],"hero-metric":["Inter"],"table-cell":["Inter"],"caption":["Inter"],"section-title":["Inter"],"body-medium":["Inter"],"table-header":["Inter"],"lead":["Inter"],"page-title-mobile":["Inter"],"body-default":["Inter"],"overline":["Inter"]},"fontSize":{"page-title":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"hero-metric":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"table-cell":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"section-title":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"table-header":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"lead":["16px",{"lineHeight":"24px","fontWeight":"400"}],"page-title-mobile":["22px",{"lineHeight":"28px","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"overline":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[248px] bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-primary to-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(79,70,229,0.3)]"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><div class="flex flex-col"><span class="font-section-title text-[17px] leading-tight text-on-surface font-bold tracking-tight">StockIQ</span><span class="font-caption text-[11px] leading-none text-on-surface-variant font-medium">Intelligence Suite</span></div></div><div class="px-space-sm mb-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">storefront</span><span class="font-body-medium text-[13px] text-on-surface truncate">Meera Stationery &amp; Gifts</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">unfold_more</span></div></div><div class="px-space-sm mb-space-sm"><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary-container transition-colors" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="truncate font-semibold">POS / New Sale</span><kbd class="ml-auto text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F2</kbd></a></div><nav class="flex flex-col gap-0.5 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-body-medium rounded-lg shadow-sm"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="products" href="#">Products</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="inventory" href="#">Inventory</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="sales" href="#">Sales</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="purchases" href="#">Purchases</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="suppliers" href="#">Suppliers</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="alerts-and-reorder" href="#">Alerts &amp; Reorder</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="movement-history" href="#">Movement History</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="reports" href="#">Reports</a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center justify-between"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-overline bg-primary-fixed text-on-primary-fixed font-semibold">Meera (Admin)</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-caption text-[11px] text-on-surface-variant">Online · Sync OK</span></div></div></div></aside><div class="pl-[248px]"><header class="fixed top-0 left-[248px] right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-full w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><span class="font-section-title text-[15px] font-semibold text-on-surface leading-tight">Meera Stationery &amp; Gifts</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Terminal 01 · POS-Active</span></div></div><div class="h-6 w-px bg-outline-variant/40 hidden md:block"></div><a class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-[13px] font-body-medium transition-colors border border-outline-variant/40 shadow-xs" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-secondary text-[16px]">receipt_long</span><span>New POS Bill</span></a></div><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80 h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-default text-caption text-on-surface-variant flex-1 truncate">Quick inventory, SKUs, or actions...</span><kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container-highest text-on-surface-variant rounded border border-outline-variant/40 shadow-xs">⌘K</kbd></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Toggle theme" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-space-xs cursor-pointer group"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-body-medium text-[13px] text-on-surface leading-snug group-hover:text-primary transition-colors">Meera</span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Store Owner</span></div><span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface text-[18px] transition-colors">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Operational POS Header -->
+<div class="w-full bg-surface-container-lowest shadow-sm px-space-lg py-space-sm">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-2">
+<!-- Upper Context Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span class="font-body-medium text-[13px] font-bold tracking-tight">Order #DEL-9842</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-caption text-caption font-semibold">Walk-in Retail · Active Register 01</span>
+</div>
+<span class="hidden md:inline-flex items-center gap-1 font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+            GSTIN: 07AAAPM4981C1ZN
+          </span>
+</div>
+<!-- Prototype State Switchers for Evaluation -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-2.5 py-1 rounded text-caption font-body-medium transition-colors bg-surface-container-lowest text-primary shadow-xs font-semibold" id="btn-state-cart" onclick="setState('cart')">
+            Cart Active (3)
+          </button>
+<button class="px-2.5 py-1 rounded text-caption font-body-medium transition-colors text-on-surface-variant hover:text-on-surface" id="btn-state-upi" onclick="setState('upi')">
+            UPI QR Modal
+          </button>
+<button class="px-2.5 py-1 rounded text-caption font-body-medium transition-colors text-on-surface-variant hover:text-on-surface" id="btn-state-cash" onclick="setState('cash')">
+            Cash Tendered Modal
+          </button>
+<button class="px-2.5 py-1 rounded text-caption font-body-medium transition-colors text-on-surface-variant hover:text-on-surface" id="btn-state-receipt" onclick="setState('receipt')">
+            Thermal Receipt
+          </button>
+<button class="px-2.5 py-1 rounded text-caption font-body-medium transition-colors text-on-surface-variant hover:text-on-surface" id="btn-state-empty" onclick="setState('empty')">
+            Empty Cart
+          </button>
+</div>
+</div>
+<!-- Quick Hotkey reference strip -->
+<div class="flex flex-wrap items-center justify-between text-caption text-on-surface-variant pt-1">
+<div class="flex items-center gap-3 overflow-x-auto text-[11px]">
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-on-surface text-[10px]">F1</kbd> Focus Scan</span>
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-on-surface text-[10px]">F2</kbd> Cash Pay</span>
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-on-surface text-[10px]">F3</kbd> UPI QR</span>
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-on-surface text-[10px]">F4</kbd> Cust. Select</span>
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-on-surface text-[10px]">F8</kbd> Hold Cart (2)</span>
+<span class="flex items-center gap-1"><kbd class="bg-surface-container-highest px-1.5 py-0.5 rounded font-mono font-bold text-error text-[10px]">F9</kbd> Discard</span>
+</div>
+<div class="flex items-center gap-2 text-[11px]">
+<span class="inline-flex items-center gap-1 text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Paytm Soundbox Connected (Vol: 85%)
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main POS Grid Workspace -->
+<div class="max-w-[1440px] w-full mx-auto p-space-md lg:p-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT SECTION: Catalog & Fast Entry (~65% width = 8 cols on desktop) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Fast Barcode & SKU Scanner Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative flex-1">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary text-[22px]">barcode_scanner</span>
+<input autofocus="" class="w-full h-11 pl-11 pr-24 rounded-lg bg-surface-container-low text-on-surface font-body-default text-body-default focus:bg-surface-container-lowest focus:outline-none transition-all placeholder:text-on-surface-variant/70 font-medium" id="barcode-input" placeholder="Scan barcode, type SKU (e.g. NB-A4-200), or product name... [F1]" type="text"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center gap-1 text-[11px] font-overline text-secondary font-bold bg-secondary-fixed/40 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                Scanner Ready
+              </span>
+</div>
+<button class="h-11 px-4 bg-primary hover:bg-primary-container text-on-primary font-body-medium text-body-medium rounded-lg shadow-sm flex items-center gap-1.5 transition-colors shrink-0" onclick="handleQuickScanMock()">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Fast Add</span>
+</button>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-caption font-body-medium select-none scrollbar-none" id="cat-chips">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-semibold shadow-xs shrink-0">All (248)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Notebooks (42)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Pens &amp; Inks (65)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Art &amp; Craft (38)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Office Supplies (54)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Paper &amp; Reams (18)</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface shrink-0 transition-colors">Adhesives (12)</button>
+</div>
+</div>
+<!-- Quick-Pick Stationery Catalog Grid (12 Items) -->
+<div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Classmate Notebook A4 Ruled (200 pg)', 'NB-A4-200', 65.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">menu_book</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">14 pcs left</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">NB-A4-200</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Classmate Notebook A4 Ruled (200 pg)</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">ITC Classmate · 70 GSM</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹65.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Pilot V5 Hi-Tecpoint Blue', 'PN-V5-BLU', 60.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">edit</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">8 pcs left</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">PN-V5-BLU</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Pilot V5 Hi-Tecpoint Blue</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Pilot Pen India · 0.5mm</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹60.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Camlin Kokuyo Geometry Box', 'GM-CAM-KB', 145.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">architecture</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">34 pcs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">GM-CAM-KB</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Camlin Kokuyo Geometry Box</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Camlin · Full Precision Set</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹145.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Doms Colour Pencils 24-shade', 'ART-DOM-24', 120.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">palette</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">12 packs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">ART-DOM-24</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Doms Colour Pencils 24-shade</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Doms India · Tin Case</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹120.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Faber-Castell Dust-Free Eraser', 'ER-FC-DF', 10.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">ink_eraser</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">56 boxes</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">ER-FC-DF</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Faber-Castell Dust-Free Eraser</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Faber-Castell · Large White</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹10.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('A4 Copier Paper 75 GSM (500 sheets)', 'PP-A4-75', 280.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">layers</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">18 reams</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">PP-A4-75</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">A4 Copier Paper 75 GSM (500)</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">JK Copier · Bright White</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹280.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Fevicol MR 200g Squeezy', 'ADH-FEV-200', 55.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">science</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">9 pcs left</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">ADH-FEV-200</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Fevicol MR 200g Squeezy</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Pidilite · Craft Adhesive</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹55.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Kangaro Stapler HS-10', 'OFC-KNG-10', 85.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">attach_file</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">27 pcs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">OFC-KNG-10</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Kangaro Stapler HS-10</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Kangaro · Metal Body</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹85.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Hauser XO Ball Pen (Pack of 5)', 'PN-HSR-5', 50.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">history_edu</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">40 packs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">PN-HSR-5</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Hauser XO Ball Pen (Pack of 5)</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Hauser · Black Ultra Fluid</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹50.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 10 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Sticky Notes 3x3 Neon', 'STK-NEON-3', 45.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">note_alt</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">45 packs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">STK-NEON-3</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Sticky Notes 3x3 Neon</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">3M Post-It · 100 sheets</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹45.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 11 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Nataraj 621 Bold Pencils (Pack of 10)', 'PNCL-NAT-10', 60.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">draw</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">35 packs</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">PNCL-NAT-10</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Nataraj 621 Bold Pencils (10)</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Hindustan Pencils · HB Lead</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹60.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 12 -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer relative" onclick="addToCart('Luxor Highlighters Assorted (5)', 'HL-LUX-5', 110.00)">
+<div class="flex flex-col gap-2">
+<div class="h-28 w-full bg-surface-container-low rounded-lg flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-outline-variant text-[42px] group-hover:scale-110 transition-transform">brush</span>
+<span class="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">22 sets</span>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded text-[10px] font-mono bg-surface-container-lowest/90 text-on-surface-variant">HL-LUX-5</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-body-medium text-[13px] font-semibold text-on-surface line-clamp-2 leading-tight">Luxor Highlighters Assorted (Set 5)</h4>
+<span class="font-caption text-[11px] text-on-surface-variant">Luxor · Fluo Chisel Tip</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-section-title text-[16px] font-bold text-on-surface tabular-nums">₹110.00</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Action Bar below catalog -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm px-space-md rounded-xl shadow-sm">
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors" onclick="addCustomItemPrompt()">
+<span class="material-symbols-outlined text-primary text-[18px]">add_circle</span>
+<span>Custom Non-Catalog Item (+)</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-secondary text-[18px]">qr_code_scanner</span>
+<span>Scan Serial/IMEI</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 text-caption font-body-medium flex items-center gap-1.5 transition-colors" onclick="holdCurrentCart()">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+<span>Hold Current Cart [F8]</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-error-container/50 hover:bg-error-container text-error text-caption font-body-medium flex items-center gap-1.5 transition-colors" onclick="resetCart()">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span>Discard [F9]</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Dynamic Cart Ledger & Real-Time Bill (~35% width = 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Customer Assignment Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<span class="font-body-medium text-[13px] font-bold text-on-surface">Customer Attachment</span>
+</div>
+<button class="text-caption font-semibold text-primary hover:text-primary-container" onclick="toggleCustomerModal()">
+              Switch [F4]
+            </button>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-medium text-[13px] font-semibold text-on-surface">Walk-in Cash Customer</span>
+<span class="font-caption text-[11px] text-on-surface-variant">+91 98112-40291 · General Tier</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-highest text-on-surface-variant">Default 0%</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="flex-1 h-8 px-2.5 rounded-md bg-surface-container-low text-on-surface text-caption placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container" placeholder="Mobile for e-Bill via WhatsApp / SMS..." type="tel"/>
+<button class="h-8 px-2.5 rounded-md bg-secondary text-on-secondary text-caption font-body-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">send</span>
+<span>Link</span>
+</button>
+</div>
+</div>
+<!-- Live Cart Items Table / Ledger -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col min-h-[380px]">
+<div class="p-space-md bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-section-title text-[15px] font-bold text-on-surface">Active Cart Ledger</span>
+<span class="px-2 py-0.5 rounded-full text-overline bg-primary text-on-primary font-bold" id="cart-badge-count">3 items</span>
+</div>
+<span class="font-caption text-[11px] text-on-surface-variant tabular-nums">Stock auto-reserved</span>
+</div>
+<!-- Items Container -->
+<div class="divide-y divide-surface-container-low overflow-y-auto max-h-[340px] flex-1" id="cart-items-container">
+<!-- Item Row 1 -->
+<div class="p-space-md flex flex-col gap-2 hover:bg-surface-container-low/40 transition-colors" id="cart-item-1">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-body-medium text-[13px] font-semibold text-on-surface leading-tight">Classmate Notebook A4 Ruled (200 pg)</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-caption text-[11px] font-mono text-on-surface-variant">NB-A4-200</span>
+<span class="text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded font-medium">12 left after sale</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" onclick="removeCartItem(1, 130)" title="Remove Item">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-caption text-[12px] text-on-surface-variant tabular-nums">₹65.00 / pc</span>
+<!-- Stepper -->
+<div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-0.5">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(1, -1, 65)">-</button>
+<span class="w-7 text-center font-body-medium text-[13px] font-bold tabular-nums" id="qty-val-1">2</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(1, 1, 65)">+</button>
+</div>
+<span class="font-body-medium text-[14px] font-bold text-on-surface tabular-nums" id="line-total-1">₹130.00</span>
+</div>
+</div>
+<!-- Item Row 2 -->
+<div class="p-space-md flex flex-col gap-2 hover:bg-surface-container-low/40 transition-colors" id="cart-item-2">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-body-medium text-[13px] font-semibold text-on-surface leading-tight">Pilot V5 Hi-Tecpoint Blue</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-caption text-[11px] font-mono text-on-surface-variant">PN-V5-BLU</span>
+<span class="text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded font-medium">5 left after sale</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" onclick="removeCartItem(2, 180)" title="Remove Item">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-caption text-[12px] text-on-surface-variant tabular-nums">₹60.00 / pc</span>
+<!-- Stepper -->
+<div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-0.5">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(2, -1, 60)">-</button>
+<span class="w-7 text-center font-body-medium text-[13px] font-bold tabular-nums" id="qty-val-2">3</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(2, 1, 60)">+</button>
+</div>
+<span class="font-body-medium text-[14px] font-bold text-on-surface tabular-nums" id="line-total-2">₹180.00</span>
+</div>
+</div>
+<!-- Item Row 3 -->
+<div class="p-space-md flex flex-col gap-2 hover:bg-surface-container-low/40 transition-colors" id="cart-item-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-body-medium text-[13px] font-semibold text-on-surface leading-tight">A4 Copier Paper 75 GSM (500 sheets)</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-caption text-[11px] font-mono text-on-surface-variant">PP-A4-75</span>
+<span class="text-[10px] text-green-700 bg-green-50 px-1.5 py-0.2 rounded font-medium">17 left after sale</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" onclick="removeCartItem(3, 280)" title="Remove Item">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-caption text-[12px] text-on-surface-variant tabular-nums">₹280.00 / ream</span>
+<!-- Stepper -->
+<div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-0.5">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(3, -1, 280)">-</button>
+<span class="w-7 text-center font-body-medium text-[13px] font-bold tabular-nums" id="qty-val-3">1</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]" onclick="updateQty(3, 1, 280)">+</button>
+</div>
+<span class="font-body-medium text-[14px] font-bold text-on-surface tabular-nums" id="line-total-3">₹280.00</span>
+</div>
+</div>
+</div>
+<!-- Empty State Placeholder (hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-8 text-center my-auto" id="cart-empty-view">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-outline-variant mb-2">
+<span class="material-symbols-outlined text-[32px]">production_quantity_limits</span>
+</div>
+<h4 class="font-body-medium text-[15px] font-semibold text-on-surface">Cart is completely empty</h4>
+<p class="font-caption text-[12px] text-on-surface-variant mt-1 max-w-[240px]">Scan a barcode or tap products from the catalog to start a sale bill.</p>
+</div>
+<!-- Cart Action Controls (Discount / Notes) -->
+<div class="p-space-sm px-space-md bg-surface-container-low/40 flex items-center justify-between gap-2 text-caption">
+<div class="flex items-center gap-1.5 flex-1">
+<span class="material-symbols-outlined text-[16px] text-primary">sell</span>
+<span class="font-body-medium text-[12px] text-on-surface-variant">Coupon:</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded font-mono text-[11px] font-bold">BACK2SCHOOL (-₹20)</span>
+</div>
+<button class="text-caption font-semibold text-error hover:underline" onclick="removeDiscount()">Remove</button>
+</div>
+<!-- Bill Calculation Summary Box -->
+<div class="p-space-md bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span>Subtotal (3 items)</span>
+<span class="font-body-medium text-on-surface tabular-nums" id="bill-subtotal">₹590.00</span>
+</div>
+<!-- GST Detail Breakdown -->
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span>GST Breakdown (9% + 9%)</span>
+<span class="material-symbols-outlined text-[13px] text-outline cursor-help" title="CGST ₹26.55 + SGST ₹26.55">info</span>
+</span>
+<span class="tabular-nums">Included in Price (₹53.10)</span>
+</div>
+<div class="flex items-center justify-between text-caption text-green-700 font-medium">
+<span>Promotional Discount</span>
+<span class="tabular-nums" id="bill-discount">- ₹20.00</span>
+</div>
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span>Round Off</span>
+<span class="tabular-nums">- ₹0.00</span>
+</div>
+<!-- Net Payable Total -->
+<div class="pt-2 mt-1 flex items-baseline justify-between">
+<div>
+<span class="font-overline text-overline uppercase tracking-wider text-on-surface-variant block">Net Payable</span>
+<span class="text-[11px] text-secondary font-semibold">Taxes &amp; Levies fully settled</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="text-[18px] font-bold text-primary">₹</span>
+<span class="font-hero-metric text-[34px] font-black text-on-surface tabular-nums tracking-tight leading-none" id="bill-net">570.00</span>
+</div>
+</div>
+</div>
+<!-- High-Speed Payment Options Grid -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-body-medium text-[13px] flex items-center justify-center gap-1.5 transition-colors font-bold" onclick="setState('cash')">
+<span class="material-symbols-outlined text-secondary text-[18px]">payments</span>
+<span>Cash [F2]</span>
+</button>
+<button class="h-10 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-body-medium text-[13px] flex items-center justify-center gap-1.5 transition-colors font-bold" onclick="setState('upi')">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">qr_code_2</span>
+<span>UPI QR [F3]</span>
+</button>
+<button class="h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-[12px] flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">credit_card</span>
+<span>Card POS</span>
+</button>
+<button class="h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-[12px] flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">call_split</span>
+<span>Split Tender</span>
+</button>
+</div>
+<!-- Big Collect & Print CTA -->
+<button class="w-full h-13 py-3 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-section-title text-[15px] font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition-all mt-1 group" onclick="setState('receipt')">
+<span class="material-symbols-outlined text-[22px] group-hover:rotate-12 transition-transform">receipt</span>
+<span>Collect ₹570.00 &amp; Print Bill [Enter]</span>
+</button>
+<!-- Quick Cash Tender Helper Buttons -->
+<div class="flex items-center justify-between text-caption text-on-surface-variant pt-1">
+<span class="text-[11px]">Quick Tender:</span>
+<div class="flex items-center gap-1.5">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono text-[11px] font-semibold" onclick="setTenderExact(570)">Exact ₹570</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono text-[11px] font-semibold" onclick="setTenderExact(600)">₹600</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono text-[11px] font-semibold" onclick="setTenderExact(1000)">₹1,000</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================== MODAL OVERLAYS ==================== -->
+<!-- 1. UPI QR Dynamic Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/50 backdrop-blur-xs p-4" id="modal-upi">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<div class="bg-primary px-space-lg py-4 text-on-primary flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">qr_code_2</span>
+<div>
+<h3 class="font-section-title text-[17px] font-bold leading-tight">Instant UPI Payment</h3>
+<span class="font-caption text-[11px] text-on-primary/80">Meera Stationery &amp; Gifts · Register 01</span>
+</div>
+</div>
+<button class="text-on-primary/70 hover:text-on-primary" onclick="closeModals()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col items-center text-center gap-space-md">
+<div class="flex flex-col items-center">
+<span class="font-caption text-caption text-on-surface-variant uppercase font-semibold">Total Amount Due</span>
+<span class="font-hero-metric text-[36px] font-bold text-on-surface tabular-nums">₹570.00</span>
+</div>
+<!-- Dynamic QR Box Representation -->
+<div class="p-4 bg-surface-container-lowest rounded-xl shadow-md border border-outline-variant/30 flex flex-col items-center gap-2 relative">
+<!-- Realistic SVG QR Visual -->
+<svg class="w-48 h-48 text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<!-- Position Patterns -->
+<path d="M0,0 h30 v30 h-30 z M5,5 h20 v20 h-20 z M10,10 h10 v10 h-10 z"></path>
+<path d="M70,0 h30 v30 h-30 z M75,5 h20 v20 h-20 z M80,10 h10 v10 h-10 z"></path>
+<path d="M0,70 h30 v30 h-30 z M5,75 h20 v20 h-20 z M10,80 h10 v10 h-10 z"></path>
+<!-- Data modules -->
+<rect height="5" width="5" x="35" y="5"></rect>
+<rect height="5" width="10" x="45" y="10"></rect>
+<rect height="15" width="5" x="60" y="5"></rect>
+<rect height="5" width="15" x="35" y="25"></rect>
+<rect height="10" width="10" x="5" y="35"></rect>
+<rect height="5" width="5" x="20" y="40"></rect>
+<rect fill="#4F46E5" height="30" rx="4" width="30" x="35" y="35"></rect>
+<rect height="5" width="10" x="70" y="35"></rect>
+<rect height="10" width="10" x="85" y="40"></rect>
+<rect height="5" width="25" x="70" y="50"></rect>
+<rect height="15" width="10" x="35" y="70"></rect>
+<rect height="5" width="15" x="50" y="75"></rect>
+<rect height="25" width="5" x="70" y="70"></rect>
+<rect height="15" width="15" x="80" y="80"></rect>
+</svg>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-medium pt-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-semibold">GPay</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-semibold">PhonePe</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-semibold">Paytm</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-semibold">BHIM</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-1 w-full bg-surface-container-low p-3 rounded-xl">
+<div class="flex items-center gap-2 text-secondary font-semibold text-caption">
+<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span>
+<span>Awaiting Soundbox Confirmation...</span>
+</div>
+<span class="font-caption text-[11px] text-on-surface-variant">Time remaining: <span class="font-bold tabular-nums font-mono text-primary">01:45</span></span>
+</div>
+<div class="flex items-center gap-2 w-full">
+<button class="flex-1 h-10 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-on-primary font-body-medium text-body-medium font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm" onclick="setState('receipt')">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Simulate Instant Success</span>
+</button>
+<button class="px-4 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-body-medium transition-colors" onclick="closeModals()">
+            Cancel
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Cash Tender Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/50 backdrop-blur-xs p-4" id="modal-cash">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<div class="bg-secondary px-space-lg py-4 text-on-secondary flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+<div>
+<h3 class="font-section-title text-[17px] font-bold leading-tight">Cash Payment &amp; Change Calculator</h3>
+<span class="font-caption text-[11px] text-on-secondary/80">Order #DEL-9842</span>
+</div>
+</div>
+<button class="text-on-secondary/70 hover:text-on-secondary" onclick="closeModals()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Due vs Tendered Row -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col">
+<span class="font-caption text-[11px] text-on-surface-variant font-medium">Net Amount Due</span>
+<span class="font-section-title text-[24px] font-bold text-on-surface tabular-nums">₹570.00</span>
+</div>
+<div class="p-3 bg-primary-fixed/30 rounded-xl flex flex-col">
+<span class="font-caption text-[11px] text-on-primary-fixed font-medium">Cash Tendered</span>
+<div class="flex items-center">
+<span class="text-primary font-bold mr-1">₹</span>
+<input class="w-full bg-transparent font-section-title text-[24px] font-bold text-on-surface focus:outline-none tabular-nums" id="tendered-input" oninput="calculateChange()" type="number" value="1000"/>
+</div>
+</div>
+</div>
+<!-- Calculated Change Return -->
+<div class="p-4 bg-emerald-50 rounded-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-[12px] font-bold text-emerald-900">Change Return to Customer</span>
+<span class="font-caption text-[11px] text-emerald-700">Denomination assist suggested</span>
+</div>
+<span class="font-hero-metric text-[32px] font-black text-emerald-700 tabular-nums" id="cash-change-val">₹430.00</span>
+</div>
+<!-- Denomination helper strip -->
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-1.5">
+<span class="font-caption text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">Suggested Note Dispense</span>
+<div class="flex flex-wrap items-center gap-2 text-caption">
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-mono font-bold text-on-surface shadow-xs">2 × ₹200 note</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-mono font-bold text-on-surface shadow-xs">1 × ₹20 note</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest font-mono font-bold text-on-surface shadow-xs">1 × ₹10 coin</span>
+</div>
+</div>
+<!-- Quick tender presets -->
+<div class="flex items-center justify-between gap-2">
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-caption font-bold tabular-nums" onclick="setModalTender(570)">Exact 570</button>
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-caption font-bold tabular-nums" onclick="setModalTender(600)">₹600</button>
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-caption font-bold tabular-nums" onclick="setModalTender(1000)">₹1,000</button>
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-caption font-bold tabular-nums" onclick="setModalTender(2000)">₹2,000</button>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 h-11 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-body-medium text-body-medium font-bold flex items-center justify-center gap-2 shadow-sm transition-colors" onclick="setState('receipt')">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>Record Cash &amp; Print Bill</span>
+</button>
+<button class="px-4 h-11 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-body-medium transition-colors" onclick="closeModals()">
+            Back
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Success & Thermal Receipt 80mm Preview Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/50 backdrop-blur-xs p-4" id="modal-receipt">
+<div class="bg-surface-container-lowest max-w-sm w-full rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="bg-surface-container-high px-space-md py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">print</span>
+<span class="font-body-medium text-[13px] font-bold text-on-surface">Thermal 80mm Receipt Preview</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="closeModals()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Thermal Paper Representation -->
+<div class="p-space-lg bg-surface-bright flex flex-col font-mono text-[11px] leading-relaxed text-on-surface select-text">
+<div class="text-center flex flex-col items-center">
+<span class="font-bold text-[14px] uppercase tracking-wide">MEERA STATIONERY &amp; GIFTS</span>
+<span class="text-[10px] text-on-surface-variant">Shop 14, Main Market, Connaught Place, New Delhi</span>
+<span class="text-[10px] text-on-surface-variant">Ph: +91 11 2341 8920 | GSTIN: 07AAAPM4981C1ZN</span>
+</div>
+<div class="border-b border-dashed border-outline-variant/60 my-2"></div>
+<div class="flex justify-between text-[10px]">
+<span>Bill No: DEL-9842</span>
+<span>Date: 24-Oct-2024 16:42</span>
+</div>
+<div class="flex justify-between text-[10px]">
+<span>Register: 01 (Meera)</span>
+<span>Payment: UPI (Paytm)</span>
+</div>
+<div class="border-b border-dashed border-outline-variant/60 my-2"></div>
+<!-- Receipt Table Header -->
+<div class="flex justify-between font-bold text-[10px] uppercase">
+<span class="w-1/2">Item Description</span>
+<span class="w-1/4 text-center">Qty</span>
+<span class="w-1/4 text-right">Amt (₹)</span>
+</div>
+<div class="border-b border-dashed border-outline-variant/60 my-1"></div>
+<!-- Receipt Rows -->
+<div class="flex flex-col gap-1 py-1">
+<div class="flex justify-between">
+<span class="w-1/2 truncate font-semibold">Classmate NB A4 200p</span>
+<span class="w-1/4 text-center">2</span>
+<span class="w-1/4 text-right tabular-nums">130.00</span>
+</div>
+<div class="flex justify-between">
+<span class="w-1/2 truncate font-semibold">Pilot V5 Blue Hi-Tec</span>
+<span class="w-1/4 text-center">3</span>
+<span class="w-1/4 text-right tabular-nums">180.00</span>
+</div>
+<div class="flex justify-between">
+<span class="w-1/2 truncate font-semibold">A4 Copier Paper 75GSM</span>
+<span class="w-1/4 text-center">1</span>
+<span class="w-1/4 text-right tabular-nums">280.00</span>
+</div>
+</div>
+<div class="border-b border-dashed border-outline-variant/60 my-1.5"></div>
+<!-- Bill Totals in Receipt -->
+<div class="flex flex-col gap-0.5 text-[10px]">
+<div class="flex justify-between">
+<span>Subtotal (3 items):</span>
+<span class="tabular-nums">590.00</span>
+</div>
+<div class="flex justify-between text-secondary font-semibold">
+<span>Discount (BACK2SCHOOL):</span>
+<span class="tabular-nums">- 20.00</span>
+</div>
+<div class="flex justify-between">
+<span>CGST (9.0%):</span>
+<span class="tabular-nums">26.55</span>
+</div>
+<div class="flex justify-between">
+<span>SGST (9.0%):</span>
+<span class="tabular-nums">26.55</span>
+</div>
+<div class="flex justify-between font-bold text-[13px] pt-1 mt-1 border-t border-dashed border-outline-variant/60">
+<span>NET PAID:</span>
+<span class="tabular-nums">₹570.00</span>
+</div>
+</div>
+<div class="border-b border-dashed border-outline-variant/60 my-2"></div>
+<!-- Barcode Graphic Simulation -->
+<div class="flex flex-col items-center gap-1 my-1">
+<div class="h-8 w-44 bg-repeating-linear-gradient flex items-center justify-center opacity-80" style="background: repeating-linear-gradient(90deg, #131b2e, #131b2e 2px, transparent 2px, transparent 5px);"></div>
+<span class="text-[9px] tracking-widest text-on-surface-variant">DEL984224102024</span>
+</div>
+<div class="text-center text-[10px] text-on-surface-variant mt-1">
+<span>Thank you for shopping with Meera Stationery!</span><br/>
+<span>Goods once sold can be exchanged within 7 days.</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center gap-2">
+<button class="flex-1 h-10 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-medium text-body-medium font-bold flex items-center justify-center gap-1.5 shadow-sm transition-colors" onclick="handlePrintDone()">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+<span>Print &amp; Next Sale [Enter]</span>
+</button>
+<button class="px-3 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-caption transition-colors" onclick="closeModals()">
+          Dismiss
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Vanilla Interactive JavaScript -->
+<script>
+  let cartData = [
+    { id: 1, name: 'Classmate Notebook A4 Ruled (200 pg)', sku: 'NB-A4-200', price: 65, qty: 2 },
+    { id: 2, name: 'Pilot V5 Hi-Tecpoint Blue', sku: 'PN-V5-BLU', price: 60, qty: 3 },
+    { id: 3, name: 'A4 Copier Paper 75 GSM (500 sheets)', sku: 'PP-A4-75', price: 280, qty: 1 }
+  ];
+  let discountAmount = 20;
+
+  function recalculateTotals() {
+    const subtotal = cartData.reduce((acc, it) => acc + (it.price * it.qty), 0);
+    const net = Math.max(0, subtotal - discountAmount);
+
+    const subElem = document.getElementById('bill-subtotal');
+    const netElem = document.getElementById('bill-net');
+    const badgeElem = document.getElementById('cart-badge-count');
+
+    if (subElem) subElem.innerText = '₹' + subtotal.toFixed(2);
+    if (netElem) netElem.innerText = net.toFixed(2);
+    if (badgeElem) badgeElem.innerText = cartData.length + ' items';
+
+    // Toggle Empty state view
+    const emptyView = document.getElementById('cart-empty-view');
+    const itemsView = document.getElementById('cart-items-container');
+    if (cartData.length === 0) {
+      if (emptyView) emptyView.classList.remove('hidden');
+      if (emptyView) emptyView.classList.add('flex');
+    } else {
+      if (emptyView) emptyView.classList.add('hidden');
+      if (emptyView) emptyView.classList.remove('flex');
+    }
+  }
+
+  function updateQty(id, delta, unitPrice) {
+    const item = cartData.find(i => i.id === id);
+    if (!item) return;
+
+    item.qty += delta;
+    if (item.qty <= 0) {
+      removeCartItem(id);
+      return;
+    }
+
+    const qtySpan = document.getElementById('qty-val-' + id);
+    const totalSpan = document.getElementById('line-total-' + id);
+
+    if (qtySpan) qtySpan.innerText = item.qty;
+    if (totalSpan) totalSpan.innerText = '₹' + (item.qty * unitPrice).toFixed(2);
+
+    recalculateTotals();
+  }
+
+  function removeCartItem(id) {
+    cartData = cartData.filter(i => i.id !== id);
+    const row = document.getElementById('cart-item-' + id);
+    if (row) row.remove();
+    recalculateTotals();
+  }
+
+  function addToCart(name, sku, price) {
+    const existing = cartData.find(i => i.sku === sku);
+    if (existing) {
+      updateQty(existing.id, 1, price);
+      return;
+    }
+
+    const newId = Date.now();
+    cartData.push({ id: newId, name, sku, price, qty: 1 });
+
+    const container = document.getElementById('cart-items-container');
+    if (!container) return;
+
+    const div = document.createElement('div');
+    div.id = 'cart-item-' + newId;
+    div.className = 'p-space-md flex flex-col gap-2 hover:bg-surface-container-low/40 transition-colors animate-in fade-in duration-150';
+    div.innerHTML = `
+      <div class="flex items-start justify-between gap-2">
+        <div class="flex flex-col">
+          <span class="font-body-medium text-[13px] font-semibold text-on-surface leading-tight">${name}</span>
+          <div class="flex items-center gap-2 mt-0.5">
+            <span class="font-caption text-[11px] font-mono text-on-surface-variant">${sku}</span>
+            <span class="text-[10px] text-green-700 bg-green-50 px-1.5 py-0.2 rounded font-medium">In Stock</span>
+          </div>
+        </div>
+        <button onclick="removeCartItem(${newId})" class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove Item">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between mt-1">
+        <span class="font-caption text-[12px] text-on-surface-variant tabular-nums">₹${price.toFixed(2)} / unit</span>
+        
+        <div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-0.5">
+          <button onclick="updateQty(${newId}, -1, ${price})" class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]">-</button>
+          <span id="qty-val-${newId}" class="w-7 text-center font-body-medium text-[13px] font-bold tabular-nums">1</span>
+          <button onclick="updateQty(${newId}, 1, ${price})" class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:bg-surface-container font-bold text-[14px]">+</button>
+        </div>
+
+        <span id="line-total-${newId}" class="font-body-medium text-[14px] font-bold text-on-surface tabular-nums">₹${price.toFixed(2)}</span>
+      </div>
+    `;
+    container.appendChild(div);
+    recalculateTotals();
+  }
+
+  function handleQuickScanMock() {
+    const input = document.getElementById('barcode-input');
+    if (!input) return;
+    const val = input.value.trim();
+    if (val) {
+      addToCart(val, 'SCAN-' + Math.floor(100 + Math.random() * 900), 50.00);
+      input.value = '';
+    } else {
+      addToCart('Faber-Castell Dust-Free Eraser', 'ER-FC-DF', 10.00);
+    }
+  }
+
+  function removeDiscount() {
+    discountAmount = 0;
+    const dElem = document.getElementById('bill-discount');
+    if (dElem) dElem.innerText = '- ₹0.00';
+    recalculateTotals();
+  }
+
+  function addCustomItemPrompt() {
+    const itemName = prompt('Enter custom stationery item name:', 'Custom Art Canvas 10x12');
+    if (itemName) {
+      const priceStr = prompt('Enter price in ₹:', '150');
+      const price = parseFloat(priceStr) || 100;
+      addToCart(itemName, 'MISC-' + Math.floor(Math.random() * 899 + 100), price);
+    }
+  }
+
+  function holdCurrentCart() {
+    alert('Order #DEL-9842 successfully parked in Hold Queue (Active Holds: 3). Register cleared for next counter sale.');
+    resetCart();
+  }
+
+  function resetCart() {
+    cartData = [];
+    const container = document.getElementById('cart-items-container');
+    if (container) container.innerHTML = '';
+    recalculateTotals();
+  }
+
+  function toggleCustomerModal() {
+    alert('Customer Switch: Attached St. Xavier’s School (Institutional Account - GST: 07AAAAA0000A1Z5) with 5% Wholesale Tier applied.');
+  }
+
+  // State Switcher for prototype demonstration
+  function setState(state) {
+    // Reset all modals
+    document.getElementById('modal-upi').classList.add('hidden');
+    document.getElementById('modal-cash').classList.add('hidden');
+    document.getElementById('modal-receipt').classList.add('hidden');
+
+    // Update active nav button pill styles
+    const states = ['cart', 'upi', 'cash', 'receipt', 'empty'];
+    states.forEach(s => {
+      const btn = document.getElementById('btn-state-' + s);
+      if (btn) {
+        if (s === state) {
+          btn.className = 'px-2.5 py-1 rounded text-caption font-body-medium transition-colors bg-surface-container-lowest text-primary shadow-xs font-semibold';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded text-caption font-body-medium transition-colors text-on-surface-variant hover:text-on-surface';
+        }
+      }
+    });
+
+    if (state === 'upi') {
+      document.getElementById('modal-upi').classList.remove('hidden');
+    } else if (state === 'cash') {
+      document.getElementById('modal-cash').classList.remove('hidden');
+      calculateChange();
+    } else if (state === 'receipt') {
+      document.getElementById('modal-receipt').classList.remove('hidden');
+    } else if (state === 'empty') {
+      resetCart();
+    } else if (state === 'cart') {
+      // Reload defaults if empty
+      if (cartData.length === 0) {
+        cartData = [
+          { id: 1, name: 'Classmate Notebook A4 Ruled (200 pg)', sku: 'NB-A4-200', price: 65, qty: 2 },
+          { id: 2, name: 'Pilot V5 Hi-Tecpoint Blue', sku: 'PN-V5-BLU', price: 60, qty: 3 },
+          { id: 3, name: 'A4 Copier Paper 75 GSM (500 sheets)', sku: 'PP-A4-75', price: 280, qty: 1 }
+        ];
+        location.reload(); // Quick restore of prototype DOM
+      }
+    }
+  }
+
+  function closeModals() {
+    document.getElementById('modal-upi').classList.add('hidden');
+    document.getElementById('modal-cash').classList.add('hidden');
+    document.getElementById('modal-receipt').classList.add('hidden');
+  }
+
+  function calculateChange() {
+    const input = document.getElementById('tendered-input');
+    const changeElem = document.getElementById('cash-change-val');
+    if (!input || !changeElem) return;
+    const tendered = parseFloat(input.value) || 0;
+    const net = 570;
+    const change = Math.max(0, tendered - net);
+    changeElem.innerText = '₹' + change.toFixed(2);
+  }
+
+  function setModalTender(val) {
+    const input = document.getElementById('tendered-input');
+    if (input) {
+      input.value = val;
+      calculateChange();
+    }
+  }
+
+  function setTenderExact(val) {
+    setModalTender(val);
+    setState('cash');
+  }
+
+  function handlePrintDone() {
+    closeModals();
+    alert('Bill printed via Citizen CT-S310II 80mm Thermal Printer. Drawer kicked open.');
+  }
+
+  // Keyboard shortcut listener for retail speed
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'F1') {
+      e.preventDefault();
+      document.getElementById('barcode-input')?.focus();
+    } else if (e.key === 'F2') {
+      e.preventDefault();
+      setState('cash');
+    } else if (e.key === 'F3') {
+      e.preventDefault();
+      setState('upi');
+    } else if (e.key === 'F8') {
+      e.preventDefault();
+      holdCurrentCart();
+    } else if (e.key === 'F9') {
+      e.preventDefault();
+      resetCart();
+    } else if (e.key === 'Escape') {
+      closeModals();
+    }
+  });
+</script></main></div></body></html>

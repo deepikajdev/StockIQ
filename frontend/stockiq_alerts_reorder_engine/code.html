@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-container":"#006f66","outline-variant":"#c7c4d8","on-primary-fixed":"#0f0069","on-primary-fixed-variant":"#3323cc","primary-fixed-dim":"#c3c0ff","on-primary-container":"#dad7ff","on-secondary-fixed-variant":"#005049","surface-bright":"#faf8ff","surface-container-high":"#e2e7ff","surface":"#faf8ff","on-secondary-fixed":"#00201d","surface-container-lowest":"#ffffff","tertiary-container":"#a44100","secondary-fixed-dim":"#6bd8cb","background":"#faf8ff","surface-container":"#eaedff","on-tertiary-container":"#ffd2be","surface-tint":"#4d44e3","on-tertiary-fixed":"#351000","surface-container-low":"#f2f3ff","on-surface-variant":"#464555","surface-dim":"#d2d9f4","on-tertiary-fixed-variant":"#7b2f00","on-surface":"#131b2e","on-error":"#ffffff","error":"#ba1a1a","primary-fixed":"#e2dfff","tertiary-fixed-dim":"#ffb695","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","tertiary":"#7e3000","on-primary":"#ffffff","primary":"#3525cd","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","outline":"#777587","inverse-primary":"#c3c0ff","inverse-surface":"#283044","on-background":"#131b2e","tertiary-fixed":"#ffdbcc","on-secondary":"#ffffff","surface-variant":"#dae2fd","primary-container":"#4f46e5","secondary-fixed":"#89f5e7","secondary":"#006a61","error-container":"#ffdad6","secondary-container":"#86f2e4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","space-2xl":"3rem","space-xl":"2rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","gutter":"1rem"},"fontFamily":{"page-title":["Inter"],"hero-metric":["Inter"],"table-cell":["Inter"],"caption":["Inter"],"section-title":["Inter"],"body-medium":["Inter"],"table-header":["Inter"],"lead":["Inter"],"page-title-mobile":["Inter"],"body-default":["Inter"],"overline":["Inter"]},"fontSize":{"page-title":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"hero-metric":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"table-cell":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"section-title":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"table-header":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"lead":["16px",{"lineHeight":"24px","fontWeight":"400"}],"page-title-mobile":["22px",{"lineHeight":"28px","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"overline":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[248px] bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-primary to-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(79,70,229,0.3)]"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><div class="flex flex-col"><span class="font-section-title text-[17px] leading-tight text-on-surface font-bold tracking-tight">StockIQ</span><span class="font-caption text-[11px] leading-none text-on-surface-variant font-medium">Intelligence Suite</span></div></div><div class="px-space-sm mb-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">storefront</span><span class="font-body-medium text-[13px] text-on-surface truncate">Meera Stationery &amp; Gifts</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">unfold_more</span></div></div><div class="px-space-sm mb-space-sm"><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary-container transition-colors" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="truncate font-semibold">POS / New Sale</span><kbd class="ml-auto text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F2</kbd></a></div><nav class="flex flex-col gap-0.5 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-body-medium rounded-lg shadow-sm"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="products" href="#">Products</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="inventory" href="#">Inventory</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="sales-ledger-and-order-history" href="#">Sales</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="purchases" href="#">Purchases</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="suppliers" href="#">Suppliers</a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="stockiq-alerts-and-reorder-engine" href="#"><span>Alerts &amp; Reorder</span><span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold bg-tertiary-container text-on-tertiary-container shadow-xs">4</span></a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="movement-history" href="#">Movement History</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="reports" href="#">Reports</a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center justify-between"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-overline bg-primary-fixed text-on-primary-fixed font-semibold">Meera (Admin)</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-caption text-[11px] text-on-surface-variant">Online · Sync OK</span></div></div></div></aside><div class="pl-[248px]"><header class="fixed top-0 left-[248px] right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-full w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><span class="font-section-title text-[15px] font-semibold text-on-surface leading-tight">Meera Stationery &amp; Gifts</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Terminal 01 · POS-Active</span></div></div><div class="h-6 w-px bg-outline-variant/40 hidden md:block"></div><a class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-[13px] font-body-medium transition-colors border border-outline-variant/40 shadow-xs" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-secondary text-[16px]">receipt_long</span><span>New POS Bill</span></a></div><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80 h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-default text-caption text-on-surface-variant flex-1 truncate">Quick inventory, SKUs, or actions...</span><kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container-highest text-on-surface-variant rounded border border-outline-variant/40 shadow-xs">⌘K</kbd></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Toggle theme" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-space-xs cursor-pointer group"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-body-medium text-[13px] text-on-surface leading-snug group-hover:text-primary transition-colors">Meera</span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Store Owner</span></div><span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface text-[18px] transition-colors">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Sub-Header & Prototype Operational Context Strip -->
+<div class="w-full bg-surface-container-lowest shadow-[0_1px_3px_rgba(15,23,42,0.03)] px-space-lg py-3 flex flex-col gap-3">
+<!-- Top Breadcrumb & Engine Status Row -->
+<div class="flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+<div class="flex items-center gap-2 text-caption">
+<span class="text-on-surface-variant font-body-default">Inventory Intelligence</span>
+<span class="text-outline-variant font-semibold">/</span>
+<span class="text-primary font-body-medium">Stock Alerts &amp; Replenishment</span>
+<span class="text-outline-variant font-semibold">/</span>
+<span class="text-on-surface-variant">Meera Stationery &amp; Gifts</span>
+<span class="px-2 py-0.5 rounded text-overline bg-surface-container text-on-surface-variant font-mono">GSTIN: 07AABCM8294N1ZZ</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container/40 text-on-error-container text-caption font-medium">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span>Engine: Real-time Velocity Active · 4 Critical Breaches</span>
+</div>
+<div class="h-4 w-px bg-surface-container-highest"></div>
+<span class="text-overline uppercase text-on-surface-variant font-mono tracking-wider">Sync: 12s ago</span>
+</div>
+</div>
+<!-- Operational Views & Global Batch Actions Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<!-- Prototype View Filter Pills -->
+<div class="inline-flex p-1 rounded-lg bg-surface-container-low gap-1 overflow-x-auto max-w-full">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary font-body-medium text-caption shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-center gap-1.5 whitespace-nowrap" type="button">
+<span>All Actionable Alerts</span>
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary text-[11px] font-bold flex items-center justify-center">7</span>
+</button>
+<button class="px-3 py-1.5 rounded-md hover:bg-surface-container text-on-surface-variant font-body-medium text-caption flex items-center gap-1.5 transition-colors whitespace-nowrap" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Critical Stockouts</span>
+<span class="text-on-surface-variant/70 font-semibold">(3)</span>
+</button>
+<button class="px-3 py-1.5 rounded-md hover:bg-surface-container text-on-surface-variant font-body-medium text-caption flex items-center gap-1.5 transition-colors whitespace-nowrap" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+<span>Safety Buffer Breached</span>
+<span class="text-on-surface-variant/70 font-semibold">(4)</span>
+</button>
+<button class="px-3 py-1.5 rounded-md hover:bg-surface-container text-on-surface-variant font-body-medium text-caption flex items-center gap-1.5 transition-colors whitespace-nowrap" type="button">
+<span>Suggested Batch POs</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-secondary-container/60 text-on-secondary-container font-bold">2</span>
+</button>
+<button class="px-3 py-1.5 rounded-md hover:bg-surface-container text-on-surface-variant font-body-medium text-caption flex items-center gap-1 transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>Automated Reorder Rules</span>
+</button>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 ml-auto">
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">settings</span>
+<span class="hidden sm:inline">Configure Reorder Rules</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[17px]">file_download</span>
+<span class="hidden md:inline">Export Restock Plan CSV</span>
+</button>
+<button class="h-9 px-3.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-2 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" id="trigger-batch-po" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Generate Batch POs (4 SKUs)</span>
+<kbd class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] bg-white/20 font-mono text-on-primary">F4</kbd>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Stage Container -->
+<div class="p-space-lg max-w-[1440px] w-full mx-auto flex flex-col gap-space-xl">
+<!-- 1. Replenishment Telemetry & Urgency Strip (4 KPI Metric Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Critical Stockout -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-overline text-overline uppercase tracking-wider text-error font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+              Critical Stockout
+            </span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-hero-metric text-[32px] text-error leading-none">3 SKUs</span>
+<span class="font-caption text-caption text-on-surface-variant font-medium">(0 on-hand)</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-error-container/60 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="mt-3 pt-3 bg-surface-container-low/40 -mx-space-md -mb-space-md px-space-md py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Est. Weekly Loss:</span>
+<span class="font-semibold text-error">₹12,400.00</span>
+</div>
+<p class="text-[11px] text-on-surface-variant truncate font-body-default">
+            ⚠️ Fevicol MR, Doms Sketch, Kangaro No.10
+          </p>
+</div>
+</div>
+<!-- Card 2: Buffer Breach / Low Stock -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-overline text-overline uppercase tracking-wider text-tertiary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Buffer Breach
+            </span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-hero-metric text-[32px] text-on-surface leading-none">4 SKUs</span>
+<span class="font-caption text-caption text-tertiary font-medium">(Runway &lt; 3 days)</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">hourglass_bottom</span>
+</div>
+</div>
+<div class="mt-3 pt-3 bg-surface-container-low/40 -mx-space-md -mb-space-md px-space-md py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Depletion Threshold:</span>
+<span class="font-semibold text-tertiary">Below Safety Stock</span>
+</div>
+<p class="text-[11px] text-on-surface-variant truncate font-body-default">
+            Classmate A4 (1.8d), Pilot V5 (1.2d), Copier (2.2d)
+          </p>
+</div>
+</div>
+<!-- Card 3: Recommended Reorder Spend -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-overline text-overline uppercase tracking-wider text-primary font-semibold flex items-center gap-1">
+              Restock Capital Needed
+            </span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-hero-metric text-[32px] text-on-surface leading-none">₹34,650</span>
+<span class="font-caption text-caption text-on-surface-variant font-medium">.00</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+</div>
+<div class="mt-3 pt-3 bg-surface-container-low/40 -mx-space-md -mb-space-md px-space-md py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Vendor Consolidation:</span>
+<span class="font-semibold text-primary">3 Primary Suppliers</span>
+</div>
+<p class="text-[11px] text-on-secondary-container truncate font-body-default">
+            Optimizes vendor freight waivers &amp; bulk MOQs
+          </p>
+</div>
+</div>
+<!-- Card 4: Forecasted Demand Velocity -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-overline text-overline uppercase tracking-wider text-secondary font-semibold flex items-center gap-1">
+              Seasonal Velocity Index
+            </span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-hero-metric text-[32px] text-secondary leading-none">+28.4%</span>
+<span class="font-caption text-caption text-secondary font-medium">Surge</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+</div>
+<div class="mt-3 pt-3 bg-surface-container-low/40 -mx-space-md -mb-space-md px-space-md py-2.5 flex flex-col gap-1">
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Exam &amp; School Spike:</span>
+<span class="font-semibold text-on-surface">Active Factor 1.25x</span>
+</div>
+<p class="text-[11px] text-on-surface-variant truncate font-body-default">
+            Average fulfillment window: 2.8 calendar days
+          </p>
+</div>
+</div>
+</div>
+<!-- 2. Interactive Filter, Omni-Search & Grouping Toolbar -->
+<div class="rounded-xl bg-surface-container-lowest p-space-sm shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col gap-3">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<!-- Search bar -->
+<div class="relative flex-1 min-w-[280px] max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-8 text-caption rounded-lg bg-surface-container-low hover:bg-surface-container focus:bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-body-default" id="sku-search-input" placeholder="Search SKU, item title, rack or supplier... (Esc to clear)" type="text"/>
+<kbd class="absolute right-2.5 top-2 text-[10px] text-on-surface-variant font-mono bg-surface-container-highest px-1 rounded">Esc</kbd>
+</div>
+<!-- Filter Dropdowns & Grouping -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Supplier Dropdown Filter -->
+<div class="relative">
+<select class="h-9 px-3 pr-8 rounded-lg bg-surface-container-low text-caption font-body-medium text-on-surface hover:bg-surface-container transition-colors appearance-none cursor-pointer focus:outline-none">
+<option value="all">All Suppliers (4 Active)</option>
+<option value="balaji">Sri Balaji Stationers (2 SKUs)</option>
+<option value="national">National Paper Traders (2 SKUs)</option>
+<option value="pidilite">Pidilite Industries (1 SKU)</option>
+<option value="omsai">Om Sai Wholesale (2 SKUs)</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<!-- Urgency Severity Dropdown -->
+<div class="relative">
+<select class="h-9 px-3 pr-8 rounded-lg bg-surface-container-low text-caption font-body-medium text-on-surface hover:bg-surface-container transition-colors appearance-none cursor-pointer focus:outline-none">
+<option value="all">Urgency: All Levels</option>
+<option value="stockout">Critical Stockout (0 Days)</option>
+<option value="urgent">Urgent Runway (&lt; 2 Days)</option>
+<option value="reorder">Reorder Due (&lt; 4 Days)</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+<!-- View Toggle -->
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-caption font-body-medium text-on-surface-variant flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px]">inventory</span>
+<span>Group by Supplier</span>
+</button>
+<!-- Select Critical Checkbox trigger -->
+<button class="h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-caption font-body-medium text-primary flex items-center gap-1.5 transition-colors" id="select-critical-btn" type="button">
+<span class="material-symbols-outlined text-[17px]">checklist</span>
+<span>Select All Critical (4)</span>
+</button>
+</div>
+</div>
+<!-- Quick Sub-Category Runway Filter Tags -->
+<div class="flex items-center gap-1.5 pt-1 overflow-x-auto text-caption">
+<span class="text-overline uppercase text-on-surface-variant font-semibold mr-1">Quick Filters:</span>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-body-medium text-[12px] flex items-center gap-1">
+<span>All Actionable</span>
+<span class="opacity-80">(7)</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-body-medium text-[12px] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Out of Stock</span>
+<span class="font-bold text-error">(3)</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-body-medium text-[12px] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Urgent Reorder &lt; 3d</span>
+<span class="font-bold text-tertiary">(4)</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-body-medium text-[12px] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Upcoming 4-7d</span>
+<span class="text-on-surface-variant">(5)</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-body-medium text-[12px] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Overstocked Surplus</span>
+<span class="text-on-surface-variant">(2)</span>
+</button>
+</div>
+</div>
+<!-- 3. High-Density Replenishment & Reorder Ledger -->
+<div class="rounded-xl bg-surface-container-lowest shadow-[0_1px_4px_rgba(15,23,42,0.04)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1080px]" id="replenish-table">
+<thead>
+<tr class="bg-surface-container-low h-10 font-table-header text-table-header text-on-surface-variant uppercase text-[11px] tracking-wider sticky top-0 z-10">
+<th class="w-10 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" id="master-select-checkbox" type="checkbox"/>
+</th>
+<th class="py-2.5 px-3">Item &amp; SKU</th>
+<th class="py-2.5 px-3">Current Stock / Runway</th>
+<th class="py-2.5 px-3 text-right">Daily Sales Velocity</th>
+<th class="py-2.5 px-3 text-right">Reorder Point &amp; Buffer</th>
+<th class="py-2.5 px-3 text-right">Suggested Qty</th>
+<th class="py-2.5 px-3">Preferred Vendor &amp; Lead Time</th>
+<th class="py-2.5 px-3 text-right">Est. Cost (₹)</th>
+<th class="py-2.5 px-3 text-center">Urgency Status</th>
+<th class="py-2.5 px-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-default text-table-cell text-on-surface">
+<!-- Row 1: Fevicol MR 200g -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="1968" data-qty="48" data-sku="GL-FEV-200" data-vendor="Pidilite Industries Ltd">
+<td class="px-4 text-center">
+<input checked="" class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Fevicol MR 200g Squeezy</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">GL-FEV-200</span>
+<span>·</span>
+<span>Adhesives &amp; Craft</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Shelf B-01</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-error text-[14px]">0 pcs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-error-container text-on-error-container uppercase">Stockout</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-0 h-full bg-error"></div>
+</div>
+<span class="text-caption text-error font-medium text-[11px]">0.0 days remaining</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">6.4 pcs / day</span>
+<span class="text-[11px] text-error font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">north_east</span>
+                    Spike +32%
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 20 pcs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 5 pcs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    48 pcs
+                  </div>
+<span class="text-[10px] text-on-surface-variant block font-caption">2 cartons</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Pidilite Industries Ltd</span>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    2 days lead · Net 15
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹1,968.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹41.00/pc</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-error-container text-on-error-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+                  CRITICAL OUT
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-1 shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss Alert" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Pilot V5 Blue -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="2200" data-qty="50" data-sku="PN-V5-BLU" data-vendor="Sri Balaji Stationers">
+<td class="px-4 text-center">
+<input checked="" class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Pilot V5 Hi-Tecpoint Blue (0.5mm)</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">PN-V5-BLU</span>
+<span>·</span>
+<span>Pens &amp; Inks</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Shelf A-02</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-tertiary text-[14px]">8 pcs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed uppercase">Breach</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-1/4 h-full bg-tertiary"></div>
+</div>
+<span class="text-caption text-tertiary font-medium text-[11px]">1.2 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">6.8 pcs / day</span>
+<span class="text-[11px] text-secondary font-medium">High Turnover</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 30 pcs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 10 pcs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    50 pcs
+                  </div>
+<span class="text-[10px] text-on-surface-variant block font-caption">Box of 50</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-body-medium text-on-surface text-[13px]">Sri Balaji Stationers</span>
+<span class="text-tertiary-container text-[12px] material-symbols-outlined" title="Preferred Supplier">star</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    2 days lead · Net 15
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹2,200.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹44.00/pc</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-tertiary-fixed text-on-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  URGENT &lt; 2D
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-1 shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Quick Add to Order" type="button">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Classmate Notebook A4 Ruled -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="2880" data-qty="60" data-sku="NB-A4-200" data-vendor="Sri Balaji Stationers">
+<td class="px-4 text-center">
+<input checked="" class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Classmate Notebook A4 Ruled (200 pg)</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">NB-A4-200</span>
+<span>·</span>
+<span>Notebooks</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Rack B-04</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-tertiary text-[14px]">14 pcs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed uppercase">Breach</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-1/3 h-full bg-tertiary"></div>
+</div>
+<span class="text-caption text-tertiary font-medium text-[11px]">1.8 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">7.8 pcs / day</span>
+<span class="text-[11px] text-primary font-medium">Top Store Rank</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 40 pcs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 15 pcs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    60 pcs
+                  </div>
+<span class="text-[10px] text-on-surface-variant block font-caption">Bundle tier</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-body-medium text-on-surface text-[13px]">Sri Balaji Stationers</span>
+<span class="text-tertiary-container text-[12px] material-symbols-outlined" title="Preferred Supplier">star</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    2 days lead · Net 15
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹2,880.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹48.00/pc</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-tertiary-fixed text-on-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  URGENT RUNWAY
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-1 shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Quick Add" type="button">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: A4 Copier Paper 75 GSM -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="9000" data-qty="40" data-sku="PP-A4-75" data-vendor="National Paper Traders">
+<td class="px-4 text-center">
+<input checked="" class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">A4 Copier Paper 75 GSM (500 sheets)</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">PP-A4-75</span>
+<span>·</span>
+<span>Paper &amp; Reams</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Pallet P-01</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-tertiary text-[14px]">18 reams</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container text-on-surface-variant uppercase">Low</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-2/5 h-full bg-tertiary"></div>
+</div>
+<span class="text-caption text-tertiary font-medium text-[11px]">2.2 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">8.1 reams / day</span>
+<span class="text-[11px] text-on-surface-variant">B2B Coaching</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 50 reams</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 20 reams</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    40 reams
+                  </div>
+<span class="text-[10px] text-on-surface-variant block font-caption">Pallet unit</span>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">National Paper Traders</span>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    4 days lead · Net 30
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹9,000.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹225.00/ream</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-tertiary-container/30 text-tertiary-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  REORDER DUE
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-1 shadow-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Quick Add" type="button">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Doms Colour Pencils 24-shade -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="2580" data-qty="30" data-sku="CP-DOM-24" data-vendor="Om Sai Wholesale">
+<td class="px-4 text-center">
+<input class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Doms Colour Pencils 24-shade</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">CP-DOM-24</span>
+<span>·</span>
+<span>Art &amp; Craft</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Rack D-02</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface text-[14px]">12 packs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container text-on-surface-variant uppercase">Low</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-1/2 h-full bg-secondary"></div>
+</div>
+<span class="text-caption text-on-surface-variant font-medium text-[11px]">2.8 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">4.2 packs / day</span>
+<span class="text-[11px] text-secondary font-medium">Steady</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 25 packs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 8 packs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    30 packs
+                  </div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Om Sai Wholesale</span>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    3 days lead · COD
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹2,580.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹86.00/pack</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-surface-container text-on-surface-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  LOW BUFFER
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface text-caption font-body-medium flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Kangaro Stapler HS-10 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="1240" data-qty="20" data-sku="ST-KNG-10" data-vendor="Om Sai Wholesale">
+<td class="px-4 text-center">
+<input class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Kangaro Stapler HS-10</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">ST-KNG-10</span>
+<span>·</span>
+<span>Office Supplies</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Rack C-03</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-error text-[14px]">0 pcs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-error-container text-on-error-container uppercase">Stockout</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-0 h-full bg-error"></div>
+</div>
+<span class="text-caption text-error font-medium text-[11px]">0.0 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">2.5 pcs / day</span>
+<span class="text-[11px] text-on-surface-variant">Office Staple</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 10 pcs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 4 pcs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    20 pcs
+                  </div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Om Sai Wholesale</span>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    3 days lead · COD
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹1,240.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹62.00/pc</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-error-container text-on-error-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  CRITICAL OUT
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface text-caption font-body-medium flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7: Sticky Notes Neon 3x3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors h-14 group row-item" data-cost="3900" data-qty="50" data-sku="SN-33-NEO" data-vendor="National Paper Traders">
+<td class="px-4 text-center">
+<input class="sku-checkbox w-4 h-4 rounded text-primary focus:ring-primary/40 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold group-hover:text-primary transition-colors">Sticky Notes 3x3 Neon (5 pad pack)</span>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant font-mono text-[11px]">
+<span class="text-primary font-medium">SN-33-NEO</span>
+<span>·</span>
+<span>Office Supplies</span>
+<span>·</span>
+<span class="bg-surface-container px-1 py-0.2 rounded text-[10px]">Rack C-04</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface text-[14px]">45 packs</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-surface-container text-on-surface-variant uppercase">Normal</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="w-3/5 h-full bg-primary-container"></div>
+</div>
+<span class="text-caption text-on-surface-variant font-medium text-[11px]">3.5 days runway</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono">12.8 packs / day</span>
+<span class="text-[11px] text-primary font-medium">Exam Rush Spike</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-medium text-on-surface font-mono">Min 50 packs</span>
+<span class="text-[11px] text-on-surface-variant font-mono">Buffer: 15 packs</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<div class="bg-surface-container px-2 py-1 rounded text-right font-mono font-bold text-on-surface">
+                    50 packs
+                  </div>
+</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">National Paper Traders</span>
+<span class="text-caption text-on-surface-variant text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">local_shipping</span>
+                    4 days lead · Net 30
+                  </span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex flex-col items-end">
+<span class="font-semibold text-on-surface font-mono text-[14px]">₹3,900.00</span>
+<span class="text-[11px] text-on-surface-variant font-mono">₹78.00/pack</span>
+</div>
+</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-overline bg-surface-container-high text-on-surface-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  APPROACHING
+                </span>
+</td>
+<td class="py-2.5 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface text-caption font-body-medium flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">post_add</span>
+<span>PO</span>
+</button>
+<button class="h-8 w-8 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Dismiss" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Docked Batch Reorder Summary Bar / Action Footer -->
+<div class="bg-surface-container-low px-space-lg py-3 flex flex-wrap items-center justify-between gap-4 border-t border-surface-container">
+<!-- Selected Items & Supplier breakdown -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-body-medium text-caption text-on-surface font-bold" id="selected-summary-count">4 SKUs selected</span>
+<span class="text-caption text-on-surface-variant">grouped into 3 suppliers:</span>
+</div>
+<!-- Mini Badges for Grouped Suppliers -->
+<div class="flex flex-wrap items-center gap-1.5 text-[11px] font-mono">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface shadow-xs">
+<span class="font-semibold text-primary">Sri Balaji:</span> 2 SKUs (110u) · ₹5,080
+            </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface shadow-xs">
+<span class="font-semibold text-primary">National Paper:</span> 1 SKU (40r) · ₹9,000
+            </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface shadow-xs">
+<span class="font-semibold text-primary">Pidilite:</span> 1 SKU (48u) · ₹1,968
+            </span>
+</div>
+</div>
+<!-- Total Commitment & Purchase Order Generation Triggers -->
+<div class="flex items-center gap-4 ml-auto">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1 text-caption">
+<span class="text-on-surface-variant">Net Subtotal:</span>
+<span class="font-mono font-bold text-on-surface text-[14px]">₹16,048.00</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-mono">
+              +18% GST (₹2,888.64) = <span class="font-semibold text-primary font-mono">₹18,936.64 Total</span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-1 transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Review Grouped POs</span>
+</button>
+<button class="h-9 px-4 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-caption font-body-medium flex items-center gap-1.5 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" type="button">
+<span class="material-symbols-outlined text-[17px]">send_and_archive</span>
+<span>⚡ One-Click Create 3 PO Drafts</span>
+<kbd class="hidden md:inline-block px-1.5 py-0.2 rounded text-[10px] bg-white/20 font-mono text-on-primary">Enter</kbd>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Intelligent Forecast & Lead-Time Simulator Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Panel 1: Top 3 Critical Stockout Countdowns -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">timer_off</span>
+<span class="font-section-title text-[15px] font-semibold text-on-surface">Depletion Runway Countdown</span>
+</div>
+<span class="text-overline uppercase text-on-surface-variant font-mono">Live Velocity</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Item 1 -->
+<div class="flex flex-col gap-1 p-2 rounded-lg bg-surface-container-low/50">
+<div class="flex items-center justify-between text-caption">
+<span class="font-body-medium text-on-surface font-semibold truncate max-w-[200px]">Pilot V5 Hi-Tecpoint Blue</span>
+<span class="font-mono text-tertiary font-bold">1.2 Days Left</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 25%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Stock: 8 pcs on-hand</span>
+<span>Depletes: Tomorrow 3:00 PM</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-1 p-2 rounded-lg bg-surface-container-low/50">
+<div class="flex items-center justify-between text-caption">
+<span class="font-body-medium text-on-surface font-semibold truncate max-w-[200px]">Classmate A4 200pg Ruled</span>
+<span class="font-mono text-tertiary font-bold">1.8 Days Left</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 38%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Stock: 14 pcs on-hand</span>
+<span>Depletes: Thursday Morning</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-1 p-2 rounded-lg bg-surface-container-low/50">
+<div class="flex items-center justify-between text-caption">
+<span class="font-body-medium text-on-surface font-semibold truncate max-w-[200px]">A4 Copier Paper 75 GSM</span>
+<span class="font-mono text-primary font-bold">2.2 Days Left</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 48%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Stock: 18 reams</span>
+<span>Depletes: Friday Noon</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[11px] text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">info</span>
+<span>Lead-time buffers calculate supplier turnaround + 6 hr intake buffer.</span>
+</div>
+</div>
+<!-- Panel 2: Supplier Lead-Time Reliability Gauge -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-section-title text-[15px] font-semibold text-on-surface">Supplier Delivery Reliability</span>
+</div>
+<span class="text-overline uppercase text-secondary font-mono">Last 90d</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Supplier 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low/40">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-caption font-semibold">Sri Balaji Stationers</span>
+<span class="text-[11px] text-on-surface-variant">2.0d actual vs 2d stated lead</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-end">
+<span class="font-mono font-bold text-secondary text-caption">99.2%</span>
+<span class="text-[10px] text-on-surface-variant">On-time</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center font-bold text-[11px]">
+                  A+
+                </div>
+</div>
+</div>
+<!-- Supplier 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low/40">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-caption font-semibold">Pidilite Industries Ltd</span>
+<span class="text-[11px] text-on-surface-variant">2.2d actual vs 2d stated lead</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-end">
+<span class="font-mono font-bold text-secondary text-caption">96.8%</span>
+<span class="text-[10px] text-on-surface-variant">On-time</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center font-bold text-[11px]">
+                  A
+                </div>
+</div>
+</div>
+<!-- Supplier 3 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low/40">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-caption font-semibold">National Paper Traders</span>
+<span class="text-[11px] text-on-surface-variant">4.1d actual vs 4d stated lead</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex flex-col items-end">
+<span class="font-mono font-bold text-tertiary text-caption">94.1%</span>
+<span class="text-[10px] text-on-surface-variant">On-time</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-[11px]">
+                  B+
+                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[11px] text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span>
+<span>Lead buffers automatically adjust based on vendor SLA trends.</span>
+</div>
+</div>
+<!-- Panel 3: Seasonal Replenishment Multiplier & Simulation Settings -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-[0_1px_3px_rgba(15,23,42,0.04)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_graph</span>
+<span class="font-section-title text-[15px] font-semibold text-on-surface">Seasonal Multiplier Engine</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] bg-primary-fixed text-on-primary-fixed font-bold">ACTIVE</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low/60 flex flex-col gap-2 mb-3">
+<div class="flex items-center gap-2 text-caption font-body-medium text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">school</span>
+<span>Back-to-School Spike Rule Triggered</span>
+</div>
+<p class="text-caption text-on-surface-variant leading-relaxed">
+              Automatic safety stock multiplier of <span class="font-semibold text-on-surface">+25%</span> has been injected into all Notebook, Pen, and Drafting SKUs to prevent pre-session stockout spikes.
+            </p>
+</div>
+<div class="flex flex-col gap-2 text-caption">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Target Order Cycle:</span>
+<span class="font-mono font-semibold text-on-surface">Every 7 Days (Bi-weekly)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Default Cash Buffer:</span>
+<span class="font-mono font-semibold text-on-surface">₹50,000 Reserve</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">PO Approval Workflow:</span>
+<span class="font-semibold text-secondary">Owner 1-Click Required</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-caption font-body-medium text-primary flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Edit Demand Curve Parameters</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Checkbox Calculation and Batch selection interactions
+  document.addEventListener('DOMContentLoaded', () => {
+    const masterCheckbox = document.getElementById('master-select-checkbox');
+    const skuCheckboxes = document.querySelectorAll('.sku-checkbox');
+    const summaryCount = document.getElementById('selected-summary-count');
+    const selectCriticalBtn = document.getElementById('select-critical-btn');
+    const searchInput = document.getElementById('sku-search-input');
+    const rows = document.querySelectorAll('#replenish-table tbody tr');
+
+    function updateSummary() {
+      let selectedCount = 0;
+      let totalCost = 0;
+      skuCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          selectedCount++;
+          const row = cb.closest('tr');
+          totalCost += parseFloat(row.getAttribute('data-cost') || 0);
+        }
+      });
+      if (summaryCount) {
+        summaryCount.textContent = `${selectedCount} SKU${selectedCount === 1 ? '' : 's'} selected`;
+      }
+      if (masterCheckbox) {
+        masterCheckbox.checked = selectedCount === skuCheckboxes.length;
+        masterCheckbox.indeterminate = selectedCount > 0 && selectedCount < skuCheckboxes.length;
+      }
+    }
+
+    if (masterCheckbox) {
+      masterCheckbox.addEventListener('change', () => {
+        skuCheckboxes.forEach(cb => {
+          cb.checked = masterCheckbox.checked;
+        });
+        updateSummary();
+      });
+    }
+
+    skuCheckboxes.forEach(cb => {
+      cb.addEventListener('change', updateSummary);
+    });
+
+    if (selectCriticalBtn) {
+      selectCriticalBtn.addEventListener('click', () => {
+        skuCheckboxes.forEach((cb, idx) => {
+          // Select top 4 items as critical
+          cb.checked = idx < 4;
+        });
+        updateSummary();
+      });
+    }
+
+    // Keyboard shortcut F4 to focus Batch PO
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'F4') {
+        e.preventDefault();
+        const trigger = document.getElementById('trigger-batch-po');
+        if (trigger) trigger.click();
+      }
+      if (e.key === 'Escape' && searchInput) {
+        searchInput.value = '';
+        rows.forEach(r => r.style.display = '');
+      }
+    });
+
+    // Real-time table filter
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        rows.forEach(r => {
+          const text = r.innerText.toLowerCase();
+          r.style.display = text.includes(query) ? '' : 'none';
+        });
+      });
+    }
+  });
+</script></main></div></body></html>

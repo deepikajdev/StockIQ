@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"secondary":"#006a61","surface-variant":"#dae2fd","surface-container":"#eaedff","surface-container-low":"#f2f3ff","tertiary-fixed-dim":"#ffb695","primary":"#3525cd","surface-dim":"#d2d9f4","surface":"#faf8ff","tertiary-fixed":"#ffdbcc","outline":"#777587","surface-container-highest":"#dae2fd","on-secondary-container":"#006f66","on-surface-variant":"#464555","on-error":"#ffffff","background":"#faf8ff","secondary-container":"#86f2e4","on-tertiary-container":"#ffd2be","secondary-fixed-dim":"#6bd8cb","inverse-on-surface":"#eef0ff","error-container":"#ffdad6","on-primary-fixed-variant":"#3323cc","tertiary-container":"#a44100","on-surface":"#131b2e","on-secondary":"#ffffff","outline-variant":"#c7c4d8","on-secondary-fixed":"#00201d","on-background":"#131b2e","on-tertiary-fixed-variant":"#7b2f00","on-primary-fixed":"#0f0069","surface-container-high":"#e2e7ff","primary-container":"#4f46e5","error":"#ba1a1a","on-secondary-fixed-variant":"#005049","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","primary-fixed":"#e2dfff","inverse-surface":"#283044","secondary-fixed":"#89f5e7","primary-fixed-dim":"#c3c0ff","surface-tint":"#4d44e3","inverse-primary":"#c3c0ff","on-primary-container":"#dad7ff","on-error-container":"#93000a","tertiary":"#7e3000","surface-bright":"#faf8ff","on-tertiary-fixed":"#351000","on-primary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-desktop":"2rem","space-2xl":"3rem","gutter":"1rem","space-xs":"0.25rem","margin":"1rem","space-xl":"2rem","gutter-desktop":"1.5rem","space-sm":"0.5rem","space-lg":"1.5rem"},"fontFamily":{"page-title":["Inter"],"lead":["Inter"],"body-medium":["Inter"],"overline":["Inter"],"caption":["Inter"],"page-title-mobile":["Inter"],"body-default":["Inter"],"table-header":["Inter"],"section-title":["Inter"],"hero-metric":["Inter"],"table-cell":["Inter"]},"fontSize":{"page-title":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"lead":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"overline":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"page-title-mobile":["22px",{"lineHeight":"28px","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"table-header":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"section-title":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"hero-metric":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"table-cell":["13px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[248px] bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-primary to-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(79,70,229,0.3)]"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><div class="flex flex-col"><span class="font-section-title text-[17px] leading-tight text-on-surface font-bold tracking-tight">StockIQ</span><span class="font-caption text-[11px] leading-none text-on-surface-variant font-medium">Intelligence Suite</span></div></div><div class="px-space-sm mb-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">storefront</span><span class="font-body-medium text-[13px] text-on-surface truncate">Meera Stationery &amp; Gifts</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">unfold_more</span></div></div><div class="px-space-sm mb-space-sm"><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary-container transition-colors" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="truncate font-semibold">POS / New Sale</span><kbd class="ml-auto text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F2</kbd></a></div><nav class="flex flex-col gap-0.5 px-space-sm" data-active-classes="bg-primary text-on-primary font-body-medium rounded-lg shadow-sm"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="products" href="#">Products</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="inventory" href="#">Inventory</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="sales-ledger-and-order-history" href="#">Sales</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="purchases" href="#">Purchases</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="suppliers" href="#">Suppliers</a><a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="stockiq-alerts-and-reorder-engine" href="#"><span>Alerts &amp; Reorder</span><span class="px-1.5 py-0.2 rounded-full text-[11px] font-semibold bg-tertiary-container text-on-tertiary-container shadow-xs">4</span></a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="movement-history" href="#">Movement History</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="reports" href="#">Reports</a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center justify-between"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-overline bg-primary-fixed text-on-primary-fixed font-semibold">Meera (Admin)</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-caption text-[11px] text-on-surface-variant">Online · Sync OK</span></div></div></div></aside><div class="pl-[248px]"><header class="fixed top-0 left-[248px] right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-full w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><span class="font-section-title text-[15px] font-semibold text-on-surface leading-tight">Meera Stationery &amp; Gifts</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Terminal 01 · POS-Active</span></div></div><div class="h-6 w-px bg-outline-variant/40 hidden md:block"></div><a class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-[13px] font-body-medium transition-colors border border-outline-variant/40 shadow-xs" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-secondary text-[16px]">receipt_long</span><span>New POS Bill</span></a></div><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80 h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-default text-caption text-on-surface-variant flex-1 truncate">Quick inventory, SKUs, or actions...</span><kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container-highest text-on-surface-variant rounded border border-outline-variant/40 shadow-xs">⌘K</kbd></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Toggle theme" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-space-xs cursor-pointer group"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-body-medium text-[13px] text-on-surface leading-snug group-hover:text-primary transition-colors">Meera</span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Store Owner</span></div><span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface text-[18px] transition-colors">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive Workbench Container -->
+<div class="w-full max-w-[1440px] mx-auto px-space-md lg:px-space-xl py-space-lg flex flex-col gap-space-xl">
+<!-- Top Resilience Status Banner (Offline Telemetry) -->
+<div class="w-full rounded-xl bg-tertiary-container/10 p-space-md shadow-sm transition-all duration-300" id="offline-banner">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-medium text-body-medium text-tertiary font-semibold">Local Resilience Active · Terminal 01 Offline</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+                IndexedDB Store
+              </span>
+</div>
+<p class="font-body-default text-caption text-on-surface-variant mt-0.5">
+              14 sales queued locally in encrypted browser storage. Thermal receipt printer running via local USB port. Live ledger sync will auto-reconcile with SHA-256 cloud node once connectivity returns.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end md:self-center shrink-0">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-tertiary font-caption text-caption shadow-xs">
+<span class="material-symbols-outlined text-[16px] animate-spin">sync</span>
+<span>Retrying connection in <strong class="font-mono tabular-nums" id="retry-countdown">4s</strong></span>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="toggleOfflineNotice()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Header & Interactive Role Switcher Pill Bar -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-1 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-overline bg-primary-fixed text-on-primary-fixed font-semibold uppercase tracking-wider">System Architecture</span>
+<span class="text-caption text-on-surface-variant font-body-default">Screen 13 · Production Governance</span>
+</div>
+<h1 class="font-page-title text-page-title text-on-surface tracking-tight">Role Variants &amp; System States</h1>
+<p class="font-lead text-lead text-on-surface-variant">
+          Strict permission boundaries for staff terminals, defensive UI transformations, network resilience fallbacks, and recovery modals for Meera Stationery &amp; Gifts.
+        </p>
+</div>
+<!-- Live Workbench State Switcher -->
+<div class="flex flex-col gap-1.5">
+<span class="font-caption text-[11px] text-on-surface-variant font-medium tracking-wide">SWITCH WORKBENCH SIMULATION</span>
+<div class="inline-flex flex-wrap p-1 rounded-xl bg-surface-container-low shadow-inner gap-1">
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium bg-primary text-on-primary shadow-xs transition-all" data-tab="staff-matrix" onclick="switchState('staff-matrix')" type="button">
+            Staff Matrix
+          </button>
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-tab="state-403" onclick="switchState('state-403')" type="button">
+            403 Forbidden
+          </button>
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-tab="state-404" onclick="switchState('state-404')" type="button">
+            Global 404
+          </button>
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-tab="state-session" onclick="switchState('state-session')" type="button">
+            Session Lockout
+          </button>
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-tab="state-palette" onclick="switchState('state-palette')" type="button">
+            Command Palette ⌘K
+          </button>
+<button class="state-tab-btn px-3 py-1.5 rounded-lg text-caption font-body-medium text-on-surface-variant hover:bg-surface-container-high transition-all" data-tab="state-onboarding" onclick="switchState('state-onboarding')" type="button">
+            Store Onboarding
+          </button>
+</div>
+</div>
+</div>
+<!-- Active User & Terminal Security Indicator strip -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">badge</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-overline text-on-surface-variant uppercase">Active Session</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Ravi Patel (Staff)</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-caption text-[11px] font-semibold">Terminal #01</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-overline text-on-surface-variant uppercase">Role Authority</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Tier 1: Read + POS</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-caption text-[11px]">No Margin Vis</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-overline text-on-surface-variant uppercase">IndexedDB Buffer</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">14 Txns Awaiting Sync</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-caption text-[11px] font-semibold">Encrypted</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-overline text-on-surface-variant uppercase">Inactivity Lock</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">22m remaining</span>
+</div>
+</div>
+<button class="text-caption font-body-medium text-primary hover:underline" onclick="switchState('state-session')" type="button">Lock Now</button>
+</div>
+</div>
+<!-- MAIN VIEW 1: STAFF VS ADMIN PERMISSION DELTA & LIVE PREVIEW -->
+<div class="workbench-section flex flex-col gap-space-xl" id="view-staff-matrix">
+<!-- Comparative Delta Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Permission Delta Explained -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">security</span>
+<h2 class="font-section-title text-section-title text-on-surface">Staff vs Admin Delta Rulebook</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-caption text-[11px]">Strict Enforcement</span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant">
+              StockIQ uses defensive interface trimming for retail staff. Restricted controls are completely unmounted from the DOM rather than merely disabled, eliminating client-side inspection exploits.
+            </p>
+<!-- Delta Rows -->
+<div class="flex flex-col gap-space-sm divide-y-0">
+<!-- Products Delta -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">inventory_2</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Products Catalog</span>
+</div>
+<span class="text-[11px] font-mono uppercase text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Action: Mod</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-caption">
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">remove_circle_outline</span> Staff (Ravi)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">"+ Add Product" removed. Unit cost prices redacted. Row menu: "View Details" only.</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Admin (Meera)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">Full CRUD, wholesale margins, bulk CSV import, vendor mapping &amp; barcode generation.</span>
+</div>
+</div>
+</div>
+<!-- Inventory Delta -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">tune</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Inventory Balances</span>
+</div>
+<span class="text-[11px] font-mono uppercase text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Action: Write-off</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-caption">
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span> Staff (Ravi)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">"Adjust Stock" button completely hidden. Read stock quantities for customer inquiries.</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Admin (Meera)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">Audit write-offs, shrinkage reasons, batch transfers, and physical stock count reconciliations.</span>
+</div>
+</div>
+</div>
+<!-- Purchases Delta -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">local_shipping</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Purchases &amp; GRN</span>
+</div>
+<span class="text-[11px] font-mono uppercase text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Action: Inbound</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-caption">
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">fact_check</span> Staff (Ravi)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">Can "Receive Consignment" against authorized PO. "Create PO" button removed.</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Admin (Meera)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">Authorize Purchase Orders, set vendor credit terms, and edit tax breakdown.</span>
+</div>
+</div>
+</div>
+<!-- Sales History Delta -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">receipt_long</span>
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Sales Ledger</span>
+</div>
+<span class="text-[11px] font-mono uppercase text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Action: Reversal</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-caption">
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">do_not_disturb_on</span> Staff (Ravi)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">"Cancel Sale / Refund Bill" action HIDDEN. Can only reprint duplicate thermal receipt.</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-lowest text-on-surface flex flex-col">
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Admin (Meera)
+                    </span>
+<span class="text-on-surface-variant mt-0.5">One-click reversal, GST credit notes, cash register discrepancy adjustments.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Live Staff View Interactive Preview Card -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<!-- Staff Preview Subheader with live toggle -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-section-title text-[16px] text-on-surface font-semibold">Live Operational Render</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-caption text-[11px] font-semibold">Staff Mode · Terminal 01</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption text-on-surface-variant">Simulate:</span>
+<div class="inline-flex rounded-lg bg-surface-container p-0.5 text-caption">
+<button class="px-2.5 py-1 rounded-md bg-surface-container-lowest text-on-surface font-semibold shadow-xs" id="btn-sim-staff" onclick="setStaffSim(true)" type="button">Staff View</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface" id="btn-sim-admin" onclick="setStaffSim(false)" type="button">Admin View</button>
+</div>
+</div>
+</div>
+<!-- Soft Banner for Staff -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between" id="staff-notice">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-body-default text-caption text-on-surface">Signed in as <strong>Ravi Patel</strong> · POS Terminal Operations Enabled (Meera Stationery &amp; Gifts)</span>
+</div>
+<span class="font-mono text-caption text-on-surface-variant">GST: 07AABCM8294N1ZZ</span>
+</div>
+<!-- The Rendered Table with dynamic Staff/Admin buttons -->
+<div class="flex flex-col rounded-lg bg-surface-container-lowest">
+<!-- Table Controls Top Bar -->
+<div class="p-space-sm flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low/60 rounded-t-lg">
+<div class="flex items-center gap-2 flex-1 max-w-sm">
+<div class="flex items-center gap-2 w-full px-3 py-1.5 rounded-lg bg-surface-container-lowest text-caption text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">search</span>
+<input class="bg-transparent text-caption outline-none w-full" placeholder="Filter inventory, barcode or SKU..." type="text" value="Classmate Notebook"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Admin Only Button (will be hidden dynamically in Staff mode) -->
+<div class="hidden" id="admin-add-product-btn">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary text-caption font-body-medium shadow-xs hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add_box</span>
+<span>Add Product</span>
+</button>
+</div>
+<!-- Admin Only Adjust stock button -->
+<div class="hidden" id="admin-adjust-stock-btn">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-caption font-body-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Adjust Stock</span>
+</button>
+</div>
+<!-- Common Action (Quick Scan) -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-caption font-body-medium hover:bg-surface-container transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">barcode_scanner</span>
+<span>Scan Barcode</span>
+</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-default text-table-cell">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-table-header text-table-header uppercase">
+<th class="py-2.5 px-3">Item &amp; SKU</th>
+<th class="py-2.5 px-3 text-left">Category</th>
+<th class="py-2.5 px-3 text-right">Available Stock</th>
+<th class="py-2.5 px-3 text-right">MRP / Selling</th>
+<th class="py-2.5 px-3 text-right admin-col hidden">Cost / Margin</th>
+<th class="py-2.5 px-3 text-center">Status</th>
+<th class="py-2.5 px-3 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold">Classmate Pulse Spiral A4 Notebook</span>
+<span class="font-caption text-[11px] text-on-surface-variant font-mono">SKU: NB-CLS-A4-300 · 300 Pgs</span>
+</div>
+</td>
+<td class="py-3 px-3 text-on-surface-variant">Stationery / Notebooks</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums">142 pcs</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums text-on-surface">₹160.00</td>
+<td class="py-3 px-3 text-right font-mono tabular-nums text-secondary admin-col hidden">
+                        ₹118.00 <span class="text-[10px] text-on-surface-variant">(26.2%)</span>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-caption text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Stock
+                        </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-primary" title="Quick POS Bill Item" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<!-- Row Kebab / Options -->
+<div class="relative inline-block text-left">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="toggleRowMenu('menu-row-1')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 z-20 w-44 mt-1 rounded-lg bg-surface-container-lowest shadow-md py-1 text-left text-caption" id="menu-row-1">
+<a class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined text-[16px]">visibility</span> View Stock Card
+                              </a>
+<a class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined text-[16px]">print</span> Print Barcode Tag
+                              </a>
+<!-- Admin Only options in kebab -->
+<div class="admin-menu-item hidden">
+<div class="h-px bg-surface-container my-1"></div>
+<a class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container text-on-surface" href="#">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit Selling &amp; Cost
+                                </a>
+<a class="flex items-center gap-2 px-3 py-1.5 hover:bg-error-container text-error" href="#">
+<span class="material-symbols-outlined text-[16px]">block</span> Deactivate SKU
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold">Reynolds Trimax Gel Pen (Blue 0.5)</span>
+<span class="font-caption text-[11px] text-on-surface-variant font-mono">SKU: PN-REY-TRX-BL · Box of 10</span>
+</div>
+</td>
+<td class="py-3 px-3 text-on-surface-variant">Writing Instruments</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums text-tertiary">9 pcs</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums text-on-surface">₹60.00</td>
+<td class="py-3 px-3 text-right font-mono tabular-nums text-secondary admin-col hidden">
+                        ₹41.50 <span class="text-[10px] text-on-surface-variant">(30.8%)</span>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Low Stock
+                        </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-primary" title="Quick POS Bill Item" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface font-semibold">JK Copier A4 Paper 75 GSM (500 Shts)</span>
+<span class="font-caption text-[11px] text-on-surface-variant font-mono">SKU: PP-JK-A4-75G · Ream</span>
+</div>
+</td>
+<td class="py-3 px-3 text-on-surface-variant">Paper Reams &amp; Office</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums">64 reams</td>
+<td class="py-3 px-3 text-right font-mono font-semibold tabular-nums text-on-surface">₹340.00</td>
+<td class="py-3 px-3 text-right font-mono tabular-nums text-secondary admin-col hidden">
+                        ₹275.00 <span class="text-[10px] text-on-surface-variant">(19.1%)</span>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-caption text-[11px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Stock
+                        </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-primary" title="Quick POS Bill Item" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Staff View Safeguard Badge footer -->
+<div class="p-space-sm bg-surface-container-low/80 rounded-b-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-caption">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">shield</span>
+                  Role Boundary Active: Ravi has no access to Supplier ledger, P&amp;L reports, or stock deletion.
+                </span>
+<span class="font-mono text-[11px] text-on-surface-variant">Host: terminal-01.lan · App v2.4.9</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 2: 403 FORBIDDEN STATE COMPONENT -->
+<div class="workbench-section hidden" id="view-state-403">
+<div class="p-space-lg lg:p-space-2xl rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center max-w-3xl mx-auto my-space-md">
+<!-- Padlock & Halo Icon -->
+<div class="relative w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center mb-space-md shadow-sm">
+<div class="absolute -inset-2 rounded-3xl bg-primary/5 animate-pulse"></div>
+<span class="material-symbols-outlined text-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-md bg-error text-on-error font-mono text-[10px] font-bold">403</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container font-caption text-overline font-semibold uppercase tracking-wider mb-space-xs">
+          Access Restricted to Store Owner
+        </span>
+<h2 class="font-section-title text-[24px] text-on-surface font-bold tracking-tight mb-space-xs">
+          Owner Credentials Required
+        </h2>
+<p class="font-body-default text-body-medium text-on-surface-variant max-w-lg mb-space-lg leading-relaxed">
+          You are currently signed into <strong>Terminal 01</strong> as <strong class="text-on-surface">Ravi Patel (Staff)</strong>. Financial margin analysis, GST tax filing summaries, manual ledger adjustments, and supplier credit modifications require administrator clearance from <strong>Meera</strong>.
+        </p>
+<!-- Context detail box -->
+<div class="w-full max-w-md p-space-md rounded-xl bg-surface-container-low text-left mb-space-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Attempted Route:</span>
+<span class="font-mono text-on-surface font-medium">/reports/gst-margin-analytics</span>
+</div>
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Required Role:</span>
+<span class="font-mono text-primary font-semibold">ROLE_OWNER_ADMIN</span>
+</div>
+<div class="flex items-center justify-between text-caption">
+<span class="text-on-surface-variant">Terminal ID:</span>
+<span class="font-mono text-on-surface">DEL-NCR-POS-01 (IP: 192.168.1.104)</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-wrap items-center justify-center gap-space-sm">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-medium text-body-medium shadow-sm hover:bg-primary-container transition-colors" onclick="switchState('state-session')" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+<span>Switch to Meera (Admin PIN)</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-body-medium transition-colors" onclick="switchState('staff-matrix')" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Return to Staff Register</span>
+</button>
+</div>
+</div>
+</div>
+<!-- VIEW 3: GLOBAL 404 STATE COMPONENT -->
+<div class="workbench-section hidden" id="view-state-404">
+<div class="p-space-lg lg:p-space-2xl rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col items-center text-center max-w-3xl mx-auto my-space-md">
+<!-- Missing Route / Ledger Entity Graphic -->
+<div class="relative w-20 h-20 rounded-2xl bg-surface-container flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-outline text-[42px]">travel_explore</span>
+<span class="absolute -top-1 -right-1 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono text-[11px] font-bold">404</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-caption text-overline font-semibold uppercase tracking-wider mb-space-xs">
+          Entity Unresolved in Ledger
+        </span>
+<h2 class="font-section-title text-[24px] text-on-surface font-bold tracking-tight mb-space-xs">
+          SKU or Ledger Page Not Found
+        </h2>
+<p class="font-body-default text-body-medium text-on-surface-variant max-w-lg mb-space-lg leading-relaxed">
+          The requested record or route could not be located in <strong>Meera Stationery &amp; Gifts’</strong> active catalog. It may have been archived, consolidated into a new variant, or never created.
+        </p>
+<!-- Debug details -->
+<div class="w-full max-w-md p-space-md rounded-xl bg-surface-container-low text-left mb-space-lg flex flex-col gap-2 font-mono text-caption">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Query Target:</span>
+<span class="text-error font-semibold">SKU: PP-A4-999-DEL</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Linked PO:</span>
+<span class="text-on-surface">#PO-9021 (Not Found in Ledger)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Store Node:</span>
+<span class="text-on-surface">meera-stationery-v2.stockiq.in</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-wrap items-center justify-center gap-space-sm">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-medium text-body-medium shadow-sm hover:bg-primary-container transition-colors" onclick="switchState('state-palette')" type="button">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Search Catalog via ⌘K</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-body-medium transition-colors" onclick="switchState('staff-matrix')" type="button">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span>Back to Products Safe Route</span>
+</button>
+</div>
+</div>
+</div>
+<!-- VIEW 4: SESSION EXPIRED MODAL OVERLAY PREVIEW -->
+<div class="workbench-section hidden" id="view-state-session">
+<div class="relative w-full max-w-xl mx-auto my-space-md">
+<!-- Scrim Backdrop Effect Card -->
+<div class="p-space-lg sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-xl flex flex-col gap-space-lg relative overflow-hidden">
+<!-- Top Accent Stripe -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-primary-container to-secondary"></div>
+<!-- Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[26px]">screen_lock_portrait</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-section-title text-[18px] text-on-surface font-bold">Terminal Lockout</h3>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-caption text-[11px] font-semibold">Session Expired</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">Inactivity timeout on Terminal 01 after 30 minutes</p>
+</div>
+</div>
+<span class="font-mono text-caption text-on-surface-variant">Auto-Lock</span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant">
+            To prevent unauthorized access to cash drawer transactions and inventory counts during floor absences, enter your operator credentials to resume.
+          </p>
+<!-- User Card -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">
+                R
+              </div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">Ravi Patel</span>
+<span class="font-caption text-caption text-on-surface-variant">Staff Associate · Shift 09:00 - 18:00</span>
+</div>
+</div>
+<button class="text-caption font-body-medium text-primary hover:underline" type="button">
+              Switch User
+            </button>
+</div>
+<!-- Quick Unlock PIN Input Form -->
+<form class="flex flex-col gap-space-md" onsubmit="handleUnlock(event)">
+<div class="flex flex-col gap-1.5">
+<label class="font-caption text-caption text-on-surface font-medium flex items-center justify-between">
+<span>Enter 4-Digit Terminal PIN or Password</span>
+<span class="text-on-surface-variant font-mono text-[11px]">Keypad or Barcode Scan</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface text-[20px] font-mono tracking-widest text-center focus:bg-surface-container-lowest outline-none shadow-inner" id="pin-input" maxlength="6" placeholder="••••" type="password"/>
+<button class="absolute right-3 px-2 py-1 rounded bg-surface-container text-[11px] font-body-medium text-on-surface-variant hover:text-on-surface" onclick="fillPin()" type="button">Auto-Fill</button>
+</div>
+</div>
+<!-- PIN Pad Buttons Grid (Common on POS Touch Terminals) -->
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('1')" type="button">1</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('2')" type="button">2</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('3')" type="button">3</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('4')" type="button">4</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('5')" type="button">5</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('6')" type="button">6</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('7')" type="button">7</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('8')" type="button">8</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('9')" type="button">9</button>
+<button class="py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest font-mono text-caption text-on-surface-variant transition-colors" onclick="clearPin()" type="button">CLEAR</button>
+<button class="py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container font-mono text-body-medium font-semibold text-on-surface transition-colors" onclick="appendPin('0')" type="button">0</button>
+<button class="py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant transition-colors" onclick="backspacePin()" type="button">
+<span class="material-symbols-outlined text-[18px]">backspace</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pt-2">
+<button class="flex-1 h-11 rounded-xl bg-primary text-on-primary font-body-medium text-body-medium font-semibold shadow-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+<span>Unlock Terminal</span>
+</button>
+<button class="px-space-md h-11 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-caption transition-colors" onclick="switchState('staff-matrix')" type="button">
+                Cancel
+              </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- VIEW 5: ⌘K COMMAND PALETTE MODAL PREVIEW -->
+<div class="workbench-section hidden" id="view-state-palette">
+<div class="w-full max-w-2xl mx-auto my-space-md">
+<!-- Floating Command Dialog Container -->
+<div class="rounded-2xl bg-surface-container-lowest shadow-2xl overflow-hidden flex flex-col">
+<!-- Palette Search Input -->
+<div class="p-space-md flex items-center gap-space-sm bg-surface-container-low/50">
+<span class="material-symbols-outlined text-primary text-[22px]">search</span>
+<input autofocus="" class="flex-1 bg-transparent text-body-medium text-on-surface placeholder:text-on-surface-variant outline-none font-body-default" id="palette-search" oninput="filterPalette(this.value)" placeholder="Type a command or search inventory, POs, staff, suppliers..." type="text" value=""/>
+<kbd class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono text-[11px] font-semibold">ESC</kbd>
+</div>
+<!-- Palette Body Sections -->
+<div class="p-space-sm max-h-[440px] overflow-y-auto flex flex-col gap-space-md">
+<!-- Group: Quick Navigation -->
+<div class="palette-group flex flex-col gap-1">
+<span class="px-3 py-1 font-caption text-overline text-on-surface-variant uppercase tracking-wider">Quick Navigation</span>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors" onclick="switchState('staff-matrix')">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface">Go to Products &amp; Catalog</span>
+</div>
+<div class="flex items-center gap-1 font-mono text-caption text-on-surface-variant">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">G</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">P</kbd>
+</div>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]">point_of_sale</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface">New POS Sale Register</span>
+</div>
+<kbd class="px-2 py-0.5 rounded bg-surface-container font-mono text-caption text-on-surface-variant text-[11px]">F2</kbd>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[16px]">notifications_active</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface">Alerts &amp; Stock Reorder Engine</span>
+</div>
+<div class="flex items-center gap-1 font-mono text-caption text-on-surface-variant">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">G</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">A</kbd>
+</div>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]">monitoring</span>
+</div>
+<span class="font-body-medium text-body-medium text-on-surface">Open Financial &amp; Tax Reports</span>
+</div>
+<div class="flex items-center gap-1 font-mono text-caption text-on-surface-variant">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">G</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px]">R</kbd>
+</div>
+</div>
+</div>
+<!-- Group: Recent Ledger Items -->
+<div class="palette-group flex flex-col gap-1">
+<span class="px-3 py-1 font-caption text-overline text-on-surface-variant uppercase tracking-wider">Recent Catalog &amp; Orders</span>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">history</span>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface">Classmate Notebook A4 Ruled</span>
+<span class="font-caption text-[11px] text-on-surface-variant">SKU: NB-CLS-A4 · 42 pcs in stock (Shelf B2)</span>
+</div>
+</div>
+<span class="font-mono text-caption text-secondary font-semibold">₹160</span>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface">Purchase Order #1089</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Supplier: Sri Balaji Stationers · Received 480 pcs</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-caption text-[11px] font-semibold">GRN Done</span>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">store</span>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface">Supplier: Camlin Kokuyo Distributors</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Delhi Hub · Balance Due: ₹14,250</span>
+</div>
+</div>
+<span class="text-caption text-on-surface-variant font-mono">Net 30</span>
+</div>
+</div>
+<!-- Group: Quick Actions -->
+<div class="palette-group flex flex-col gap-1">
+<span class="px-3 py-1 font-caption text-overline text-on-surface-variant uppercase tracking-wider">Fast Hardware &amp; System Actions</span>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-secondary">print</span>
+<span class="font-body-medium text-body-medium text-on-surface">Print Test Receipt (TVS RP 3200 Plus)</span>
+</div>
+<span class="font-caption text-on-surface-variant">USB-001</span>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors" onclick="switchState('state-session')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock</span>
+<span class="font-body-medium text-body-medium text-on-surface">Lock Terminal Session Immediately</span>
+</div>
+<kbd class="px-2 py-0.5 rounded bg-surface-container font-mono text-caption text-on-surface-variant text-[11px]">⌥ L</kbd>
+</div>
+<div class="palette-item flex items-center justify-between px-3 py-2 rounded-lg hover:bg-surface-container cursor-pointer transition-colors" onclick="switchState('state-onboarding')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-primary">checklist</span>
+<span class="font-body-medium text-body-medium text-on-surface">View Store Setup Onboarding Checklist</span>
+</div>
+<span class="font-caption text-primary">60% Done</span>
+</div>
+</div>
+</div>
+<!-- Palette Footer -->
+<div class="p-space-sm bg-surface-container-low flex items-center justify-between text-caption text-on-surface-variant font-body-default">
+<div class="flex items-center gap-3">
+<span><kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px] font-mono">↑</kbd> <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px] font-mono">↓</kbd> Navigate</span>
+<span><kbd class="px-1.5 py-0.5 rounded bg-surface-container text-[11px] font-mono">↵</kbd> Select</span>
+</div>
+<span>StockIQ Command Engine · v2.4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 6: FIRST-RUN STORE ONBOARDING CHECKLIST -->
+<div class="workbench-section hidden" id="view-state-onboarding">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Onboarding Card & Milestones -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="p-space-lg lg:p-space-xl rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-lg">
+<!-- Welcome Header with Shop Identity -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-primary via-primary-container to-secondary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[32px]">storefront</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-overline text-on-surface-variant uppercase">Initial Configuration</span>
+<h2 class="font-section-title text-[22px] text-on-surface font-bold">Welcome to StockIQ, Meera!</h2>
+<p class="font-caption text-caption text-on-surface-variant">Let's finish onboarding <strong>Meera Stationery &amp; Gifts</strong> for automated reorders.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-caption text-caption font-semibold">Store Setup Phase</span>
+</div>
+</div>
+<!-- Progress Metric Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between font-body-medium text-caption">
+<span class="text-on-surface font-semibold">Setup Readiness: 3 of 5 Milestones Completed</span>
+<span class="font-mono text-primary font-bold">60%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 60%"></div>
+</div>
+<span class="font-caption text-[11px] text-on-surface-variant">Once finished, AI reorder safety stocks &amp; automatic GST bill tallies will activate.</span>
+</div>
+<!-- The Milestones List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Milestone 1: Done -->
+<div class="p-space-md rounded-xl bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold line-through text-on-surface-variant">1. Store Profile &amp; GSTIN Configuration</span>
+<span class="font-caption text-caption text-on-surface-variant font-mono">07AABCM8294N1ZZ · Meera Stationery &amp; Gifts, Mayur Vihar, Delhi</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-caption text-[11px] text-on-surface-variant">Completed</span>
+</div>
+<!-- Milestone 2: Done -->
+<div class="p-space-md rounded-xl bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold line-through text-on-surface-variant">2. Initial Product Catalog Import</span>
+<span class="font-caption text-caption text-on-surface-variant">248 Stationery SKUs &amp; GST tax slabs imported via CSV</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-caption text-[11px] text-on-surface-variant">Completed</span>
+</div>
+<!-- Milestone 3: Done -->
+<div class="p-space-md rounded-xl bg-surface-container-low/50 flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold line-through text-on-surface-variant">3. Connect Primary Stationery Supplier</span>
+<span class="font-caption text-caption text-on-surface-variant">Sri Balaji Stationers (Sadar Bazaar, Delhi) connected</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container font-caption text-[11px] text-on-surface-variant">Completed</span>
+</div>
+<!-- Milestone 4: Actionable -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed font-mono font-bold text-caption flex items-center justify-center shrink-0">
+                    4
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">4. Receive First Consignment (GRN Inward)</span>
+<span class="font-caption text-caption text-on-surface-variant">Verify delivered quantities against Sri Balaji's PO #1089</span>
+</div>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-body-medium text-caption shadow-xs hover:bg-primary-container transition-colors" type="button">
+<span>Receive Stock</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Milestone 5: Pending -->
+<div class="p-space-md rounded-xl bg-surface-container-low/70 flex items-center justify-between opacity-80">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant font-mono font-bold text-caption flex items-center justify-center shrink-0">
+                    5
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium text-body-medium text-on-surface font-medium">5. Perform First POS Customer Sale</span>
+<span class="font-caption text-caption text-on-surface-variant">Test barcode scan, thermal receipt printing, and cash change calculator</span>
+</div>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-medium text-caption transition-colors" type="button">
+<span>Open POS</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Store Profile Snapshot & Help Panel -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<span class="font-section-title text-[16px] text-on-surface font-semibold">Store Telemetry Identity</span>
+<div class="flex flex-col gap-space-sm text-caption divide-y-0">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<span class="text-on-surface-variant text-[11px] uppercase font-mono">Registered Trade Name</span>
+<span class="text-on-surface font-semibold">Meera Stationery &amp; Gift Articles</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<span class="text-on-surface-variant text-[11px] uppercase font-mono">GST Identification Number</span>
+<span class="text-on-surface font-mono font-medium">07AABCM8294N1ZZ (Delhi Zone)</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<span class="text-on-surface-variant text-[11px] uppercase font-mono">Designated POS Terminal</span>
+<span class="text-on-surface font-medium">Terminal 01 · Staff: Ravi Patel</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+<span class="text-on-surface-variant text-[11px] uppercase font-mono">Store Administrator</span>
+<span class="text-on-surface font-medium">Meera Sharma (Owner / Signatory)</span>
+</div>
+</div>
+<!-- Support / Help tip -->
+<div class="p-space-sm rounded-xl bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">support_agent</span>
+<div class="flex flex-col text-caption">
+<span class="text-on-surface font-semibold">Need help setting up receipt printers?</span>
+<p class="text-on-surface-variant mt-0.5">StockIQ auto-detects TVS, Epson, and Posiflex USB esc/pos printers without driver setup.</p>
+</div>
+</div>
+</div>
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-body-medium text-body-medium text-on-surface font-semibold">System Diagnostics</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span>Database Sync Protocol:</span>
+<span class="font-mono text-on-surface">PouchDB + CouchSync</span>
+</div>
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span>Cloud Latency:</span>
+<span class="font-mono text-secondary">18ms (Delhi Node)</span>
+</div>
+<div class="flex items-center justify-between text-caption text-on-surface-variant">
+<span>Barcode Scanner:</span>
+<span class="font-mono text-on-surface">HID Keyboard Emulation (OK)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Architectural Footer / Reference Specs -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm text-caption text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>StockIQ Design System Engine · Indian Retail Ergonomics · Tiered Role Enforcement</span>
+</div>
+<div class="flex items-center gap-4 font-mono text-[11px]">
+<span>Tenant: meera-stationery-01</span>
+<span>Sync Engine: Active</span>
+<span>SHA: 4e9c708</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interactive Script for the Workbench Demonstrations -->
+<script>
+  // Workbench tab switcher logic
+  function switchState(tabId) {
+    // Hide all sections
+    document.querySelectorAll('.workbench-section').forEach(el => {
+      el.classList.add('hidden');
+    });
+
+    // Show target section
+    const target = document.getElementById('view-' + tabId);
+    if (target) {
+      target.classList.remove('hidden');
+    }
+
+    // Update active tab buttons styling
+    document.querySelectorAll('.state-tab-btn').forEach(btn => {
+      if (btn.getAttribute('data-tab') === tabId) {
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-xs');
+        btn.classList.remove('text-on-surface-variant');
+      } else {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs');
+        btn.classList.add('text-on-surface-variant');
+      }
+    });
+
+    // Auto-focus palette search when palette opened
+    if (tabId === 'state-palette') {
+      setTimeout(() => {
+        const input = document.getElementById('palette-search');
+        if (input) input.focus();
+      }, 50);
+    }
+  }
+
+  // Simulation toggle inside Section 1 (Staff vs Admin live render)
+  let isStaffMode = true;
+  function setStaffSim(staff) {
+    isStaffMode = staff;
+    const btnStaff = document.getElementById('btn-sim-staff');
+    const btnAdmin = document.getElementById('btn-sim-admin');
+    const addBtn = document.getElementById('admin-add-product-btn');
+    const adjustBtn = document.getElementById('admin-adjust-stock-btn');
+    const adminCols = document.querySelectorAll('.admin-col');
+    const adminMenuItems = document.querySelectorAll('.admin-menu-item');
+    const staffNotice = document.getElementById('staff-notice');
+
+    if (staff) {
+      btnStaff.className = "px-2.5 py-1 rounded-md bg-surface-container-lowest text-on-surface font-semibold shadow-xs";
+      btnAdmin.className = "px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface";
+      
+      addBtn.classList.add('hidden');
+      adjustBtn.classList.add('hidden');
+      adminCols.forEach(col => col.classList.add('hidden'));
+      adminMenuItems.forEach(item => item.classList.add('hidden'));
+      staffNotice.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+          <span class="font-body-default text-caption text-on-surface">Signed in as <strong>Ravi Patel</strong> · POS Terminal Operations Enabled (Meera Stationery & Gifts)</span>
+        </div>
+        <span class="font-mono text-caption text-on-surface-variant">GST: 07AABCM8294N1ZZ</span>
+      `;
+    } else {
+      btnAdmin.className = "px-2.5 py-1 rounded-md bg-surface-container-lowest text-on-surface font-semibold shadow-xs";
+      btnStaff.className = "px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface";
+
+      addBtn.classList.remove('hidden');
+      adjustBtn.classList.remove('hidden');
+      adminCols.forEach(col => col.classList.remove('hidden'));
+      adminMenuItems.forEach(item => item.classList.remove('hidden'));
+      staffNotice.innerHTML = `
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[18px]">admin_panel_settings</span>
+          <span class="font-body-default text-caption text-on-surface">Signed in as <strong>Meera Sharma (Store Owner)</strong> · Unrestricted Admin Privileges Active</span>
+        </div>
+        <span class="font-mono text-caption text-primary font-semibold">ALL MARGINS UNMASKED</span>
+      `;
+    }
+  }
+
+  // Row kebab toggle
+  function toggleRowMenu(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle('hidden');
+    }
+  }
+
+  // Offline banner dismissal toggle
+  function toggleOfflineNotice() {
+    const banner = document.getElementById('offline-banner');
+    if (banner) {
+      banner.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => banner.style.display = 'none', 300);
+    }
+  }
+
+  // Session PIN helpers
+  function appendPin(num) {
+    const input = document.getElementById('pin-input');
+    if (input && input.value.length < 6) {
+      input.value += num;
+    }
+  }
+  function clearPin() {
+    const input = document.getElementById('pin-input');
+    if (input) input.value = '';
+  }
+  function backspacePin() {
+    const input = document.getElementById('pin-input');
+    if (input) input.value = input.value.slice(0, -1);
+  }
+  function fillPin() {
+    const input = document.getElementById('pin-input');
+    if (input) input.value = '4821';
+  }
+  function handleUnlock(e) {
+    e.preventDefault();
+    const input = document.getElementById('pin-input');
+    if (input && input.value.length >= 4) {
+      alert("Terminal unlocked successfully! Returning to active ledger.");
+      switchState('staff-matrix');
+    } else {
+      alert("Please enter a valid 4-digit PIN (e.g. 4821).");
+    }
+  }
+
+  // Command palette filter micro-interaction
+  function filterPalette(term) {
+    term = term.toLowerCase().trim();
+    const items = document.querySelectorAll('.palette-item');
+    items.forEach(item => {
+      const text = item.innerText.toLowerCase();
+      if (!term || text.includes(term)) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Live countdown timer for the offline retry ticker
+  let seconds = 4;
+  setInterval(() => {
+    seconds--;
+    if (seconds <= 0) seconds = 5;
+    const countEl = document.getElementById('retry-countdown');
+    if (countEl) countEl.innerText = seconds + 's';
+  }, 1000);
+</script></main></div></body></html>

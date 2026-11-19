@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-container":"#006f66","outline-variant":"#c7c4d8","on-primary-fixed":"#0f0069","on-primary-fixed-variant":"#3323cc","primary-fixed-dim":"#c3c0ff","on-primary-container":"#dad7ff","on-secondary-fixed-variant":"#005049","surface-bright":"#faf8ff","surface-container-high":"#e2e7ff","surface":"#faf8ff","on-secondary-fixed":"#00201d","surface-container-lowest":"#ffffff","tertiary-container":"#a44100","secondary-fixed-dim":"#6bd8cb","background":"#faf8ff","surface-container":"#eaedff","on-tertiary-container":"#ffd2be","surface-tint":"#4d44e3","on-tertiary-fixed":"#351000","surface-container-low":"#f2f3ff","on-surface-variant":"#464555","surface-dim":"#d2d9f4","on-tertiary-fixed-variant":"#7b2f00","on-surface":"#131b2e","on-error":"#ffffff","error":"#ba1a1a","primary-fixed":"#e2dfff","tertiary-fixed-dim":"#ffb695","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","tertiary":"#7e3000","on-primary":"#ffffff","primary":"#3525cd","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","outline":"#777587","inverse-primary":"#c3c0ff","inverse-surface":"#283044","on-background":"#131b2e","tertiary-fixed":"#ffdbcc","on-secondary":"#ffffff","surface-variant":"#dae2fd","primary-container":"#4f46e5","secondary-fixed":"#89f5e7","secondary":"#006a61","error-container":"#ffdad6","secondary-container":"#86f2e4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","space-2xl":"3rem","space-xl":"2rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","gutter":"1rem"},"fontFamily":{"page-title":["Inter"],"hero-metric":["Inter"],"table-cell":["Inter"],"caption":["Inter"],"section-title":["Inter"],"body-medium":["Inter"],"table-header":["Inter"],"lead":["Inter"],"page-title-mobile":["Inter"],"body-default":["Inter"],"overline":["Inter"]},"fontSize":{"page-title":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"hero-metric":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"table-cell":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"section-title":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"table-header":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"lead":["16px",{"lineHeight":"24px","fontWeight":"400"}],"page-title-mobile":["22px",{"lineHeight":"28px","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"overline":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[248px] bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-primary to-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(79,70,229,0.3)]"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><div class="flex flex-col"><span class="font-section-title text-[17px] leading-tight text-on-surface font-bold tracking-tight">StockIQ</span><span class="font-caption text-[11px] leading-none text-on-surface-variant font-medium">Intelligence Suite</span></div></div><div class="px-space-sm mb-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">storefront</span><span class="font-body-medium text-[13px] text-on-surface truncate">Meera Stationery &amp; Gifts</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">unfold_more</span></div></div><div class="px-space-sm mb-space-sm"><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary-container transition-colors" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="truncate font-semibold">POS / New Sale</span><kbd class="ml-auto text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F2</kbd></a></div><nav class="flex flex-col gap-0.5 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-body-medium rounded-lg shadow-sm"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="products" href="#">Products</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="inventory" href="#">Inventory</a><a aria-current="page" class="flex items-center px-space-sm py-2 transition-colors bg-primary-container text-on-primary font-body-medium rounded-lg shadow-sm" data-path="sales-ledger-and-order-history" href="#">Sales</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="purchases" href="#">Purchases</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="suppliers" href="#">Suppliers</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="alerts-and-reorder" href="#">Alerts &amp; Reorder</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="movement-history" href="#">Movement History</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="reports" href="#">Reports</a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center justify-between"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-overline bg-primary-fixed text-on-primary-fixed font-semibold">Meera (Admin)</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-caption text-[11px] text-on-surface-variant">Online · Sync OK</span></div></div></div></aside><div class="pl-[248px]"><header class="fixed top-0 left-[248px] right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-full w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><span class="font-section-title text-[15px] font-semibold text-on-surface leading-tight">Meera Stationery &amp; Gifts</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Terminal 01 · POS-Active</span></div></div><div class="h-6 w-px bg-outline-variant/40 hidden md:block"></div><a class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-[13px] font-body-medium transition-colors border border-outline-variant/40 shadow-xs" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-secondary text-[16px]">receipt_long</span><span>New POS Bill</span></a></div><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80 h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-default text-caption text-on-surface-variant flex-1 truncate">Quick inventory, SKUs, or actions...</span><kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container-highest text-on-surface-variant rounded border border-outline-variant/40 shadow-xs">⌘K</kbd></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Toggle theme" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-space-xs cursor-pointer group"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-body-medium text-[13px] text-on-surface leading-snug group-hover:text-primary transition-colors">Meera</span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Store Owner</span></div><span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface text-[18px] transition-colors">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Command Sub-header & Prototype Switcher -->
+<section class="w-full bg-surface-container-lowest px-space-lg py-3 flex flex-wrap items-center justify-between gap-y-3 shadow-sm sticky top-16 z-30">
+<div class="flex flex-col gap-0.5 min-w-0">
+<div class="flex items-center gap-1.5 text-overline font-overline text-on-surface-variant uppercase tracking-wider">
+<span class="hover:text-primary cursor-pointer transition-colors">Sales &amp; Billing</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Transaction Audit</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Meera Stationery &amp; Gifts</span>
+</div>
+<div class="flex items-center gap-2">
+<h1 class="text-section-title font-section-title text-on-surface tracking-tight font-bold">Sales Ledger &amp; Order History</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-semibold bg-surface-container-high text-on-surface-variant">
+          FY 2026-27
+        </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-caption font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Terminal 01 Sync Live
+        </span>
+</div>
+</div>
+<!-- Prototype State Selector Chips -->
+<div class="flex items-center gap-1.5 bg-surface-container-low p-1 rounded-xl shadow-inner">
+<button class="px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center gap-1.5" id="btn-state-ledger" onclick="switchState('ledger')">
+<span class="material-symbols-outlined text-[15px]">list_alt</span>
+        Default Ledger (1,420 Orders)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-1.5" id="btn-state-drawer" onclick="switchState('drawer')">
+<span class="material-symbols-outlined text-[15px]">side_navigation</span>
+        Order Drawer (#DEL-9842)
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-1.5" id="btn-state-refund" onclick="switchState('refund')">
+<span class="material-symbols-outlined text-[15px]">assignment_return</span>
+        Refund / Return Modal
+      </button>
+<button class="px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-1.5" id="btn-state-empty" onclick="switchState('empty')">
+<span class="material-symbols-outlined text-[15px]">filter_alt_off</span>
+        Empty State
+      </button>
+</div>
+</section>
+<!-- Main Body Content Area -->
+<div class="px-space-lg py-space-md flex flex-col gap-space-md max-w-[1520px] mx-auto w-full">
+<!-- KPI Metric Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md" id="kpi-banner-grid">
+<!-- Card 1: Today's Gross Sales -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-xs flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-overline font-overline text-on-surface-variant tracking-wider uppercase">Today's Gross Sales</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-hero-metric font-hero-metric text-on-surface font-bold tracking-tight">₹18,450.00</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">currency_rupee</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-caption font-caption text-on-surface-variant bg-surface-container-lowest">
+<div class="flex items-center gap-1.5 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+12.4% vs y'day</span>
+</div>
+<span class="tabular-nums">37 bills · Avg ₹498.60</span>
+</div>
+<!-- Decorative Micro sparkline SVG -->
+<div class="absolute right-2 bottom-9 opacity-35 group-hover:opacity-60 transition-opacity pointer-events-none">
+<svg fill="none" height="28" viewbox="0 0 104 28" width="104">
+<path class="text-primary" d="M2 24L18 20L34 22L50 14L66 16L82 6L102 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+<path class="text-primary/10" d="M2 24L18 20L34 22L50 14L66 16L82 6L102 4V28H2V24Z" fill="currentColor"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2: Collection Breakdown -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-overline font-overline text-on-surface-variant tracking-wider uppercase">Tender Distribution</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-hero-metric font-hero-metric text-on-surface font-bold tracking-tight">₹18,450.00</span>
+</div>
+</div>
+<button class="text-caption font-body-medium text-primary hover:text-primary-container inline-flex items-center gap-0.5">
+            Breakup <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<!-- Segmented bar -->
+<div class="mt-3 flex flex-col gap-1.5">
+<div class="h-2 w-full rounded-full bg-surface-container flex overflow-hidden">
+<div class="bg-primary h-full rounded-l-full" style="width: 58%" title="UPI: ₹10,701 (58%)"></div>
+<div class="bg-secondary h-full" style="width: 32%" title="Cash: ₹5,904 (32%)"></div>
+<div class="bg-surface-tint h-full rounded-r-full" style="width: 10%" title="Card POS: ₹1,845 (10%)"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-caption text-on-surface-variant tabular-nums">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>UPI ₹10.7k (58%)</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>Cash ₹5.9k (32%)</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-surface-tint inline-block"></span>POS ₹1.8k</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Tax Collected (GST) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-overline font-overline text-on-surface-variant tracking-wider uppercase">GST Collected</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-surface-container text-on-surface-variant">GSTR-1</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-hero-metric font-hero-metric text-on-surface font-bold tracking-tight">₹1,660.50</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<div class="flex items-center gap-2 tabular-nums">
+<span>CGST: ₹830.25</span>
+<span class="text-outline-variant">·</span>
+<span>SGST: ₹830.25</span>
+</div>
+<span class="text-primary font-semibold">4 B2B Invoices</span>
+</div>
+</div>
+<!-- Card 4: Returns & Exchange -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="text-overline font-overline text-on-surface-variant tracking-wider uppercase">Returns / Refunds</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-hero-metric font-hero-metric text-on-surface font-bold tracking-tight">₹65.00</span>
+<span class="text-caption font-caption text-on-surface-variant">1 bill</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">assignment_return</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            0.35% Return Rate (Ultra-Low)
+          </span>
+<span class="text-on-surface-variant text-[11px] truncate max-w-[120px]" title="Defective Pilot Nib Replacement">Defective nib exchange</span>
+</div>
+</div>
+</div>
+<!-- Filter & Precision Control Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-xs flex flex-col gap-3">
+<!-- Search & Primary Dropdowns -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<!-- Universal Ledger Search -->
+<div class="relative flex-1 min-w-[300px]">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-14 text-body-medium font-body-medium rounded-lg bg-surface-container-low text-on-surface placeholder:text-on-surface-variant outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" id="ledger-search-input" oninput="handleSearch(this.value)" placeholder="Search by invoice # (e.g. DEL-9842), customer phone, GSTIN, or item SKU..." type="text"/>
+<div class="absolute right-2.5 top-2 flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-surface-container text-on-surface-variant rounded">⌘K</kbd>
+</div>
+</div>
+<!-- Action Exports & Date Presets -->
+<div class="flex items-center flex-wrap gap-2">
+<!-- Date Filter Picker -->
+<div class="relative">
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">calendar_today</span>
+<span>Today (16 Nov 2026)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<!-- Channel / Customer Type Scope -->
+<div class="relative">
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">store</span>
+<span>All Channels (Walk-in &amp; B2B)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+<!-- Export CSV -->
+<button class="h-9 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors" onclick="simulateExport('GSTR-1 CSV')">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">download</span>
+<span>GSTR-1 CSV</span>
+</button>
+<!-- Export PDF -->
+<button class="h-9 px-3 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-caption font-body-medium flex items-center gap-1.5 shadow-xs transition-colors" onclick="simulateExport('PDF Ledger')">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span>Export Day Book</span>
+</button>
+</div>
+</div>
+<!-- Secondary Tag Filter Row -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-2 bg-surface-container-lowest">
+<!-- Tender Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+<span class="text-overline font-overline text-on-surface-variant uppercase mr-1">Tender:</span>
+<button class="tender-pill active-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-primary text-on-primary shadow-xs" onclick="filterTender('all')">All Payments (37)</button>
+<button class="tender-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container" onclick="filterTender('upi')">UPI QR (22)</button>
+<button class="tender-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container" onclick="filterTender('cash')">Cash Counter (12)</button>
+<button class="tender-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container" onclick="filterTender('card')">HDFC POS (3)</button>
+<button class="tender-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container" onclick="filterTender('split')">Split Tender (0)</button>
+</div>
+<!-- Status Filter Pills -->
+<div class="flex items-center gap-1.5">
+<span class="text-overline font-overline text-on-surface-variant uppercase mr-1">Status:</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            35 Completed
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            2 Refunded/Exchanged
+          </span>
+</div>
+</div>
+</div>
+<!-- Sales Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-xs overflow-hidden flex flex-col" id="ledger-table-view">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-table-cell font-table-cell">
+<!-- Sticky Precision Table Header -->
+<thead class="bg-surface-container-low text-on-surface-variant uppercase text-table-header font-table-header sticky top-0 z-20">
+<tr>
+<th class="py-2.5 px-space-md" scope="col">Invoice # &amp; Time</th>
+<th class="py-2.5 px-space-md" scope="col">Customer &amp; Channel</th>
+<th class="py-2.5 px-space-md min-w-[260px]" scope="col">Items Breakdown</th>
+<th class="py-2.5 px-space-md text-right" scope="col">Items / Qty</th>
+<th class="py-2.5 px-space-md" scope="col">Payment Tender</th>
+<th class="py-2.5 px-space-md text-right" scope="col">Subtotal &amp; Tax</th>
+<th class="py-2.5 px-space-md text-right" scope="col">Total Net</th>
+<th class="py-2.5 px-space-md text-center" scope="col">Status</th>
+<th class="py-2.5 px-space-md text-center" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/60 bg-surface-container-lowest" id="sales-table-body">
+<!-- Row 1: #DEL-9842 (Featured Drawer Trigger) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9842')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9842</span>
+<span class="material-symbols-outlined text-[13px] text-primary opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">12:45 PM · Term 01 (Ravi)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Walk-in Customer</span>
+<div class="flex items-center gap-1 text-caption font-caption text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[12px] text-secondary">phone_iphone</span>
+                    +91 98112-40291
+                  </div>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Classmate A4 x2</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Pilot V5 x3</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">JK A4 Copier x1</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">3 items</span>
+<span class="block text-caption font-caption text-on-surface-variant">(6 pcs)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[14px]">qr_code_2</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">Paytm UPI QR</span>
+<span class="text-[10px] text-on-surface-variant font-mono">TXN-991284</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹516.90</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹53.10</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹570.00</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9842')" title="Inspect Order">
+<span class="material-symbols-outlined text-[17px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9842')" title="Reprint Receipt (80mm)">
+<span class="material-symbols-outlined text-[17px]">print</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9842')" title="Issue Return/Exchange">
+<span class="material-symbols-outlined text-[17px]">replay</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9842')" title="WhatsApp Receipt">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: #DEL-9841 (B2B Tax Invoice) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9841')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9841</span>
+<span class="px-1 py-0.2 bg-primary/10 text-primary text-[9px] font-bold rounded uppercase">B2B Tax</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">12:18 PM · Term 01 (Meera)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">St. Xavier's High School</span>
+<span class="text-caption font-caption text-on-surface-variant font-mono text-[11px]">GSTIN: 07AAACS1234F1Z5</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">JK Copier x10 reams</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Camlin Geometry x5</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-primary">+1 more</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">4 items</span>
+<span class="block text-caption font-caption text-on-surface-variant">(27 pcs)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">HDFC Card POS</span>
+<span class="text-[10px] text-on-surface-variant font-mono">VISA ··· 8912</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹3,920.00</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹352.80</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹4,272.80</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9841')" title="Inspect Order">
+<span class="material-symbols-outlined text-[17px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9841')" title="Reprint A4 Tax Invoice">
+<span class="material-symbols-outlined text-[17px]">print</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9841')" title="Issue Return/Exchange">
+<span class="material-symbols-outlined text-[17px]">replay</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9841')" title="WhatsApp Receipt">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: #DEL-9840 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9840')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9840</span>
+<span class="text-caption font-caption text-on-surface-variant">11:50 AM · Term 01 (Ravi)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Pooja Sharma</span>
+<div class="flex items-center gap-1 text-caption font-caption text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[12px] text-secondary">phone_iphone</span>
+                    +91 98731-99201
+                  </div>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Luxor Pastel Highlighters x2</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Sticky Notes 3x3 x3</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">2 items</span>
+<span class="block text-caption font-caption text-on-surface-variant">(5 pcs)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">payments</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">Cash Counter</span>
+<span class="text-[10px] text-on-surface-variant">Exact Change Received</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹325.00</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹29.25</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹354.25</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9840')"><span class="material-symbols-outlined text-[17px]">visibility</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9840')"><span class="material-symbols-outlined text-[17px]">print</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9840')"><span class="material-symbols-outlined text-[17px]">replay</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9840')"><span class="material-symbols-outlined text-[17px]">chat</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4: #DEL-9839 (Refunded / Exchanged) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer bg-error-container/10" onclick="openOrderDrawer('DEL-9839')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-error text-[13px] hover:underline">#DEL-9839</span>
+<span class="px-1 py-0.2 bg-error-container text-on-error-container text-[9px] font-bold rounded uppercase">Refunded</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">11:15 AM · Term 01 (Ravi)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Walk-in Cash Guest</span>
+<span class="text-caption font-caption text-on-surface-variant">Walk-in Retail</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-error-container/40 text-error line-through">Pilot V5 Hi-Tecpoint x1</span>
+<span class="text-[10px] text-error font-medium italic">Defective Nib leak</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-error font-medium">1 item</span>
+<span class="block text-caption font-caption text-on-surface-variant">(1 pc returned)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[14px]">assignment_return</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-error">Cash Refund</span>
+<span class="text-[10px] text-on-surface-variant">Voucher #RF-104</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹55.08</span>
+<span class="text-[11px] text-error font-medium block">GST Rev: ₹4.92</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-error font-bold font-mono">-₹60.00</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Refunded
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9839')"><span class="material-symbols-outlined text-[17px]">visibility</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9839')"><span class="material-symbols-outlined text-[17px]">print</span></button>
+<button class="p-1 rounded text-outline-variant cursor-not-allowed opacity-50" title="Already Processed"><span class="material-symbols-outlined text-[17px]">block</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9839')"><span class="material-symbols-outlined text-[17px]">chat</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 5: #DEL-9838 (B2B PhonePe) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9838')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9838</span>
+<span class="px-1 py-0.2 bg-primary/10 text-primary text-[9px] font-bold rounded uppercase">B2B</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">10:42 AM · Term 01 (Meera)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Apex Coaching Center</span>
+<span class="text-caption font-caption text-on-surface-variant font-mono text-[11px]">GSTIN: 07BQWPK8821B1Z2</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Kangaro Stapler x4</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Hauser Markers x8 packs</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">5 items</span>
+<span class="block text-caption font-caption text-on-surface-variant">(12 pcs)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[14px]">qr_code_2</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">PhonePe UPI</span>
+<span class="text-[10px] text-on-surface-variant font-mono">TXN-482109</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹1,640.00</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹147.60</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹1,787.60</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9838')"><span class="material-symbols-outlined text-[17px]">visibility</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9838')"><span class="material-symbols-outlined text-[17px]">print</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9838')"><span class="material-symbols-outlined text-[17px]">replay</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9838')"><span class="material-symbols-outlined text-[17px]">chat</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 6: #DEL-9837 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9837')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9837</span>
+<span class="text-caption font-caption text-on-surface-variant">10:10 AM · Term 01 (Ravi)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Walk-in Retail</span>
+<span class="text-caption font-caption text-on-surface-variant">Direct Store Visitor</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Faber-Castell Erasers x5</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Nataraj 621 Pencils x2</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">3 items</span>
+<span class="block text-caption font-caption text-on-surface-variant">(7 pcs)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[14px]">qr_code_2</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">Paytm Soundbox</span>
+<span class="text-[10px] text-secondary font-medium">Chime Verified</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹154.55</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹15.45</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹170.00</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9837')"><span class="material-symbols-outlined text-[17px]">visibility</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9837')"><span class="material-symbols-outlined text-[17px]">print</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9837')"><span class="material-symbols-outlined text-[17px]">replay</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9837')"><span class="material-symbols-outlined text-[17px]">chat</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 7: #DEL-9836 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group cursor-pointer" onclick="openOrderDrawer('DEL-9836')">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-mono font-bold text-primary text-[13px] hover:underline">#DEL-9836</span>
+<span class="text-caption font-caption text-on-surface-variant">09:35 AM · Term 01 (Ravi)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Walk-in Retail</span>
+<span class="text-caption font-caption text-on-surface-variant">Morning Opening Sale</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-wrap items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-on-surface">Classmate Notebook A4 x1</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="font-mono text-on-surface font-medium">1 item</span>
+<span class="block text-caption font-caption text-on-surface-variant">(1 pc)</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">payments</span>
+</span>
+<div class="flex flex-col">
+<span class="text-[12px] font-semibold text-on-surface">Cash Counter</span>
+<span class="text-[10px] text-on-surface-variant">₹100 note tendered</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap tabular-nums">
+<span class="text-caption font-caption text-on-surface-variant block">Sub: ₹58.04</span>
+<span class="text-[11px] text-secondary font-medium block">+GST: ₹6.96</span>
+</td>
+<td class="py-3 px-space-md text-right whitespace-nowrap">
+<span class="text-body-medium font-body-medium text-on-surface font-bold font-mono">₹65.00</span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Completed
+                </span>
+</td>
+<td class="py-3 px-space-md text-center whitespace-nowrap" onclick="event.stopPropagation()">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openOrderDrawer('DEL-9836')"><span class="material-symbols-outlined text-[17px]">visibility</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="simulatePrint('DEL-9836')"><span class="material-symbols-outlined text-[17px]">print</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-error-container/30 transition-colors" onclick="openRefundModal('DEL-9836')"><span class="material-symbols-outlined text-[17px]">replay</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:text-secondary hover:bg-secondary-fixed/50 transition-colors" onclick="shareWhatsApp('DEL-9836')"><span class="material-symbols-outlined text-[17px]">chat</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Precision Table Footer Pagination & Summary -->
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-3 text-caption font-caption text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Showing <strong class="text-on-surface font-semibold">1 – 7</strong> of <strong class="text-on-surface font-semibold">37 transactions</strong> today</span>
+<span class="text-outline-variant">|</span>
+<span>Day Closing Batched at 10:00 PM</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface disabled:opacity-40 transition-colors flex items-center justify-center" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="h-8 w-8 rounded-lg bg-primary text-on-primary font-semibold flex items-center justify-center shadow-xs">1</button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-medium flex items-center justify-center transition-colors">2</button>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-medium flex items-center justify-center transition-colors">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="h-8 w-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-medium flex items-center justify-center transition-colors">6</button>
+<button class="h-8 px-2.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State View (Toggled via Prototype switcher) -->
+<div class="hidden bg-surface-container-lowest rounded-xl p-space-2xl flex flex-col items-center justify-center text-center shadow-xs" id="ledger-empty-view">
+<div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[36px]">receipt_long</span>
+</div>
+<h3 class="text-section-title font-section-title text-on-surface font-semibold">No transactions match your search filter</h3>
+<p class="text-body-default font-body-default text-on-surface-variant max-w-md mt-1 mb-6">
+        No sales records found matching the active criteria. Try broadening your date range, clearing the search query, or checking another POS terminal.
+      </p>
+<div class="flex items-center gap-3">
+<button class="h-9 px-4 rounded-lg bg-primary text-on-primary font-body-medium text-caption hover:bg-primary-container shadow-xs transition-colors flex items-center gap-1.5" onclick="resetFilters()">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+          Reset All Filters
+        </button>
+<button class="h-9 px-4 rounded-lg bg-surface-container text-on-surface font-body-medium text-caption hover:bg-surface-container-high transition-colors" onclick="switchState('ledger')">
+          View Today's Ledger
+        </button>
+</div>
+</div>
+</div>
+<!-- Slide-Out Detailed Order Inspection Drawer (480px, anchored right) -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-hidden" id="order-drawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-section-title text-primary">#DEL-9842</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-caption font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Paid · Verified
+          </span>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="closeOrderDrawer()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<span>Placed: Today, 16 Nov 2026 · 12:45 PM</span>
+<span class="font-medium text-on-surface">Cashier: Ravi (Desk 01)</span>
+</div>
+<!-- Quick Action Toolbar -->
+<div class="grid grid-cols-3 gap-2 mt-2">
+<button class="h-8 px-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex items-center justify-center gap-1 shadow-xs transition-colors" onclick="simulatePrint('DEL-9842')">
+<span class="material-symbols-outlined text-[15px] text-primary">receipt</span>
+          80mm Thermal
+        </button>
+<button class="h-8 px-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex items-center justify-center gap-1 shadow-xs transition-colors" onclick="shareWhatsApp('DEL-9842')">
+<span class="material-symbols-outlined text-[15px] text-secondary">chat</span>
+          WhatsApp e-Bill
+        </button>
+<button class="h-8 px-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex items-center justify-center gap-1 shadow-xs transition-colors" onclick="simulatePrint('DEL-9842')">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">picture_as_pdf</span>
+          A4 GST Tax
+        </button>
+</div>
+</div>
+<!-- Drawer Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-md">
+<!-- Customer Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+            WC
+          </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-body-medium font-body-medium text-on-surface font-semibold">Walk-in Retail Customer</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] font-semibold bg-surface-container-highest text-on-surface-variant">Silver Tier</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant font-mono">+91 98112-40291 · 240 loyalty pts</span>
+</div>
+</div>
+<button class="text-primary hover:text-primary-container text-caption font-semibold">Profile</button>
+</div>
+<!-- Line Items Breakdown -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-overline font-overline text-on-surface-variant uppercase tracking-wider">Line Items (3 SKUs · 6 Units)</span>
+<span class="text-[11px] text-on-surface-variant">HSN / GST Compliant</span>
+</div>
+<div class="flex flex-col divide-y divide-surface-container-high/60 bg-surface-container-low/50 rounded-xl p-2">
+<!-- Item 1 -->
+<div class="py-2.5 px-2 flex items-start justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-body-medium font-body-medium text-on-surface font-medium truncate">Classmate Notebook A4 Ruled (200 pg)</span>
+<div class="flex items-center gap-2 text-caption font-caption text-on-surface-variant font-mono">
+<span>SKU: NB-A4-200</span>
+<span>·</span>
+<span>HSN: 4820</span>
+<span>·</span>
+<span>Qty: 2 @ ₹65.00</span>
+</div>
+</div>
+<span class="font-mono text-body-medium font-bold text-on-surface shrink-0">₹130.00</span>
+</div>
+<!-- Item 2 -->
+<div class="py-2.5 px-2 flex items-start justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-body-medium font-body-medium text-on-surface font-medium truncate">Pilot V5 Hi-Tecpoint Roller Pen (Blue)</span>
+<div class="flex items-center gap-2 text-caption font-caption text-on-surface-variant font-mono">
+<span>SKU: PN-V5-BLU</span>
+<span>·</span>
+<span>HSN: 9608</span>
+<span>·</span>
+<span>Qty: 3 @ ₹60.00</span>
+</div>
+</div>
+<span class="font-mono text-body-medium font-bold text-on-surface shrink-0">₹180.00</span>
+</div>
+<!-- Item 3 -->
+<div class="py-2.5 px-2 flex items-start justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-body-medium font-body-medium text-on-surface font-medium truncate">JK A4 Copier Paper 75 GSM (500 Sheets)</span>
+<div class="flex items-center gap-2 text-caption font-caption text-on-surface-variant font-mono">
+<span>SKU: PP-A4-75</span>
+<span>·</span>
+<span>HSN: 4802</span>
+<span>·</span>
+<span>Qty: 1 @ ₹280.00</span>
+</div>
+</div>
+<span class="font-mono text-body-medium font-bold text-on-surface shrink-0">₹280.00</span>
+</div>
+</div>
+</div>
+<!-- Financial Calculation Matrix -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2 font-mono text-caption">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Gross Subtotal</span>
+<span>₹590.00</span>
+</div>
+<div class="flex items-center justify-between text-secondary">
+<span class="flex items-center gap-1 font-sans">
+<span class="material-symbols-outlined text-[14px]">sell</span>
+            Promo Discount (BACK2SCHOOL)
+          </span>
+<span>-₹20.00</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>CGST @ 9% (State share)</span>
+<span>₹26.55</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>SGST @ 9% (Central share)</span>
+<span>₹26.55</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Round Off</span>
+<span>-₹0.00</span>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<div class="flex items-center justify-between text-body-medium text-on-surface font-bold font-sans">
+<span>Final Amount Paid</span>
+<span class="font-mono text-primary text-[17px]">₹570.00</span>
+</div>
+</div>
+<!-- Payment Audit Trace & Soundbox Verification -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-overline font-overline text-on-surface-variant uppercase">Payment Settlement Audit</span>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-secondary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+            Settled via Paytm Gateway
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-caption font-caption text-on-surface-variant">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-overline">Channel / Gateway</span>
+<span class="text-on-surface font-medium font-mono text-[12px]">Paytm Dynamic QR</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-overline">Merchant Txn ID</span>
+<span class="text-on-surface font-medium font-mono text-[12px]">TXN-99128472910</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-overline">Bank UPI Ref RRN</span>
+<span class="text-on-surface font-medium font-mono text-[12px]">432190821092</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-overline">Terminal Node</span>
+<span class="text-on-surface font-medium text-[12px]">POS-TERM-01 (Cash Desk)</span>
+</div>
+</div>
+<div class="mt-2 p-2 rounded-lg bg-secondary-fixed/30 flex items-center gap-2 text-[11px] text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px] text-secondary">volume_up</span>
+<span>Soundbox Confirmation: Chime verified at 12:45:14 PM (Audio received)</span>
+</div>
+</div>
+<!-- Restock & Audit Ledger Footprint -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1.5 text-caption">
+<div class="flex items-center gap-1.5 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">inventory_2</span>
+<span>Inventory Depletion Logged</span>
+</div>
+<p class="text-on-surface-variant font-mono text-[11px] leading-relaxed">
+          Ledger updated automatically: NB-A4-200 (-2 units), PN-V5-BLU (-3 units), PP-A4-75 (-1 ream). Bin: A1-SEC4.
+        </p>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between gap-3">
+<button class="h-9 px-3 rounded-lg bg-surface-container-highest hover:bg-error-container hover:text-on-error-container text-on-surface text-caption font-body-medium flex items-center gap-1.5 transition-colors" onclick="openRefundModal('DEL-9842')">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+        Initiate Return / Exchange
+      </button>
+<button class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-caption font-body-medium font-semibold shadow-xs transition-colors" onclick="closeOrderDrawer()">
+        Done Inspecting
+      </button>
+</div>
+</div>
+<!-- Slide-Over Drawer Scrim Backdrop -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-xs z-40 hidden transition-opacity" id="drawer-backdrop" onclick="closeOrderDrawer()"></div>
+<!-- Refund & Return Precision Modal Dialog -->
+<div class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" id="refund-modal">
+<div class="fixed inset-0 bg-on-surface/45 backdrop-blur-xs" onclick="closeRefundModal()"></div>
+<div class="relative w-full max-w-xl bg-surface-container-lowest rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-error-container/50 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">assignment_return</span>
+</div>
+<div class="flex flex-col">
+<h3 class="text-section-title font-section-title text-on-surface font-bold leading-tight">Process Return &amp; Exchange</h3>
+<span class="text-caption font-caption text-on-surface-variant font-mono">Invoice Reference: #DEL-9842 · Walk-in Retail</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" onclick="closeRefundModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<div class="p-space-lg flex flex-col gap-4 max-h-[716px] overflow-y-auto">
+<!-- Item Selection for Return -->
+<div class="flex flex-col gap-2">
+<span class="text-overline font-overline text-on-surface-variant uppercase">Select Items to Return / Replace</span>
+<div class="flex flex-col gap-2">
+<!-- Row 1 -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-medium">Classmate Notebook A4 (200 pg)</span>
+<span class="text-caption font-caption text-on-surface-variant">Qty sold: 2 @ ₹65.00</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-caption font-caption text-on-surface-variant">Return:</span>
+<select class="h-8 px-2 rounded bg-surface-container-lowest text-on-surface text-caption font-medium outline-none">
+<option>1 pc (₹65.00)</option>
+<option>2 pcs (₹130.00)</option>
+</select>
+</div>
+</label>
+<!-- Row 2 -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-medium">Pilot V5 Hi-Tecpoint (Blue)</span>
+<span class="text-caption font-caption text-on-surface-variant">Qty sold: 3 @ ₹60.00</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-caption font-caption text-on-surface-variant">Return:</span>
+<select class="h-8 px-2 rounded bg-surface-container-lowest text-on-surface text-caption font-medium outline-none">
+<option selected="">1 pc (₹60.00)</option>
+<option>2 pcs (₹120.00)</option>
+<option>3 pcs (₹180.00)</option>
+</select>
+</div>
+</label>
+<!-- Row 3 -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors opacity-75">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-medium font-body-medium text-on-surface font-medium">JK A4 Copier Paper (500 sheets)</span>
+<span class="text-caption font-caption text-on-surface-variant">Qty sold: 1 @ ₹280.00</span>
+</div>
+</div>
+<span class="text-caption text-on-surface-variant">1 pc</span>
+</label>
+</div>
+</div>
+<!-- Reason for Return -->
+<div class="flex flex-col gap-1.5">
+<label class="text-overline font-overline text-on-surface-variant uppercase">Reason for Return / Exchange</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-body-medium font-body-medium outline-none">
+<option>Defective / Damaged product (Manufacturer issue)</option>
+<option>Customer change of mind (Within same day)</option>
+<option>Incorrect item scanned at checkout</option>
+<option>Customer requested store credit voucher</option>
+</select>
+</div>
+<!-- Stock Disposition Policy -->
+<div class="flex flex-col gap-2">
+<span class="text-overline font-overline text-on-surface-variant uppercase">Stock Restock Decision</span>
+<div class="grid grid-cols-2 gap-2">
+<label class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<input class="accent-primary" name="disposition" type="radio"/>
+<span class="text-body-medium font-medium text-on-surface">Return to Inventory</span>
+</div>
+<span class="text-[11px] text-on-surface-variant pl-5">Add 1 unit back to active Bin A1-SEC4</span>
+</label>
+<label class="p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer flex flex-col gap-1 border-primary">
+<div class="flex items-center gap-2">
+<input checked="" class="accent-primary" name="disposition" type="radio"/>
+<span class="text-body-medium font-medium text-error">Mark as Damaged / Waste</span>
+</div>
+<span class="text-[11px] text-on-surface-variant pl-5">Do not restock; claim vendor return credit</span>
+</label>
+</div>
+</div>
+<!-- Refund Tender Method -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-overline font-overline text-on-surface-variant uppercase">Payout Method</span>
+<span class="text-caption font-bold text-on-surface font-mono">Refund Due: ₹60.00</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="h-9 px-2 rounded-lg bg-primary text-on-primary text-caption font-semibold flex items-center justify-center gap-1 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[15px]">payments</span>
+              Cash Refund
+            </button>
+<button class="h-9 px-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-medium flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[15px]">qr_code_2</span>
+              UPI Reverse
+            </button>
+<button class="h-9 px-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-caption font-medium flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[15px]">confirmation_number</span>
+              Store Credit
+            </button>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<button class="h-9 px-4 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high text-caption font-medium transition-colors" onclick="closeRefundModal()">
+          Cancel
+        </button>
+<button class="h-9 px-5 rounded-lg bg-error text-on-error hover:opacity-90 text-caption font-semibold shadow-xs flex items-center gap-1.5 transition-all" onclick="confirmRefund()">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+          Confirm Return &amp; Payout (₹60.00)
+        </button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none" id="toast-container"></div>
+</div>
+<script>
+  // Prototype State Switching
+  function switchState(state) {
+    const btnLedger = document.getElementById('btn-state-ledger');
+    const btnDrawer = document.getElementById('btn-state-drawer');
+    const btnRefund = document.getElementById('btn-state-refund');
+    const btnEmpty = document.getElementById('btn-state-empty');
+
+    const tableView = document.getElementById('ledger-table-view');
+    const emptyView = document.getElementById('ledger-empty-view');
+    const kpiGrid = document.getElementById('kpi-banner-grid');
+
+    // Reset button appearances
+    [btnLedger, btnDrawer, btnRefund, btnEmpty].forEach(btn => {
+      btn.className = "px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-1.5";
+    });
+
+    if (state === 'ledger') {
+      btnLedger.className = "px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center gap-1.5";
+      tableView.classList.remove('hidden');
+      emptyView.classList.add('hidden');
+      closeOrderDrawer();
+      closeRefundModal();
+    } else if (state === 'drawer') {
+      btnDrawer.className = "px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center gap-1.5";
+      tableView.classList.remove('hidden');
+      emptyView.classList.add('hidden');
+      openOrderDrawer('DEL-9842');
+      closeRefundModal();
+    } else if (state === 'refund') {
+      btnRefund.className = "px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center gap-1.5";
+      closeOrderDrawer();
+      openRefundModal('DEL-9842');
+    } else if (state === 'empty') {
+      btnEmpty.className = "px-3 py-1.5 rounded-lg text-caption font-body-medium transition-all bg-surface-container-lowest text-primary shadow-xs font-semibold flex items-center gap-1.5";
+      tableView.classList.add('hidden');
+      emptyView.classList.remove('hidden');
+      closeOrderDrawer();
+      closeRefundModal();
+    }
+  }
+
+  // Slide-over Order Drawer Controls
+  function openOrderDrawer(orderId) {
+    const drawer = document.getElementById('order-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    drawer.classList.remove('translate-x-full');
+    backdrop.classList.remove('hidden');
+  }
+
+  function closeOrderDrawer() {
+    const drawer = document.getElementById('order-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    drawer.classList.add('translate-x-full');
+    backdrop.classList.add('hidden');
+  }
+
+  // Refund Modal Controls
+  function openRefundModal(orderId) {
+    const modal = document.getElementById('refund-modal');
+    modal.classList.remove('hidden');
+  }
+
+  function closeRefundModal() {
+    const modal = document.getElementById('refund-modal');
+    modal.classList.add('hidden');
+  }
+
+  function confirmRefund() {
+    closeRefundModal();
+    showToast("Refund of ₹60.00 processed. Cash register adjusted & inventory ledger audited.", "assignment_return");
+  }
+
+  // Filter Pills & Search Interaction
+  function filterTender(tender) {
+    const pills = document.querySelectorAll('.tender-pill');
+    pills.forEach(p => {
+      p.className = "tender-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-surface-container-low text-on-surface-variant hover:bg-surface-container";
+    });
+    event.target.className = "tender-pill active-pill px-2.5 py-1 rounded-full text-[12px] font-body-medium bg-primary text-on-primary shadow-xs";
+
+    showToast("Ledger filtered to: " + tender.toUpperCase() + " payments.", "filter_list");
+  }
+
+  function handleSearch(query) {
+    if (query.trim().toLowerCase() === 'empty' || query.trim() === '9999') {
+      switchState('empty');
+    } else if (query.trim().length > 0) {
+      document.getElementById('ledger-table-view').classList.remove('hidden');
+      document.getElementById('ledger-empty-view').classList.add('hidden');
+    }
+  }
+
+  function resetFilters() {
+    const input = document.getElementById('ledger-search-input');
+    if (input) input.value = '';
+    switchState('ledger');
+    showToast("Filters restored to Today's Default View.", "check_circle");
+  }
+
+  // Print & WhatsApp Simulation
+  function simulatePrint(orderId) {
+    showToast("Sending " + orderId + " thermal receipt payload to Terminal 01 printer...", "print");
+  }
+
+  function shareWhatsApp(orderId) {
+    showToast("e-Receipt link prepared for WhatsApp API (+91 98112-40291)", "send");
+  }
+
+  function simulateExport(format) {
+    showToast("Generating " + format + "... File download initiated.", "download");
+  }
+
+  // Micro Toast Notification System
+  function showToast(message, icon) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = "pointer-events-auto bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2.5 text-caption font-body-medium transform transition-all duration-300 translate-y-4 opacity-0";
+    toast.innerHTML = '<span class="material-symbols-outlined text-[18px] text-secondary-fixed">' + icon + '</span><span>' + message + '</span>';
+    
+    container.appendChild(toast);
+    
+    // Animate in
+    setTimeout(() => {
+      toast.classList.remove('translate-y-4', 'opacity-0');
+    }, 10);
+
+    // Auto dismiss
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => toast.remove(), 300);
+    }, 3200);
+  }
+
+  // Global Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      const input = document.getElementById('ledger-search-input');
+      if (input) input.focus();
+    }
+    if (e.key === 'Escape') {
+      closeOrderDrawer();
+      closeRefundModal();
+    }
+  });
+</script></main></div></body></html>

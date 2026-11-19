@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-container":"#006f66","outline-variant":"#c7c4d8","on-primary-fixed":"#0f0069","on-primary-fixed-variant":"#3323cc","primary-fixed-dim":"#c3c0ff","on-primary-container":"#dad7ff","on-secondary-fixed-variant":"#005049","surface-bright":"#faf8ff","surface-container-high":"#e2e7ff","surface":"#faf8ff","on-secondary-fixed":"#00201d","surface-container-lowest":"#ffffff","tertiary-container":"#a44100","secondary-fixed-dim":"#6bd8cb","background":"#faf8ff","surface-container":"#eaedff","on-tertiary-container":"#ffd2be","surface-tint":"#4d44e3","on-tertiary-fixed":"#351000","surface-container-low":"#f2f3ff","on-surface-variant":"#464555","surface-dim":"#d2d9f4","on-tertiary-fixed-variant":"#7b2f00","on-surface":"#131b2e","on-error":"#ffffff","error":"#ba1a1a","primary-fixed":"#e2dfff","tertiary-fixed-dim":"#ffb695","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","tertiary":"#7e3000","on-primary":"#ffffff","primary":"#3525cd","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","outline":"#777587","inverse-primary":"#c3c0ff","inverse-surface":"#283044","on-background":"#131b2e","tertiary-fixed":"#ffdbcc","on-secondary":"#ffffff","surface-variant":"#dae2fd","primary-container":"#4f46e5","secondary-fixed":"#89f5e7","secondary":"#006a61","error-container":"#ffdad6","secondary-container":"#86f2e4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"1rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","space-2xl":"3rem","space-xl":"2rem","space-lg":"1.5rem","gutter-desktop":"1.5rem","margin-desktop":"2rem","gutter":"1rem"},"fontFamily":{"page-title":["Inter"],"hero-metric":["Inter"],"table-cell":["Inter"],"caption":["Inter"],"section-title":["Inter"],"body-medium":["Inter"],"table-header":["Inter"],"lead":["Inter"],"page-title-mobile":["Inter"],"body-default":["Inter"],"overline":["Inter"]},"fontSize":{"page-title":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"hero-metric":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"table-cell":["13px",{"lineHeight":"18px","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","fontWeight":"400"}],"section-title":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-medium":["14px",{"lineHeight":"20px","fontWeight":"500"}],"table-header":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"lead":["16px",{"lineHeight":"24px","fontWeight":"400"}],"page-title-mobile":["22px",{"lineHeight":"28px","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"20px","fontWeight":"400"}],"overline":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[248px] bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container via-primary to-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(79,70,229,0.3)]"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><div class="flex flex-col"><span class="font-section-title text-[17px] leading-tight text-on-surface font-bold tracking-tight">StockIQ</span><span class="font-caption text-[11px] leading-none text-on-surface-variant font-medium">Intelligence Suite</span></div></div><div class="px-space-sm mb-space-sm"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0">storefront</span><span class="font-body-medium text-[13px] text-on-surface truncate">Meera Stationery &amp; Gifts</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">unfold_more</span></div></div><div class="px-space-sm mb-space-sm"><a class="flex items-center justify-center gap-space-xs w-full py-2 px-space-sm rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-primary-container transition-colors" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="truncate font-semibold">POS / New Sale</span><kbd class="ml-auto text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F2</kbd></a></div><nav class="flex flex-col gap-0.5 px-space-sm" data-active-classes="bg-primary-container text-on-primary font-body-medium rounded-lg shadow-sm"><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="dashboard" href="#">Dashboard</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="products" href="#">Products</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="inventory" href="#">Inventory</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="sales-ledger-and-order-history" href="#">Sales</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="purchases" href="#">Purchases</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="suppliers" href="#">Suppliers</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="alerts-and-reorder" href="#">Alerts &amp; Reorder</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="movement-history" href="#">Movement History</a><a class="flex items-center px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-medium text-[13px]" data-path="reports" href="#">Reports</a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low"><div class="flex items-center justify-between"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-overline bg-primary-fixed text-on-primary-fixed font-semibold">Meera (Admin)</span><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-caption text-[11px] text-on-surface-variant">Online · Sync OK</span></div></div></div></aside><div class="pl-[248px]"><header class="fixed top-0 left-[248px] right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-full w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><span class="font-section-title text-[15px] font-semibold text-on-surface leading-tight">Meera Stationery &amp; Gifts</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Terminal 01 · POS-Active</span></div></div><div class="h-6 w-px bg-outline-variant/40 hidden md:block"></div><a class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-[13px] font-body-medium transition-colors border border-outline-variant/40 shadow-xs" data-path="pos-new-sale" href="#"><span class="material-symbols-outlined text-secondary text-[16px]">receipt_long</span><span>New POS Bill</span></a></div><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80 h-9 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-default text-caption text-on-surface-variant flex-1 truncate">Quick inventory, SKUs, or actions...</span><kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container-highest text-on-surface-variant rounded border border-outline-variant/40 shadow-xs">⌘K</kbd></div><button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Toggle theme" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">light_mode</span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm pl-space-xs cursor-pointer group"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-body-medium text-[13px] text-on-surface leading-snug group-hover:text-primary transition-colors">Meera</span><span class="font-caption text-[11px] text-on-surface-variant leading-none">Store Owner</span></div><span class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface text-[18px] transition-colors">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Metadata Bar -->
+<div class="w-full bg-surface-container-low px-space-lg py-2.5 flex flex-wrap items-center justify-between gap-space-sm shadow-xs">
+<div class="flex items-center gap-2 text-caption">
+<span class="font-caption text-on-surface-variant">Procurement &amp; Inbound</span>
+<span class="font-caption text-outline-variant">/</span>
+<span class="font-body-medium text-on-surface font-semibold">Suppliers &amp; Vendor Directory</span>
+<span class="font-caption text-outline-variant">/</span>
+<span class="font-caption text-on-surface-variant">Meera Stationery &amp; Gifts</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container text-on-surface font-caption text-[11px]">
+<span class="font-overline uppercase text-on-surface-variant font-semibold">GSTIN:</span>
+<span class="font-mono font-medium text-primary">07AABCM8294N1ZZ</span>
+<span class="text-on-surface-variant text-[11px]">(Delhi Central)</span>
+</div>
+<div class="flex items-center gap-1.5 text-caption text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-caption text-[11px]">SRM Sync: Live</span>
+</div>
+</div>
+</div>
+<!-- Primary Page Header with Actions & Prototype State Switcher -->
+<div class="w-full px-space-lg pt-space-lg pb-space-md bg-surface flex flex-col gap-space-md">
+<div class="flex flex-wrap items-start justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<h1 class="font-page-title text-page-title text-on-surface tracking-tight">Suppliers &amp; Vendor Directory</h1>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-overline bg-secondary-fixed text-on-secondary-fixed font-semibold">
+            6 Active Suppliers · 2 Under Review
+          </span>
+</div>
+<p class="font-body-default text-caption text-on-surface-variant">
+          Centralized vendor intelligence, direct purchase order routing, credit aging, and fulfillment reliability scores for retail operations.
+        </p>
+</div>
+<!-- Header Action Buttons -->
+<div class="flex items-center gap-space-sm">
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors font-body-medium text-[13px] shadow-xs flex items-center gap-1.5" id="btn-export-csv">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">file_download</span>
+<span>Export Directory CSV</span>
+</button>
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors font-body-medium text-[13px] shadow-xs flex items-center gap-1.5" id="btn-log-payment">
+<span class="material-symbols-outlined text-[17px] text-primary">receipt_long</span>
+<span>Log Vendor Payment</span>
+</button>
+<button class="h-9 px-3.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary transition-all font-body-medium text-[13px] shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] flex items-center gap-1.5" id="btn-add-supplier">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-semibold">+ Add New Supplier</span>
+<kbd class="ml-1 text-[10px] bg-white/20 px-1 py-0.5 rounded font-mono text-on-primary">F4</kbd>
+</button>
+</div>
+</div>
+<!-- Prototype State Selector Pills (Quick Demo Switcher) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<span class="font-overline text-on-surface-variant uppercase tracking-wider text-[11px] shrink-0 mr-1">Prototype Views:</span>
+<button class="proto-tab-btn px-3 py-1 rounded-full text-overline bg-primary text-on-primary font-semibold shadow-xs transition-colors" data-state="directory-table">
+        Directory Grid &amp; Table
+      </button>
+<button class="proto-tab-btn px-3 py-1 rounded-full text-overline bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-semibold shadow-xs transition-colors flex items-center gap-1" data-state="vendor-drawer">
+<span>Vendor Detail Drawer (#SUP-001 Sri Balaji)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</button>
+<button class="proto-tab-btn px-3 py-1 rounded-full text-overline bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-semibold shadow-xs transition-colors" data-state="add-drawer">
+        + Add Supplier Drawer
+      </button>
+<button class="proto-tab-btn px-3 py-1 rounded-full text-overline bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-semibold shadow-xs transition-colors" data-state="ledger-view">
+        Payment Ledger &amp; Dues
+      </button>
+<button class="proto-tab-btn px-3 py-1 rounded-full text-overline bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-semibold shadow-xs transition-colors" data-state="empty-state">
+        Empty State Zero-Data
+      </button>
+</div>
+</div>
+<!-- KPI & Telemetry Summary Row (4 high-impact metric cards) -->
+<div class="w-full px-space-lg py-space-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Active Vendors -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-overline uppercase text-on-surface-variant font-semibold tracking-wider text-[11px]">Total Active Vendors</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[19px]">store</span>
+</div>
+</div>
+<div class="my-2 flex items-baseline gap-2">
+<span class="font-hero-metric text-hero-metric text-on-surface leading-none font-bold">8</span>
+<span class="font-body-medium text-body-medium text-on-surface-variant">Vendors</span>
+</div>
+<div class="pt-2 flex items-center justify-between text-caption text-on-surface-variant">
+<span>6 primary · 2 backup sources</span>
+<span class="inline-flex items-center font-semibold text-secondary">
+<span class="material-symbols-outlined text-[14px] mr-0.5">verified</span> 98.4% fill
+        </span>
+</div>
+</div>
+<!-- Card 2: Monthly AP Outstanding -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-overline uppercase text-on-surface-variant font-semibold tracking-wider text-[11px]">Monthly AP Outstanding</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[19px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="my-2 flex items-baseline gap-2">
+<span class="font-hero-metric text-hero-metric text-on-surface leading-none font-bold tabular-nums">₹42,850<span class="text-caption text-on-surface-variant font-normal">.00</span></span>
+</div>
+<div class="pt-2 flex items-center justify-between text-caption">
+<span class="text-tertiary font-medium">₹24,500 due in 7 days</span>
+<span class="text-on-surface-variant">0 overdue fees</span>
+</div>
+</div>
+<!-- Card 3: Lead Time -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-overline uppercase text-on-surface-variant font-semibold tracking-wider text-[11px]">Average Vendor Lead Time</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[19px]">local_shipping</span>
+</div>
+</div>
+<div class="my-2 flex items-baseline gap-2">
+<span class="font-hero-metric text-hero-metric text-on-surface leading-none font-bold">3.2</span>
+<span class="font-body-medium text-body-medium text-on-surface-variant">Days avg</span>
+</div>
+<div class="pt-2 flex items-center justify-between text-caption text-on-surface-variant">
+<span class="text-secondary font-medium">-0.6d vs Q2</span>
+<span class="truncate">Fastest: Sri Balaji (2d)</span>
+</div>
+</div>
+<!-- Card 4: Procurement Spend Share (30D) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-overline uppercase text-on-surface-variant font-semibold tracking-wider text-[11px]">30D Procurement Spend</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[19px]">pie_chart</span>
+</div>
+</div>
+<div class="my-1 flex items-baseline gap-2">
+<span class="font-hero-metric text-hero-metric text-on-surface leading-none font-bold tabular-nums">₹1,42,850</span>
+</div>
+<!-- Mini stacked share breakdown visual bar -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="w-full h-2 rounded-full overflow-hidden flex bg-surface-container">
+<div class="h-full bg-primary" style="width: 38%;" title="National Paper: 38%"></div>
+<div class="h-full bg-primary-container" style="width: 34%;" title="Sri Balaji: 34%"></div>
+<div class="h-full bg-secondary" style="width: 15%;" title="Om Sai: 15%"></div>
+<div class="h-full bg-tertiary" style="width: 9%;" title="Navneet: 9%"></div>
+<div class="h-full bg-surface-dim" style="width: 4%;" title="Others: 4%"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-caption text-on-surface-variant">
+<span>Top: National Paper (38%)</span>
+<span>Balaji (34%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Search, Filter Scope Chips & View Controls -->
+<div class="w-full px-space-lg pt-space-md pb-space-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<!-- Search Input -->
+<div class="relative flex items-center flex-1 min-w-[280px] max-w-xl h-10 px-3 rounded-lg bg-surface-container-lowest shadow-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[19px] mr-2">search</span>
+<input class="w-full bg-transparent text-body-default text-on-surface placeholder:text-on-surface-variant focus:outline-none text-[13px]" id="supplier-search-input" placeholder="Search by supplier name, contact person, phone, GSTIN, or supplied SKUs... (⌘K)" type="text"/>
+<kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-overline bg-surface-container text-on-surface-variant rounded">ESC to reset</kbd>
+</div>
+<!-- Controls Right: Due Filter & View Toggle -->
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-lg bg-surface-container-lowest text-on-surface text-body-medium text-[13px] shadow-xs cursor-pointer focus:outline-none appearance-none" id="payment-due-select">
+<option value="all">All Payment Statuses</option>
+<option value="due-week">Payment Due This Week (2)</option>
+<option value="overdue">Overdue Penalties (0)</option>
+<option value="zero-balance">Zero Balance / Cleared (4)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2">expand_more</span>
+</div>
+<!-- Table / Card Grid Switcher -->
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container-low shadow-xs">
+<button class="p-1.5 rounded-md bg-surface-container-lowest text-primary shadow-xs transition-colors" id="view-toggle-table" title="Table View">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface transition-colors" id="view-toggle-grid" title="Bento Card View">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Category Scope Filter Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<button class="category-chip px-3 py-1 rounded-full text-caption font-body-medium bg-primary text-on-primary shadow-xs transition-colors" data-cat="all">
+        All Suppliers (8)
+      </button>
+<button class="category-chip px-3 py-1 rounded-full text-caption font-body-medium bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-xs" data-cat="paper">
+        Paper &amp; Books (3)
+      </button>
+<button class="category-chip px-3 py-1 rounded-full text-caption font-body-medium bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-xs" data-cat="pens">
+        Pens &amp; Writing (2)
+      </button>
+<button class="category-chip px-3 py-1 rounded-full text-caption font-body-medium bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-xs" data-cat="adhesives">
+        Adhesives &amp; Craft (2)
+      </button>
+<button class="category-chip px-3 py-1 rounded-full text-caption font-body-medium bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-xs" data-cat="office">
+        Office Equipment (1)
+      </button>
+<span class="text-outline-variant text-[14px]">|</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Showing active procurement contracts</span>
+</div>
+</div>
+<!-- Main View Container: Table vs Grid vs Empty vs Ledger -->
+<div class="w-full px-space-lg py-space-sm pb-16">
+<!-- TABLE VIEW (Default Active) -->
+<div class="w-full rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col" id="vendor-table-container">
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-table-header text-table-header uppercase text-[11px] tracking-wider select-none h-10">
+<th class="py-2.5 px-4 font-semibold">Vendor &amp; Code</th>
+<th class="py-2.5 px-4 font-semibold">Primary Contact</th>
+<th class="py-2.5 px-4 font-semibold">City Hub &amp; GSTIN</th>
+<th class="py-2.5 px-3 font-semibold">Lead Time / MOQ</th>
+<th class="py-2.5 px-3 font-semibold">Active POs / Spend</th>
+<th class="py-2.5 px-4 font-semibold text-right">Payable Balance</th>
+<th class="py-2.5 px-3 font-semibold text-center">Score / On-Time</th>
+<th class="py-2.5 px-4 font-semibold text-right">Quick Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-default text-[13px] text-on-surface" id="vendor-table-body">
+<!-- Row 1: Sri Balaji Stationers -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="paper pens" data-name="Sri Balaji Stationers" data-vendor-id="SUP-001">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-mono text-[13px] shadow-xs">
+                    SB
+                  </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">Sri Balaji Stationers</span>
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold" title="Preferred Vendor Score &gt; 98%">
+<span class="material-symbols-outlined text-[11px]">star</span> Preferred
+                      </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-001</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Notebooks, Paper, Pens</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Rajesh Sharma</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 98112-44589</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">balaji.stationers@delhinet.in</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Chawri Bazar, Old Delhi</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">07AAACS4921K1Z3</span>
+<span class="material-symbols-outlined text-[13px] text-secondary" title="GSTIN Verified on Portal">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-secondary">2 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: 50 Units</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1 font-body-medium text-[12px] text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>1 In-Transit (#PO-1089)</span>
+</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹48,200 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="font-body-medium font-bold text-tertiary tabular-nums">₹12,400.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Due: 22 Nov (Net 15)</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.9</span>
+</div>
+<span class="font-caption text-[10px] text-secondary font-medium">99.2% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-001', 'Sri Balaji Stationers')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-001')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: National Paper Traders -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="paper" data-name="National Paper Traders" data-vendor-id="SUP-002">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono text-[13px] shadow-xs">
+                    NP
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">National Paper Traders</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-002</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Copier Paper, Bulk Reams</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Vikram Sethi</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 98101-77823</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">sales@nationalpaper.co.in</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Daryaganj, New Delhi</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">07AAAFN1092Q1Z5</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-medium text-on-surface">4 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: 20 Reams</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-[12px] text-amber-600 font-medium">1 Partial GRN (#PO-1088)</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹54,000 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="font-body-medium font-bold text-on-surface tabular-nums">₹9,000.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Due: 30 Nov (Net 30)</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.6</span>
+</div>
+<span class="font-caption text-[10px] text-on-surface-variant">96.5% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-002', 'National Paper Traders')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-002')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Om Sai Wholesale -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="pens office" data-name="Om Sai Wholesale" data-vendor-id="SUP-003">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono text-[13px] shadow-xs">
+                    OS
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">Om Sai Wholesale</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-003</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Pencils, Ball Pens, Erasers</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Manoj Gupta</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 98290-33412</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">omsaidelhi@gmail.com</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Sadar Bazar, Delhi</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">07AAZP08831L1ZT</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-medium text-on-surface">3 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: 100 Packs</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-[12px] text-on-surface-variant">0 Active Orders</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹22,100 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] bg-secondary-fixed text-on-secondary-fixed font-semibold">
+                    ₹0.00 Settled
+                  </span>
+<span class="font-caption text-[11px] text-on-surface-variant mt-0.5">Cash On Delivery</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.8</span>
+</div>
+<span class="font-caption text-[10px] text-secondary font-medium">98.0% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-003', 'Om Sai Wholesale')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-003')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Navneet Education Ltd -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="paper" data-name="Navneet Education Ltd" data-vendor-id="SUP-004">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono text-[13px] shadow-xs">
+                    NE
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">Navneet Education Ltd</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-004</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Drawing &amp; Activity Books</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Anand Kulkarni</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 22-6662-6500</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">orders.north@navneet.com</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Okhla Ind. Area Ph-III</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">27AAACN0021F1Z1</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-medium text-on-surface">5 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: ₹10,000</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-[12px] text-secondary">1 Fulfilled GRN</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹12,800 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="font-body-medium font-bold text-on-surface tabular-nums">₹12,800.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Due: 10 Dec (Net 30)</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.7</span>
+</div>
+<span class="font-caption text-[10px] text-on-surface-variant">97.1% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-004', 'Navneet Education Ltd')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-004')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Pidilite Industries Ltd -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="adhesives" data-name="Pidilite Industries Ltd" data-vendor-id="SUP-005">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono text-[13px] shadow-xs">
+                    PI
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">Pidilite Industries Ltd</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-005</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Fevicol, Adhesives &amp; Craft</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">Rohit Verma (ASM)</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 99580-11204</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">r.verma@pidilite.com</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Naraina Ind. Area, Delhi</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">27AAACP0124J1ZV</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-secondary">2 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: 24 Pcs</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-[12px] text-on-surface-variant">0 Active Orders</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹8,150 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] bg-secondary-fixed text-on-secondary-fixed font-semibold">
+                    ₹0.00 Paid UPI
+                  </span>
+<span class="font-caption text-[11px] text-on-surface-variant mt-0.5">Immediate Clearance</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.9</span>
+</div>
+<span class="font-caption text-[10px] text-secondary font-medium">99.8% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-005', 'Pidilite Industries Ltd')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-005')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Camlin Kokuyo Ltd -->
+<tr class="vendor-row hover:bg-surface-container-low/60 transition-colors cursor-pointer group" data-cat="pens office" data-name="Camlin Kokuyo Ltd" data-vendor-id="SUP-006">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono text-[13px] shadow-xs">
+                    CK
+                  </div>
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface group-hover:text-primary transition-colors">Camlin Kokuyo Ltd</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-[11px] text-primary font-medium">SUP-006</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Geometry Boxes, Paints</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-medium text-on-surface text-[13px]">S. Murthy</span>
+<div class="flex items-center gap-1 text-caption text-on-surface-variant text-[11px] mt-0.5">
+<span class="material-symbols-outlined text-[13px]">call</span>
+<span>+91 98711-22901</span>
+</div>
+<span class="text-caption text-on-surface-variant text-[11px] truncate max-w-[150px]">customercare@kokuyocamlin.com</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-[12px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+<span>Kirti Nagar, New Delhi</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-mono text-[11px] text-on-surface-variant">27AAACC2039B1ZB</span>
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium font-medium text-on-surface">4 Days Avg</span>
+<span class="font-caption text-on-surface-variant text-[11px]">MOQ: 30 Boxes</span>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="font-body-medium text-[12px] text-on-surface">1 Draft PO (#PO-1085)</span>
+<span class="font-caption text-[11px] text-on-surface-variant">₹16,400 Spend MTD</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex flex-col items-end">
+<span class="font-body-medium font-bold text-on-surface tabular-nums">₹8,650.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Estimated</span>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<div class="flex flex-col items-center">
+<div class="flex items-center text-amber-500 font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[14px] fill-current">star</span>
+<span class="ml-0.5 text-on-surface font-mono">4.5</span>
+</div>
+<span class="font-caption text-[10px] text-on-surface-variant">94.2% on-time</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5" onclick="event.stopPropagation()">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="openCreatePO('SUP-006', 'Camlin Kokuyo Ltd')">
+                    Create PO
+                  </button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="openVendorDrawer('SUP-006')">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination & Totals -->
+<div class="w-full px-4 py-3 bg-surface-container-low flex flex-wrap items-center justify-between gap-3 text-caption text-on-surface-variant">
+<div class="flex items-center gap-4">
+<span class="font-body-medium text-on-surface">Showing 1-6 of 8 suppliers</span>
+<span class="text-outline-variant">•</span>
+<span class="text-[12px]">Total Active Payables: <strong class="text-on-surface font-semibold">₹42,850.00</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface text-[12px] font-body-medium disabled:opacity-40" disabled="">Previous</button>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-mono text-[12px]">1</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container text-[12px] font-body-medium">Next</button>
+</div>
+</div>
+</div>
+<!-- BENTO CARD GRID VIEW (Initially hidden, toggled via prototype buttons or view switch) -->
+<div class="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="vendor-grid-container">
+<!-- Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between cursor-pointer" onclick="openVendorDrawer('SUP-001')">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-mono">SB</div>
+<div class="flex flex-col">
+<span class="font-body-medium font-bold text-on-surface">Sri Balaji Stationers</span>
+<span class="font-mono text-primary text-[11px]">SUP-001 · Chawri Bazar</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold">Preferred</span>
+</div>
+<div class="pt-2 flex flex-col gap-1 text-[12px] text-on-surface-variant">
+<div class="flex justify-between">
+<span>Primary Contact:</span>
+<span class="text-on-surface font-medium">Rajesh Sharma</span>
+</div>
+<div class="flex justify-between">
+<span>Lead Time &amp; MOQ:</span>
+<span class="text-secondary font-medium">2 Days · MOQ 50</span>
+</div>
+<div class="flex justify-between">
+<span>Pending Inbound:</span>
+<span class="text-primary font-medium">#PO-1089 (In-Transit)</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 bg-surface-container-low -mx-4 -mb-4 px-4 py-3 rounded-b-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] font-overline uppercase text-on-surface-variant">Outstanding</span>
+<span class="font-bold text-tertiary text-[14px]">₹12,400.00</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-[12px] font-body-medium" onclick="event.stopPropagation(); openCreatePO('SUP-001', 'Sri Balaji Stationers')">
+            + New PO
+          </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between cursor-pointer" onclick="openVendorDrawer('SUP-002')">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono">NP</div>
+<div class="flex flex-col">
+<span class="font-body-medium font-bold text-on-surface">National Paper Traders</span>
+<span class="font-mono text-primary text-[11px]">SUP-002 · Daryaganj</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] bg-surface-container text-on-surface font-semibold">Active</span>
+</div>
+<div class="pt-2 flex flex-col gap-1 text-[12px] text-on-surface-variant">
+<div class="flex justify-between">
+<span>Primary Contact:</span>
+<span class="text-on-surface font-medium">Vikram Sethi</span>
+</div>
+<div class="flex justify-between">
+<span>Lead Time &amp; MOQ:</span>
+<span class="text-on-surface font-medium">4 Days · MOQ 20 Reams</span>
+</div>
+<div class="flex justify-between">
+<span>Pending Inbound:</span>
+<span class="text-amber-600 font-medium">#PO-1088 (Partial GRN)</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 bg-surface-container-low -mx-4 -mb-4 px-4 py-3 rounded-b-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] font-overline uppercase text-on-surface-variant">Outstanding</span>
+<span class="font-bold text-on-surface text-[14px]">₹9,000.00</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="event.stopPropagation(); openCreatePO('SUP-002', 'National Paper Traders')">
+            + New PO
+          </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between cursor-pointer" onclick="openVendorDrawer('SUP-003')">
+<div class="flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface font-bold font-mono">OS</div>
+<div class="flex flex-col">
+<span class="font-body-medium font-bold text-on-surface">Om Sai Wholesale</span>
+<span class="font-mono text-primary text-[11px]">SUP-003 · Sadar Bazar</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold">COD Settled</span>
+</div>
+<div class="pt-2 flex flex-col gap-1 text-[12px] text-on-surface-variant">
+<div class="flex justify-between">
+<span>Primary Contact:</span>
+<span class="text-on-surface font-medium">Manoj Gupta</span>
+</div>
+<div class="flex justify-between">
+<span>Lead Time &amp; MOQ:</span>
+<span class="text-on-surface font-medium">3 Days · MOQ 100 Packs</span>
+</div>
+<div class="flex justify-between">
+<span>Pending Inbound:</span>
+<span class="text-on-surface-variant">0 Orders Pending</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 bg-surface-container-low -mx-4 -mb-4 px-4 py-3 rounded-b-xl flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] font-overline uppercase text-on-surface-variant">Outstanding</span>
+<span class="font-bold text-secondary text-[14px]">₹0.00</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface text-[12px] font-body-medium transition-colors" onclick="event.stopPropagation(); openCreatePO('SUP-003', 'Om Sai Wholesale')">
+            + New PO
+          </button>
+</div>
+</div>
+</div>
+<!-- ZERO-STATE CONTAINER (Prototype switcher: "Empty State") -->
+<div class="hidden w-full py-16 flex-col items-center justify-center text-center bg-surface-container-lowest rounded-xl shadow-sm" id="vendor-empty-container">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[32px]">article_shortcut</span>
+</div>
+<h3 class="font-section-title text-section-title text-on-surface font-semibold mb-1">No Suppliers Found</h3>
+<p class="font-body-default text-caption text-on-surface-variant max-w-md mb-6">
+        No active suppliers match your current filter parameters. You can onboard a new verified GST vendor to begin generating automated purchase orders.
+      </p>
+<button class="h-9 px-4 rounded-lg bg-primary text-on-primary font-body-medium text-[13px] shadow-sm flex items-center gap-1.5" onclick="openAddSupplierDrawer()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Register First Supplier</span>
+</button>
+</div>
+<!-- PAYMENT LEDGER VIEW CONTAINER (Prototype switcher: "Payment Ledger & Dues") -->
+<div class="hidden w-full flex-col gap-space-md" id="vendor-ledger-container">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-section-title text-[16px] text-on-surface font-semibold">Vendor Accounts Payable (AP) Aging Schedule</h3>
+<span class="font-caption text-on-surface-variant text-[12px]">All unpaid Inbound GRNs grouped by credit terms</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-[12px] font-body-medium">
+            Download Aging Report (PDF)
+          </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">Current (0-15 Days)</span>
+<span class="font-section-title font-bold text-on-surface mt-1">₹24,500.00</span>
+<span class="font-caption text-[11px] text-secondary">Sri Balaji (#PO-1089)</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">16-30 Days</span>
+<span class="font-section-title font-bold text-on-surface mt-1">₹18,350.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">National Paper, Camlin</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">31-60 Days</span>
+<span class="font-section-title font-bold text-secondary mt-1">₹0.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Cleared</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">&gt; 60 Days Overdue</span>
+<span class="font-section-title font-bold text-secondary mt-1">₹0.00</span>
+<span class="font-caption text-[11px] text-secondary">Zero Overdue Dues</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER DRAWER: VENDOR DETAIL (#SUP-001 SRI BALAJI) -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-[520px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-hidden" id="vendor-detail-drawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-primary text-on-primary">SUP-001</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="material-symbols-outlined text-[12px]">star</span> Preferred Partner
+          </span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" id="close-vendor-drawer-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<h2 class="font-section-title text-[20px] font-bold text-on-surface">Sri Balaji Stationers</h2>
+<span class="font-caption text-[12px] text-on-surface-variant">Shop 14-B, Nai Sarak, Chawri Bazar, Old Delhi - 110006</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold font-mono text-lg shadow-sm">
+          SB
+        </div>
+</div>
+<!-- Drawer Quick Action Bar -->
+<div class="grid grid-cols-4 gap-2 pt-2">
+<button class="py-2 px-1 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-[11px] font-body-medium flex flex-col items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span>New PO</span>
+</button>
+<a class="py-2 px-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex flex-col items-center gap-1 shadow-xs transition-colors" href="tel:+919811244589">
+<span class="material-symbols-outlined text-[16px] text-secondary">call</span>
+<span>Call Rajesh</span>
+</a>
+<a class="py-2 px-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex flex-col items-center gap-1 shadow-xs transition-colors" href="https://wa.me/919811244589" target="_blank">
+<span class="material-symbols-outlined text-[16px] text-green-600">chat</span>
+<span>WhatsApp</span>
+</a>
+<button class="py-2 px-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-[11px] font-body-medium flex flex-col items-center gap-1 shadow-xs transition-colors" onclick="openPaymentModal('SUP-001')">
+<span class="material-symbols-outlined text-[16px] text-tertiary">payment</span>
+<span>Pay Due</span>
+</button>
+</div>
+</div>
+<!-- Drawer Navigation Tabs -->
+<div class="flex items-center px-space-lg bg-surface-container-low/50">
+<button class="drawer-tab active-drawer-tab px-3 py-2.5 font-body-medium text-[12px] text-primary font-semibold border-b-2 border-primary">
+        Supplied Catalog (4 SKUs)
+      </button>
+<button class="drawer-tab px-3 py-2.5 font-body-medium text-[12px] text-on-surface-variant hover:text-on-surface">
+        Active Orders (1)
+      </button>
+<button class="drawer-tab px-3 py-2.5 font-body-medium text-[12px] text-on-surface-variant hover:text-on-surface">
+        Banking &amp; Terms
+      </button>
+<button class="drawer-tab px-3 py-2.5 font-body-medium text-[12px] text-on-surface-variant hover:text-on-surface">
+        Scorecard
+      </button>
+</div>
+<!-- Drawer Content Area (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-md">
+<!-- Section 1: Vendor Quick Stats Cards -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">Current Outstanding</span>
+<span class="font-section-title font-bold text-tertiary mt-0.5">₹12,400.00</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Credit Net 15 · Due 22 Nov</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-overline text-[10px] text-on-surface-variant uppercase">Delivery Lead Time</span>
+<span class="font-section-title font-bold text-secondary mt-0.5">2.0 Days</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Consistent · 99.2% on-time</span>
+</div>
+</div>
+<!-- Section 2: Catalog Products Supplied -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-body-medium font-semibold text-on-surface text-[13px]">Supplied SKUs &amp; Unit Rates</span>
+<span class="font-caption text-primary text-[11px] cursor-pointer hover:underline">+ Link New SKU</span>
+</div>
+<div class="flex flex-col rounded-lg bg-surface-container-low divide-y divide-surface-container overflow-hidden">
+<div class="p-2.5 flex items-center justify-between text-[12px]">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface">Classmate Long Notebook 240p</span>
+<span class="font-mono text-caption text-on-surface-variant text-[11px]">SKU: NB-CLS-240 · MOQ 50</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-bold text-on-surface">₹48.50 / unit</span>
+<span class="font-caption text-secondary text-[11px]">Stock: 12 left</span>
+</div>
+</div>
+<div class="p-2.5 flex items-center justify-between text-[12px]">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface">Pilot V5 Hi-Techpoint Pen (Blue)</span>
+<span class="font-mono text-caption text-on-surface-variant text-[11px]">SKU: PEN-PLT-V5B · MOQ 20</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-bold text-on-surface">₹44.00 / unit</span>
+<span class="font-caption text-secondary text-[11px]">Stock: 8 left</span>
+</div>
+</div>
+<div class="p-2.5 flex items-center justify-between text-[12px]">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface">Doms Neon Rubber Tipped Pencils</span>
+<span class="font-mono text-caption text-on-surface-variant text-[11px]">SKU: PNC-DOM-NEO · MOQ 100</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-bold text-on-surface">₹4.20 / pc</span>
+<span class="font-caption text-on-surface-variant text-[11px]">Stock: 45 left</span>
+</div>
+</div>
+<div class="p-2.5 flex items-center justify-between text-[12px]">
+<div class="flex flex-col">
+<span class="font-body-medium font-semibold text-on-surface">Bindex Spiral Register 180p</span>
+<span class="font-mono text-caption text-on-surface-variant text-[11px]">SKU: REG-BDX-180 · MOQ 30</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-bold text-on-surface">₹62.00 / unit</span>
+<span class="font-caption text-secondary text-[11px]">Stock: 18 left</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Active In-Transit Purchase Order -->
+<div class="flex flex-col gap-2">
+<span class="font-body-medium font-semibold text-on-surface text-[13px]">In-Transit Dispatch</span>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-mono font-bold text-primary text-[12px]">PO #PO-1089</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<span class="material-symbols-outlined text-[12px]">local_shipping</span> Out for Delivery
+            </span>
+</div>
+<p class="font-caption text-on-surface-variant text-[11px]">
+            Dispatched via E-Rickshaw Logistics from Chawri Bazar. Expected delivery today by 4:30 PM.
+          </p>
+<div class="flex items-center justify-between pt-1 text-[12px]">
+<span class="font-body-medium text-on-surface">150 Units Total</span>
+<span class="font-bold text-on-surface">₹8,450.00 GRN Value</span>
+</div>
+</div>
+</div>
+<!-- Section 4: Bank Details & Direct Settlement -->
+<div class="flex flex-col gap-2">
+<span class="font-body-medium font-semibold text-on-surface text-[13px]">Verified Settlement Account</span>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1.5 text-[12px]">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Bank Name:</span>
+<span class="text-on-surface font-semibold">HDFC Bank Ltd</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Account Number:</span>
+<span class="font-mono text-on-surface font-semibold">50200039281729</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">IFSC Code:</span>
+<span class="font-mono text-primary font-semibold">HDFC0000128</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">UPI ID:</span>
+<span class="font-mono text-on-surface font-medium">rajesh.balaji@okaxis</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between gap-3">
+<button class="px-3 py-2 rounded-lg bg-surface-container-lowest text-error hover:bg-error-container text-[12px] font-body-medium transition-colors">
+        Deactivate Vendor
+      </button>
+<div class="flex items-center gap-2">
+<button class="px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface text-[12px] font-body-medium shadow-xs" onclick="closeVendorDrawer()">
+          Close
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary text-[12px] font-body-medium shadow-sm hover:bg-primary-container" onclick="openCreatePO('SUP-001', 'Sri Balaji Stationers')">
+          Create Purchase Order
+        </button>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER DRAWER: ADD NEW SUPPLIER (Triggered by + Add New Supplier or Prototype Tab) -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-[500px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col overflow-hidden" id="add-supplier-drawer">
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-section-title text-[18px] font-bold text-on-surface">Add New Supplier</h2>
+<span class="font-caption text-[11px] text-on-surface-variant">Register vendor profile, GSTIN credentials, and payment terms</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" id="close-add-drawer-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Add Supplier Form Body -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Supplier Legal Trade Name *</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g. Apex Paper Mills &amp; Envelopes" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">GSTIN *</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-mono text-[13px] uppercase focus:outline-none focus:ring-1 focus:ring-primary" placeholder="07AAAAA0000A1Z5" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Primary Category</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none">
+<option>Paper &amp; Books</option>
+<option>Pens &amp; Writing</option>
+<option>Adhesives &amp; Art</option>
+<option>Office Electronics</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Contact Person *</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="Contact Representative" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Phone Number *</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="+91 98XXX-XXXXX" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Email Address</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="orders@supplierdomain.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Warehouse / Hub Address</label>
+<textarea class="p-2.5 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none resize-none" placeholder="Street, Industrial Area, City, Pincode" rows="2"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Payment Terms</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none">
+<option>Net 15 Days</option>
+<option>Net 30 Days</option>
+<option>Cash On Delivery (COD)</option>
+<option>Advance / Immediate UPI</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-medium text-[12px] font-semibold text-on-surface">Estimated Lead Time (Days)</label>
+<input class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface text-[13px] focus:outline-none" placeholder="2" type="number"/>
+</div>
+</div>
+</div>
+<!-- Add Drawer Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-end gap-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface text-[13px] font-body-medium shadow-xs" onclick="closeAddSupplierDrawer()">
+        Cancel
+      </button>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-[13px] font-body-medium shadow-sm" onclick="saveNewSupplier()">
+        Save &amp; Verify Vendor
+      </button>
+</div>
+</div>
+<!-- BACKDROP OVERLAY FOR DRAWERS -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-xs z-40 hidden transition-opacity" id="drawer-backdrop" onclick="closeAllDrawers()"></div>
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div class="fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50" id="toast-notification">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<span class="font-body-medium text-[13px]" id="toast-message">Action completed successfully.</span>
+</div>
+</div>
+<script>
+  // Quick State Switcher & Drawer Controllers
+  const vendorDrawer = document.getElementById('vendor-detail-drawer');
+  const addDrawer = document.getElementById('add-supplier-drawer');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
+  
+  const tableContainer = document.getElementById('vendor-table-container');
+  const gridContainer = document.getElementById('vendor-grid-container');
+  const emptyContainer = document.getElementById('vendor-empty-container');
+  const ledgerContainer = document.getElementById('vendor-ledger-container');
+  
+  const toast = document.getElementById('toast-notification');
+  const toastMsg = document.getElementById('toast-message');
+
+  function showToast(message) {
+    toastMsg.textContent = message;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    setTimeout(() => {
+      toast.classList.add('translate-y-20', 'opacity-0');
+    }, 3200);
+  }
+
+  function openVendorDrawer(vendorId) {
+    addDrawer.classList.add('translate-x-full');
+    vendorDrawer.classList.remove('translate-x-full');
+    drawerBackdrop.classList.remove('hidden');
+  }
+
+  function closeVendorDrawer() {
+    vendorDrawer.classList.add('translate-x-full');
+    drawerBackdrop.classList.add('hidden');
+  }
+
+  function openAddSupplierDrawer() {
+    vendorDrawer.classList.add('translate-x-full');
+    addDrawer.classList.remove('translate-x-full');
+    drawerBackdrop.classList.remove('hidden');
+  }
+
+  function closeAddSupplierDrawer() {
+    addDrawer.classList.add('translate-x-full');
+    drawerBackdrop.classList.add('hidden');
+  }
+
+  function closeAllDrawers() {
+    vendorDrawer.classList.add('translate-x-full');
+    addDrawer.classList.add('translate-x-full');
+    drawerBackdrop.classList.add('hidden');
+  }
+
+  document.getElementById('close-vendor-drawer-btn').addEventListener('click', closeVendorDrawer);
+  document.getElementById('close-add-drawer-btn').addEventListener('click', closeAddSupplierDrawer);
+  document.getElementById('btn-add-supplier').addEventListener('click', openAddSupplierDrawer);
+
+  // Prototype state switching tabs
+  document.querySelectorAll('.proto-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.proto-tab-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('bg-surface-container-high', 'text-on-surface');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary');
+      btn.classList.remove('bg-surface-container-high', 'text-on-surface');
+
+      const state = btn.dataset.state;
+      closeAllDrawers();
+
+      // Reset main visibility
+      tableContainer.classList.add('hidden');
+      gridContainer.classList.add('hidden');
+      gridContainer.classList.remove('grid');
+      emptyContainer.classList.add('hidden');
+      emptyContainer.classList.remove('flex');
+      ledgerContainer.classList.add('hidden');
+      ledgerContainer.classList.remove('flex');
+
+      if (state === 'directory-table') {
+        tableContainer.classList.remove('hidden');
+      } else if (state === 'vendor-drawer') {
+        tableContainer.classList.remove('hidden');
+        openVendorDrawer('SUP-001');
+      } else if (state === 'add-drawer') {
+        tableContainer.classList.remove('hidden');
+        openAddSupplierDrawer();
+      } else if (state === 'ledger-view') {
+        ledgerContainer.classList.remove('hidden');
+        ledgerContainer.classList.add('flex');
+      } else if (state === 'empty-state') {
+        emptyContainer.classList.remove('hidden');
+        emptyContainer.classList.add('flex');
+      }
+    });
+  });
+
+  // Table vs Grid View Switcher
+  const btnViewTable = document.getElementById('view-toggle-table');
+  const btnViewGrid = document.getElementById('view-toggle-grid');
+
+  btnViewTable.addEventListener('click', () => {
+    btnViewTable.classList.add('bg-surface-container-lowest', 'text-primary');
+    btnViewTable.classList.remove('text-on-surface-variant');
+    btnViewGrid.classList.remove('bg-surface-container-lowest', 'text-primary');
+    btnViewGrid.classList.add('text-on-surface-variant');
+
+    tableContainer.classList.remove('hidden');
+    gridContainer.classList.add('hidden');
+    gridContainer.classList.remove('grid');
+  });
+
+  btnViewGrid.addEventListener('click', () => {
+    btnViewGrid.classList.add('bg-surface-container-lowest', 'text-primary');
+    btnViewGrid.classList.remove('text-on-surface-variant');
+    btnViewTable.classList.remove('bg-surface-container-lowest', 'text-primary');
+    btnViewTable.classList.add('text-on-surface-variant');
+
+    tableContainer.classList.add('hidden');
+    gridContainer.classList.remove('hidden');
+    gridContainer.classList.add('grid');
+  });
+
+  // Category Scope Chips filter
+  document.querySelectorAll('.category-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.category-chip').forEach(c => {
+        c.classList.remove('bg-primary', 'text-on-primary');
+        c.classList.add('bg-surface-container-lowest', 'text-on-surface');
+      });
+      chip.classList.add('bg-primary', 'text-on-primary');
+      chip.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+
+      const cat = chip.dataset.cat;
+      const rows = document.querySelectorAll('.vendor-row');
+      rows.forEach(row => {
+        if (cat === 'all' || row.dataset.cat.includes(cat)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Search Filter
+  const searchInput = document.getElementById('supplier-search-input');
+  searchInput.addEventListener('input', (e) => {
+    const val = e.target.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('.vendor-row');
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      if (!val || text.includes(val)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+
+  // Row Quick Actions
+  function openCreatePO(vendorId, vendorName) {
+    showToast(`Redirecting to PO Generator for ${vendorName} (${vendorId})...`);
+  }
+
+  function openPaymentModal(vendorId) {
+    showToast(`Initiating direct NEFT/RTGS payment gateway for ${vendorId}...`);
+  }
+
+  function saveNewSupplier() {
+    closeAddSupplierDrawer();
+    showToast('New Supplier registered & verified via GST Portal.');
+  }
+
+  document.getElementById('btn-export-csv').addEventListener('click', () => {
+    showToast('Exporting Meera Stationery Vendor Master Directory (.CSV)...');
+  });
+
+  document.getElementById('btn-log-payment').addEventListener('click', () => {
+    showToast('Vendor Payment Voucher ledger modal opened.');
+  });
+
+  // Keyboard shortcut F4 for new supplier
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'F4') {
+      e.preventDefault();
+      openAddSupplierDrawer();
+    }
+  });
+</script></main></div></body></html>
