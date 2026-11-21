@@ -161,3 +161,205 @@ export interface InsufficientStockDetail {
   available: number;
   requested: number;
 }
+
+// ---- Phase 3: Intelligence Engine (read-only analytics) -------------------
+
+export type StockoutRisk = 'critical' | 'high' | 'medium' | 'low' | 'none';
+export type RiskCategory =
+  | 'critical'
+  | 'dead_stock'
+  | 'slow_moving'
+  | 'excess'
+  | 'low_stock'
+  | 'healthy';
+
+export interface DemandStats {
+  total_units_sold: number;
+  observed_sale_days: number;
+  window_days: number;
+  first_sale_date: string | null;
+  last_sale_date: string | null;
+  days_since_last_sale: number | null;
+  avg_daily_demand: number;
+  weighted_daily_demand: number;
+  insufficient_history: boolean;
+}
+
+export interface DemandForecast {
+  daily_demand: number;
+  forecast_7d_units: number;
+  forecast_30d_units: number;
+  method: string;
+  is_machine_learning: boolean;
+  uses_category_fallback: boolean;
+  data_days_available: number;
+  insufficient_history: boolean;
+}
+
+export interface StockoutPrediction {
+  days_until_stockout: number | null;
+  stockout_risk: StockoutRisk;
+  out_of_stock: boolean;
+  current_stock: number;
+  avg_daily_demand: number;
+  lead_time_days: number;
+  lead_time_is_assumed: boolean;
+  will_stockout_before_reorder: boolean;
+}
+
+export interface ReorderSupplier {
+  supplier_id: number;
+  supplier_name: string;
+  lead_time_days: number;
+  min_order_qty: number;
+  unit_cost: string | null;
+}
+
+export interface ReorderExplanation {
+  lookback_days: number;
+  window_start: string | null;
+  window_end: string | null;
+  units_sold: number;
+  avg_daily_sales: number;
+  demand_basis: number;
+  current_stock: number;
+  lead_time_days: number;
+  lead_time_source: string;
+  lead_time_is_assumed: boolean;
+  safety_stock: number;
+  review_period_days: number;
+  reorder_point_calculated: number;
+  reorder_point_manual: number;
+  effective_reorder_point: number;
+  target_stock: number;
+  suggested_qty: number;
+  adjusted_for_moq: boolean;
+  min_order_qty: number;
+  formula_reorder_point: string;
+  formula_target_stock: string;
+  formula_suggested_qty: string;
+  disclaimer: string;
+}
+
+export interface ReorderRecommendation {
+  needs_reorder: boolean;
+  configured_reorder_point: number;
+  calculated_reorder_point: number;
+  effective_reorder_point: number;
+  current_stock: number;
+  target_stock: number;
+  raw_qty_needed: number;
+  min_order_qty: number;
+  reorder_qty: number;
+  unit_cost: string | null;
+  estimated_order_cost: string | null;
+  supplier: ReorderSupplier | null;
+  explanation: string[];
+  explanation_details: ReorderExplanation;
+  formula: string;
+}
+
+export interface RiskScore {
+  risk_score: number;
+  risk_category: RiskCategory;
+  days_of_cover: number | null;
+  reasons: string[];
+  recommended_action: string;
+}
+
+export interface ProductIntelligence {
+  product_id: number;
+  sku: string;
+  name: string;
+  category_name: string | null;
+  unit: string;
+  is_active: boolean;
+  current_stock: number;
+  cost_price: string;
+  demand_stats: DemandStats;
+  forecast: DemandForecast;
+  stockout_prediction: StockoutPrediction;
+  reorder_recommendation: ReorderRecommendation;
+  risk: RiskScore;
+}
+
+export interface IntelligenceCounts {
+  total_products: number;
+  needs_reorder: number;
+  critical: number;
+  low_stock: number;
+  dead_stock: number;
+  slow_moving: number;
+  excess: number;
+  healthy: number;
+}
+
+export interface IntelligenceSummary {
+  generated_at: string;
+  window_days: number;
+  algorithm: string;
+  risk_model_version: string;
+  counts: IntelligenceCounts;
+  items: ProductIntelligence[];
+}
+
+export interface ReorderQueue {
+  generated_at: string;
+  window_days: number;
+  algorithm: string;
+  total: number;
+  items: ProductIntelligence[];
+}
+
+export interface RiskReport {
+  generated_at: string;
+  window_days: number;
+  risk_model_version: string;
+  counts: IntelligenceCounts;
+  items: ProductIntelligence[];
+}
+
+export interface ForecastPoint {
+  date: string;
+  units: number;
+  is_forecast: boolean;
+}
+
+export interface ForecastSeries {
+  product_id: number;
+  sku: string;
+  name: string;
+  method: string;
+  daily_demand: number;
+  history_days: number;
+  forecast_days: number;
+  points: ForecastPoint[];
+}
+
+export interface EvaluationMetrics {
+  mae_model: number;
+  mae_naive: number;
+  wape_model: number | null;
+  wape_naive: number | null;
+  model_beats_naive_baseline: boolean | null;
+}
+
+export interface ForecastEvaluation {
+  algorithm: string;
+  train_window: { start: string; end: string; days: number };
+  test_window: { start: string; end: string; days: number };
+  products_evaluated: number;
+  metrics: EvaluationMetrics;
+  data_limitations: string[];
+  per_product: Array<{
+    product_id: number;
+    sku: string;
+    name: string;
+    train_avg_daily: number;
+    model_daily: number;
+    actual_daily: number;
+    ae_model: number;
+    ae_naive: number;
+    better_model: 'model' | 'naive' | 'tie';
+  }>;
+}
