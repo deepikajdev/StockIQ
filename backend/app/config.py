@@ -9,5 +9,10 @@ class Settings(BaseSettings):
     jwt_expire_minutes: int = 480
     cors_origins: str = "http://localhost:5173"
 
+    # Intelligence Engine tunables (rule-based analytics, not ML).
+    lookback_days: int = 30
+    review_period_days: int = 7
+    min_history_days: int = 7
+
 
 settings = Settings()
