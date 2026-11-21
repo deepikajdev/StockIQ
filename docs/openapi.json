@@ -1707,6 +1707,310 @@
         }
       }
     },
+    "/intelligence/summary": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Intelligence Summary",
+        "description": "Full read-only analysis for every active product in the business.",
+        "operationId": "intelligence_summary_intelligence_summary_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "risk_category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "critical",
+                    "dead_stock",
+                    "slow_moving",
+                    "excess",
+                    "low_stock",
+                    "healthy"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional risk category filter: critical, dead_stock, slow_moving, excess, low_stock, healthy",
+              "title": "Risk Category"
+            },
+            "description": "Optional risk category filter: critical, dead_stock, slow_moving, excess, low_stock, healthy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntelligenceSummaryOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/intelligence/reorder-recommendations": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Reorder Recommendations",
+        "description": "Products at or below their effective reorder point, most urgent first.",
+        "operationId": "reorder_recommendations_intelligence_reorder_recommendations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReorderQueueOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/intelligence/risk": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Risk Report",
+        "description": "Risk-scored inventory, including dead, slow-moving, and excess stock.",
+        "operationId": "risk_report_intelligence_risk_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "risk_category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "critical",
+                    "dead_stock",
+                    "slow_moving",
+                    "excess",
+                    "low_stock",
+                    "healthy"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional risk category filter (validated by FastAPI).",
+              "title": "Risk Category"
+            },
+            "description": "Optional risk category filter (validated by FastAPI)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskReportOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/intelligence/products/{product_id}": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Product Intelligence",
+        "description": "Detailed demand, stockout, reorder, and risk analysis for one product.",
+        "operationId": "product_intelligence_intelligence_products__product_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Product Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductIntelligenceOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/intelligence/products/{product_id}/forecast": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Product Forecast",
+        "description": "Daily sales history plus the baseline projection for charting.",
+        "operationId": "product_forecast_intelligence_products__product_id__forecast_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Product Id"
+            }
+          },
+          {
+            "name": "history_days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 90,
+              "minimum": 7,
+              "default": 30,
+              "title": "History Days"
+            }
+          },
+          {
+            "name": "forecast_days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 90,
+              "minimum": 1,
+              "default": 14,
+              "title": "Forecast Days"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastSeriesOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/intelligence/evaluation": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Forecast Evaluation",
+        "description": "Time-based holdout comparison against a naive mean baseline.",
+        "operationId": "forecast_evaluation_intelligence_evaluation_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastEvaluationOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
     "/health": {
       "get": {
         "tags": [
@@ -1805,6 +2109,383 @@
         ],
         "title": "CategoryOut"
       },
+      "DemandForecastOut": {
+        "properties": {
+          "daily_demand": {
+            "type": "number",
+            "title": "Daily Demand"
+          },
+          "forecast_7d_units": {
+            "type": "number",
+            "title": "Forecast 7D Units"
+          },
+          "forecast_30d_units": {
+            "type": "number",
+            "title": "Forecast 30D Units"
+          },
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "is_machine_learning": {
+            "type": "boolean",
+            "title": "Is Machine Learning"
+          },
+          "uses_category_fallback": {
+            "type": "boolean",
+            "title": "Uses Category Fallback"
+          },
+          "data_days_available": {
+            "type": "integer",
+            "title": "Data Days Available"
+          },
+          "insufficient_history": {
+            "type": "boolean",
+            "title": "Insufficient History"
+          }
+        },
+        "type": "object",
+        "required": [
+          "daily_demand",
+          "forecast_7d_units",
+          "forecast_30d_units",
+          "method",
+          "is_machine_learning",
+          "uses_category_fallback",
+          "data_days_available",
+          "insufficient_history"
+        ],
+        "title": "DemandForecastOut"
+      },
+      "DemandStatsOut": {
+        "properties": {
+          "total_units_sold": {
+            "type": "integer",
+            "title": "Total Units Sold"
+          },
+          "observed_sale_days": {
+            "type": "integer",
+            "title": "Observed Sale Days"
+          },
+          "window_days": {
+            "type": "integer",
+            "title": "Window Days"
+          },
+          "first_sale_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Sale Date"
+          },
+          "last_sale_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Sale Date"
+          },
+          "days_since_last_sale": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days Since Last Sale"
+          },
+          "avg_daily_demand": {
+            "type": "number",
+            "title": "Avg Daily Demand"
+          },
+          "weighted_daily_demand": {
+            "type": "number",
+            "title": "Weighted Daily Demand"
+          },
+          "insufficient_history": {
+            "type": "boolean",
+            "title": "Insufficient History"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_units_sold",
+          "observed_sale_days",
+          "window_days",
+          "first_sale_date",
+          "last_sale_date",
+          "days_since_last_sale",
+          "avg_daily_demand",
+          "weighted_daily_demand",
+          "insufficient_history"
+        ],
+        "title": "DemandStatsOut"
+      },
+      "EvaluationMetricsOut": {
+        "properties": {
+          "mae_model": {
+            "type": "number",
+            "title": "Mae Model"
+          },
+          "mae_naive": {
+            "type": "number",
+            "title": "Mae Naive"
+          },
+          "wape_model": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wape Model"
+          },
+          "wape_naive": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Wape Naive"
+          },
+          "model_beats_naive_baseline": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Beats Naive Baseline"
+          }
+        },
+        "type": "object",
+        "required": [
+          "mae_model",
+          "mae_naive",
+          "wape_model",
+          "wape_naive",
+          "model_beats_naive_baseline"
+        ],
+        "title": "EvaluationMetricsOut"
+      },
+      "EvaluationProductOut": {
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "title": "Product Id"
+          },
+          "sku": {
+            "type": "string",
+            "title": "Sku"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "train_avg_daily": {
+            "type": "number",
+            "title": "Train Avg Daily"
+          },
+          "model_daily": {
+            "type": "number",
+            "title": "Model Daily"
+          },
+          "actual_daily": {
+            "type": "number",
+            "title": "Actual Daily"
+          },
+          "ae_model": {
+            "type": "number",
+            "title": "Ae Model"
+          },
+          "ae_naive": {
+            "type": "number",
+            "title": "Ae Naive"
+          },
+          "better_model": {
+            "type": "string",
+            "enum": [
+              "model",
+              "naive",
+              "tie"
+            ],
+            "title": "Better Model"
+          }
+        },
+        "type": "object",
+        "required": [
+          "product_id",
+          "sku",
+          "name",
+          "train_avg_daily",
+          "model_daily",
+          "actual_daily",
+          "ae_model",
+          "ae_naive",
+          "better_model"
+        ],
+        "title": "EvaluationProductOut"
+      },
+      "EvaluationWindowOut": {
+        "properties": {
+          "start": {
+            "type": "string",
+            "title": "Start"
+          },
+          "end": {
+            "type": "string",
+            "title": "End"
+          },
+          "days": {
+            "type": "integer",
+            "title": "Days"
+          }
+        },
+        "type": "object",
+        "required": [
+          "start",
+          "end",
+          "days"
+        ],
+        "title": "EvaluationWindowOut"
+      },
+      "ForecastEvaluationOut": {
+        "properties": {
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm"
+          },
+          "train_window": {
+            "$ref": "#/components/schemas/EvaluationWindowOut"
+          },
+          "test_window": {
+            "$ref": "#/components/schemas/EvaluationWindowOut"
+          },
+          "products_evaluated": {
+            "type": "integer",
+            "title": "Products Evaluated"
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/EvaluationMetricsOut"
+          },
+          "data_limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Data Limitations"
+          },
+          "per_product": {
+            "items": {
+              "$ref": "#/components/schemas/EvaluationProductOut"
+            },
+            "type": "array",
+            "title": "Per Product"
+          }
+        },
+        "type": "object",
+        "required": [
+          "algorithm",
+          "train_window",
+          "test_window",
+          "products_evaluated",
+          "metrics",
+          "data_limitations",
+          "per_product"
+        ],
+        "title": "ForecastEvaluationOut"
+      },
+      "ForecastPointOut": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "title": "Date"
+          },
+          "units": {
+            "type": "number",
+            "title": "Units"
+          },
+          "is_forecast": {
+            "type": "boolean",
+            "title": "Is Forecast"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "units",
+          "is_forecast"
+        ],
+        "title": "ForecastPointOut"
+      },
+      "ForecastSeriesOut": {
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "title": "Product Id"
+          },
+          "sku": {
+            "type": "string",
+            "title": "Sku"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "daily_demand": {
+            "type": "number",
+            "title": "Daily Demand"
+          },
+          "history_days": {
+            "type": "integer",
+            "title": "History Days"
+          },
+          "forecast_days": {
+            "type": "integer",
+            "title": "Forecast Days"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/ForecastPointOut"
+            },
+            "type": "array",
+            "title": "Points"
+          }
+        },
+        "type": "object",
+        "required": [
+          "product_id",
+          "sku",
+          "name",
+          "method",
+          "daily_demand",
+          "history_days",
+          "forecast_days",
+          "points"
+        ],
+        "title": "ForecastSeriesOut"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -1817,6 +2498,95 @@
         },
         "type": "object",
         "title": "HTTPValidationError"
+      },
+      "IntelligenceCountsOut": {
+        "properties": {
+          "total_products": {
+            "type": "integer",
+            "title": "Total Products"
+          },
+          "needs_reorder": {
+            "type": "integer",
+            "title": "Needs Reorder"
+          },
+          "critical": {
+            "type": "integer",
+            "title": "Critical"
+          },
+          "low_stock": {
+            "type": "integer",
+            "title": "Low Stock"
+          },
+          "dead_stock": {
+            "type": "integer",
+            "title": "Dead Stock"
+          },
+          "slow_moving": {
+            "type": "integer",
+            "title": "Slow Moving"
+          },
+          "excess": {
+            "type": "integer",
+            "title": "Excess"
+          },
+          "healthy": {
+            "type": "integer",
+            "title": "Healthy"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_products",
+          "needs_reorder",
+          "critical",
+          "low_stock",
+          "dead_stock",
+          "slow_moving",
+          "excess",
+          "healthy"
+        ],
+        "title": "IntelligenceCountsOut"
+      },
+      "IntelligenceSummaryOut": {
+        "properties": {
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generated At"
+          },
+          "window_days": {
+            "type": "integer",
+            "title": "Window Days"
+          },
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm"
+          },
+          "risk_model_version": {
+            "type": "string",
+            "title": "Risk Model Version"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/IntelligenceCountsOut"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ProductIntelligenceOut"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "generated_at",
+          "window_days",
+          "algorithm",
+          "risk_model_version",
+          "counts",
+          "items"
+        ],
+        "title": "IntelligenceSummaryOut"
       },
       "InventoryOut": {
         "properties": {
@@ -1861,12 +2631,10 @@
           },
           "cost_price": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Cost Price"
           },
           "stock_value": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Stock Value"
           },
           "reorder_point": {
@@ -2235,8 +3003,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               }
             ],
             "title": "Selling Price"
@@ -2248,8 +3015,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               }
             ],
             "title": "Cost Price"
@@ -2275,6 +3041,81 @@
           "cost_price"
         ],
         "title": "ProductIn"
+      },
+      "ProductIntelligenceOut": {
+        "properties": {
+          "product_id": {
+            "type": "integer",
+            "title": "Product Id"
+          },
+          "sku": {
+            "type": "string",
+            "title": "Sku"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "category_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Category Name"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active"
+          },
+          "current_stock": {
+            "type": "integer",
+            "title": "Current Stock"
+          },
+          "cost_price": {
+            "type": "string",
+            "title": "Cost Price"
+          },
+          "demand_stats": {
+            "$ref": "#/components/schemas/DemandStatsOut"
+          },
+          "forecast": {
+            "$ref": "#/components/schemas/DemandForecastOut"
+          },
+          "stockout_prediction": {
+            "$ref": "#/components/schemas/StockoutPredictionOut"
+          },
+          "reorder_recommendation": {
+            "$ref": "#/components/schemas/ReorderRecommendationOut"
+          },
+          "risk": {
+            "$ref": "#/components/schemas/RiskScoreOut"
+          }
+        },
+        "type": "object",
+        "required": [
+          "product_id",
+          "sku",
+          "name",
+          "category_name",
+          "unit",
+          "is_active",
+          "current_stock",
+          "cost_price",
+          "demand_stats",
+          "forecast",
+          "stockout_prediction",
+          "reorder_recommendation",
+          "risk"
+        ],
+        "title": "ProductIntelligenceOut"
       },
       "ProductOut": {
         "properties": {
@@ -2318,12 +3159,10 @@
           },
           "selling_price": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Selling Price"
           },
           "cost_price": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Cost Price"
           },
           "reorder_point": {
@@ -2372,8 +3211,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               },
               {
                 "type": "null"
@@ -2438,8 +3276,7 @@
           "unit_cost": {
             "anyOf": [
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$"
+                "type": "string"
               },
               {
                 "type": "null"
@@ -2533,8 +3370,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               },
               {
                 "type": "null"
@@ -2549,8 +3385,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               },
               {
                 "type": "null"
@@ -2653,8 +3488,7 @@
                 "minimum": 0.0
               },
               {
-                "type": "string",
-                "pattern": "^(?!^[-+.]*$)[+-]?0*(?:\\d{0,10}|(?=[\\d.]{1,13}0*$)\\d{0,10}\\.\\d{0,2}0*$)"
+                "type": "string"
               }
             ],
             "title": "Unit Cost"
@@ -2692,7 +3526,6 @@
           },
           "unit_cost": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Unit Cost"
           }
         },
@@ -2744,7 +3577,6 @@
           },
           "total_cost": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Total Cost"
           },
           "notes": {
@@ -2779,6 +3611,413 @@
           "items"
         ],
         "title": "PurchaseOut"
+      },
+      "ReorderExplanationOut": {
+        "properties": {
+          "lookback_days": {
+            "type": "integer",
+            "title": "Lookback Days"
+          },
+          "window_start": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Window Start"
+          },
+          "window_end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Window End"
+          },
+          "units_sold": {
+            "type": "integer",
+            "title": "Units Sold"
+          },
+          "avg_daily_sales": {
+            "type": "number",
+            "title": "Avg Daily Sales"
+          },
+          "demand_basis": {
+            "type": "number",
+            "title": "Demand Basis"
+          },
+          "current_stock": {
+            "type": "integer",
+            "title": "Current Stock"
+          },
+          "lead_time_days": {
+            "type": "integer",
+            "title": "Lead Time Days"
+          },
+          "lead_time_source": {
+            "type": "string",
+            "title": "Lead Time Source"
+          },
+          "lead_time_is_assumed": {
+            "type": "boolean",
+            "title": "Lead Time Is Assumed"
+          },
+          "safety_stock": {
+            "type": "integer",
+            "title": "Safety Stock"
+          },
+          "review_period_days": {
+            "type": "integer",
+            "title": "Review Period Days"
+          },
+          "reorder_point_calculated": {
+            "type": "integer",
+            "title": "Reorder Point Calculated"
+          },
+          "reorder_point_manual": {
+            "type": "integer",
+            "title": "Reorder Point Manual"
+          },
+          "effective_reorder_point": {
+            "type": "integer",
+            "title": "Effective Reorder Point"
+          },
+          "target_stock": {
+            "type": "integer",
+            "title": "Target Stock"
+          },
+          "suggested_qty": {
+            "type": "integer",
+            "title": "Suggested Qty"
+          },
+          "adjusted_for_moq": {
+            "type": "boolean",
+            "title": "Adjusted For Moq"
+          },
+          "min_order_qty": {
+            "type": "integer",
+            "title": "Min Order Qty"
+          },
+          "formula_reorder_point": {
+            "type": "string",
+            "title": "Formula Reorder Point"
+          },
+          "formula_target_stock": {
+            "type": "string",
+            "title": "Formula Target Stock"
+          },
+          "formula_suggested_qty": {
+            "type": "string",
+            "title": "Formula Suggested Qty"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lookback_days",
+          "window_start",
+          "window_end",
+          "units_sold",
+          "avg_daily_sales",
+          "demand_basis",
+          "current_stock",
+          "lead_time_days",
+          "lead_time_source",
+          "lead_time_is_assumed",
+          "safety_stock",
+          "review_period_days",
+          "reorder_point_calculated",
+          "reorder_point_manual",
+          "effective_reorder_point",
+          "target_stock",
+          "suggested_qty",
+          "adjusted_for_moq",
+          "min_order_qty",
+          "formula_reorder_point",
+          "formula_target_stock",
+          "formula_suggested_qty",
+          "disclaimer"
+        ],
+        "title": "ReorderExplanationOut",
+        "description": "Typed, auditable inputs behind a reorder suggestion (no ML claims)."
+      },
+      "ReorderQueueOut": {
+        "properties": {
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generated At"
+          },
+          "window_days": {
+            "type": "integer",
+            "title": "Window Days"
+          },
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ProductIntelligenceOut"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "generated_at",
+          "window_days",
+          "algorithm",
+          "total",
+          "items"
+        ],
+        "title": "ReorderQueueOut"
+      },
+      "ReorderRecommendationOut": {
+        "properties": {
+          "needs_reorder": {
+            "type": "boolean",
+            "title": "Needs Reorder"
+          },
+          "configured_reorder_point": {
+            "type": "integer",
+            "title": "Configured Reorder Point"
+          },
+          "calculated_reorder_point": {
+            "type": "integer",
+            "title": "Calculated Reorder Point"
+          },
+          "effective_reorder_point": {
+            "type": "integer",
+            "title": "Effective Reorder Point"
+          },
+          "current_stock": {
+            "type": "integer",
+            "title": "Current Stock"
+          },
+          "target_stock": {
+            "type": "number",
+            "title": "Target Stock"
+          },
+          "raw_qty_needed": {
+            "type": "number",
+            "title": "Raw Qty Needed"
+          },
+          "min_order_qty": {
+            "type": "integer",
+            "title": "Min Order Qty"
+          },
+          "reorder_qty": {
+            "type": "integer",
+            "title": "Reorder Qty"
+          },
+          "unit_cost": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit Cost"
+          },
+          "estimated_order_cost": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Order Cost"
+          },
+          "supplier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReorderSupplierOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "explanation": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Explanation"
+          },
+          "explanation_details": {
+            "$ref": "#/components/schemas/ReorderExplanationOut"
+          },
+          "formula": {
+            "type": "string",
+            "title": "Formula"
+          }
+        },
+        "type": "object",
+        "required": [
+          "needs_reorder",
+          "configured_reorder_point",
+          "calculated_reorder_point",
+          "effective_reorder_point",
+          "current_stock",
+          "target_stock",
+          "raw_qty_needed",
+          "min_order_qty",
+          "reorder_qty",
+          "unit_cost",
+          "estimated_order_cost",
+          "supplier",
+          "explanation",
+          "explanation_details",
+          "formula"
+        ],
+        "title": "ReorderRecommendationOut"
+      },
+      "ReorderSupplierOut": {
+        "properties": {
+          "supplier_id": {
+            "type": "integer",
+            "title": "Supplier Id"
+          },
+          "supplier_name": {
+            "type": "string",
+            "title": "Supplier Name"
+          },
+          "lead_time_days": {
+            "type": "integer",
+            "title": "Lead Time Days"
+          },
+          "min_order_qty": {
+            "type": "integer",
+            "title": "Min Order Qty"
+          },
+          "unit_cost": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit Cost"
+          }
+        },
+        "type": "object",
+        "required": [
+          "supplier_id",
+          "supplier_name",
+          "lead_time_days",
+          "min_order_qty",
+          "unit_cost"
+        ],
+        "title": "ReorderSupplierOut"
+      },
+      "RiskReportOut": {
+        "properties": {
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generated At"
+          },
+          "window_days": {
+            "type": "integer",
+            "title": "Window Days"
+          },
+          "risk_model_version": {
+            "type": "string",
+            "title": "Risk Model Version"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/IntelligenceCountsOut"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ProductIntelligenceOut"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "generated_at",
+          "window_days",
+          "risk_model_version",
+          "counts",
+          "items"
+        ],
+        "title": "RiskReportOut"
+      },
+      "RiskScoreOut": {
+        "properties": {
+          "risk_score": {
+            "type": "integer",
+            "title": "Risk Score"
+          },
+          "risk_category": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "dead_stock",
+              "slow_moving",
+              "excess",
+              "low_stock",
+              "healthy"
+            ],
+            "title": "Risk Category"
+          },
+          "days_of_cover": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days Of Cover"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          },
+          "recommended_action": {
+            "type": "string",
+            "title": "Recommended Action"
+          }
+        },
+        "type": "object",
+        "required": [
+          "risk_score",
+          "risk_category",
+          "days_of_cover",
+          "reasons",
+          "recommended_action"
+        ],
+        "title": "RiskScoreOut"
       },
       "SaleIn": {
         "properties": {
@@ -2852,7 +4091,6 @@
           },
           "unit_price": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Unit Price"
           }
         },
@@ -2895,7 +4133,6 @@
           },
           "total_amount": {
             "type": "string",
-            "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
             "title": "Total Amount"
           },
           "items": {
@@ -2916,6 +4153,68 @@
           "items"
         ],
         "title": "SaleOut"
+      },
+      "StockoutPredictionOut": {
+        "properties": {
+          "days_until_stockout": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days Until Stockout"
+          },
+          "stockout_risk": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low",
+              "none"
+            ],
+            "title": "Stockout Risk"
+          },
+          "out_of_stock": {
+            "type": "boolean",
+            "title": "Out Of Stock"
+          },
+          "current_stock": {
+            "type": "integer",
+            "title": "Current Stock"
+          },
+          "avg_daily_demand": {
+            "type": "number",
+            "title": "Avg Daily Demand"
+          },
+          "lead_time_days": {
+            "type": "integer",
+            "title": "Lead Time Days"
+          },
+          "lead_time_is_assumed": {
+            "type": "boolean",
+            "title": "Lead Time Is Assumed"
+          },
+          "will_stockout_before_reorder": {
+            "type": "boolean",
+            "title": "Will Stockout Before Reorder"
+          }
+        },
+        "type": "object",
+        "required": [
+          "days_until_stockout",
+          "stockout_risk",
+          "out_of_stock",
+          "current_stock",
+          "avg_daily_demand",
+          "lead_time_days",
+          "lead_time_is_assumed",
+          "will_stockout_before_reorder"
+        ],
+        "title": "StockoutPredictionOut"
       },
       "SupplierIn": {
         "properties": {

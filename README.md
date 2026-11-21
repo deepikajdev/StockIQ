@@ -6,7 +6,7 @@ React · FastAPI · MySQL 8. Built in phases:
 |---|---|---|---|
 | 2 | Backend: auth/RBAC, products, suppliers, purchases, sales, adjustments, ledger, transactional stock path | ✅ done + 11 tests (incl. 25-way concurrent oversell test) | Claude |
 | 1 | DB layer: DDL, views, routine, triggers, seed, ER/normalization docs | 📝 `prompts/01_antigravity_database.md` | Antigravity |
-| 3 | Intelligence (stockout, reorder, alerts), reports, dashboard, more tests | 📝 `prompts/03_antigravity_intelligence.md` | Antigravity |
+| 3 | Intelligence (demand baseline, stockout, reorder, risk, evaluation), API + frontend wiring | ✅ implemented — rule-based, read-only; see [`docs/INTELLIGENCE_ENGINE.md`](docs/INTELLIGENCE_ENGINE.md) (17 backend + 6 new frontend tests) | Antigravity |
 | 4 | Frontend | 📝 `prompts/02_stitch_frontend.md` (Stitch → Antigravity wiring) | Stitch + Antigravity |
 | 5 | Deploy | Dockerfile, docker-compose, render.yaml ready | you |
 
