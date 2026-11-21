@@ -1,18 +1,36 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { ArrowLeft, Star, Clock, AlertCircle } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Clock, ShoppingCart, Star, TrendingUp } from 'lucide-react';
 import { PageHeader } from '../components/common/PageHeader';
+import { KpiCard } from '../components/common/KpiCard';
 import { StatusBadge } from '../components/common/StatusBadge';
 import { DataTable, Column } from '../components/common/DataTable';
+import { RiskBadge } from '../components/intelligence/RiskBadge';
+import { ForecastChart } from '../components/intelligence/ForecastChart';
 import { api } from '../api/client';
+import { intelligenceApi } from '../api/intelligence';
 import { formatCurrency, formatDateTime, formatSignedDelta } from '../utils/format';
-import type { Product, ProductSupplier, Page, MovementOut } from '../types';
+import {
+  forecastMethodLabel,
+  forecastSourceNote,
+  STOCKOUT_LABELS,
+} from '../utils/intelligence';
+import type {
+  Product,
+  ProductSupplier,
+  Page,
+  MovementOut,
+  ProductIntelligence,
+  ForecastSeries,
+} from '../types';
 
 export const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'overview' | 'suppliers' | 'movements'>('overview');
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'forecast' | 'suppliers' | 'movements'
+  >('overview');
   const [movementOffset, setMovementOffset] = useState(0);
   const movementLimit = 25;
 
@@ -37,6 +55,20 @@ export const ProductDetail: React.FC = () => {
         offset: movementOffset,
       }),
     enabled: !!id && activeTab === 'movements',
+  });
+
+  const { data: intelligence, isLoading: intelligenceLoading } = useQuery({
+    queryKey: ['product-intelligence', id],
+    queryFn: () => intelligenceApi.product(Number(id)),
+    enabled: !!id && activeTab === 'forecast',
+    staleTime: 60_000,
+  });
+
+  const { data: forecastSeries, isLoading: forecastLoading } = useQuery({
+    queryKey: ['product-forecast', id],
+    queryFn: () => intelligenceApi.forecast(Number(id), 30, 14),
+    enabled: !!id && activeTab === 'forecast',
+    staleTime: 60_000,
   });
 
   if (isLoading) {
@@ -180,6 +212,16 @@ export const ProductDetail: React.FC = () => {
           Overview & Economics
         </button>
         <button
+          onClick={() => setActiveTab('forecast')}
+          className={`pb-3 transition-colors ${
+            activeTab === 'forecast'
+              ? 'border-b-2 border-primary text-primary font-semibold'
+              : 'text-on-surface-variant hover:text-on-surface'
+          }`}
+        >
+          Demand Forecast & Risk
+        </button>
+        <button
           onClick={() => setActiveTab('suppliers')}
           className={`pb-3 transition-colors ${
             activeTab === 'suppliers'
@@ -259,6 +301,22 @@ export const ProductDetail: React.FC = () => {
         </div>
       )}
 
+      {activeTab === 'forecast' && (
+        <div className="space-y-5">
+          {intelligenceLoading || forecastLoading ? (
+            <div className="p-8 text-center text-on-surface-variant">
+              Loading demand analysis…
+            </div>
+          ) : intelligence && forecastSeries ? (
+            <ProductForecastPanel intelligence={intelligence} series={forecastSeries} />
+          ) : (
+            <div className="p-8 text-center text-on-surface-variant">
+              No intelligence data is available for this product.
+            </div>
+          )}
+        </div>
+      )}
+
       {activeTab === 'suppliers' && (
         <DataTable
           columns={supplierColumns}
@@ -290,5 +348,99 @@ export const ProductDetail: React.FC = () => {
         />
       )}
     </div>
+  );
+};
+
+interface ProductForecastPanelProps {
+  intelligence: ProductIntelligence;
+  series: ForecastSeries;
+}
+
+const ProductForecastPanel: React.FC<ProductForecastPanelProps> = ({
+  intelligence,
+  series,
+}) => {
+  const { forecast, demand_stats, stockout_prediction, reorder_recommendation, risk } =
+    intelligence;
+
+  return (
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <KpiCard
+          title="Demand Baseline"
+          value={`${forecast.daily_demand}/day`}
+          subtitle={forecastMethodLabel(forecast.method)}
+          icon={TrendingUp}
+        />
+        <KpiCard
+          title="Days to Stockout"
+          value={
+            stockout_prediction.days_until_stockout === null
+              ? '—'
+              : String(stockout_prediction.days_until_stockout)
+          }
+          subtitle={STOCKOUT_LABELS[stockout_prediction.stockout_risk]}
+          icon={Clock}
+        />
+        <KpiCard
+          title="Suggested Order"
+          value={`${reorder_recommendation.reorder_qty}`}
+          subtitle={
+            reorder_recommendation.needs_reorder
+              ? `MOQ ${reorder_recommendation.min_order_qty} · advisory only`
+              : 'No replenishment needed'
+          }
+          icon={ShoppingCart}
+        />
+        <div className="rounded-xl bg-surface-container-lowest p-5 border border-outline-variant/30 shadow-xs">
+          <span className="font-overline text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
+            Inventory Risk
+          </span>
+          <div className="mt-3">
+            <RiskBadge category={risk.risk_category} score={risk.risk_score} />
+          </div>
+          <p className="text-[12px] text-on-surface-variant mt-3">
+            {risk.recommended_action}
+          </p>
+        </div>
+      </div>
+
+      <div className="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs space-y-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h3 className="font-semibold text-[14px] text-on-surface">
+            Recorded daily sales and baseline projection
+          </h3>
+          <span className="text-[11px] text-on-surface-variant">
+            {demand_stats.total_units_sold} units across {demand_stats.observed_sale_days}{' '}
+            selling day(s) in {demand_stats.window_days} days
+          </span>
+        </div>
+        <ForecastChart series={series} />
+        <p className="text-[12px] text-on-surface-variant">{forecastSourceNote(intelligence)}</p>
+        <p className="text-[11px] text-on-surface-variant">
+          Rule-based baseline, not machine learning. Projections are a flat rate and do not
+          model seasonality, promotions or supplier lead-time variability.
+        </p>
+      </div>
+
+      <div className="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs space-y-3">
+        <h3 className="font-semibold text-[14px] text-on-surface">
+          Risk reasoning and reorder explanation
+        </h3>
+        <ul className="list-disc list-inside text-[12px] text-on-surface-variant space-y-1">
+          {risk.reasons.map((reason, idx) => (
+            <li key={idx}>{reason}</li>
+          ))}
+        </ul>
+        <ol className="list-decimal list-inside text-[12px] text-on-surface space-y-1 border-t border-outline-variant/20 pt-3">
+          {reorder_recommendation.explanation.map((line, idx) => (
+            <li key={idx}>{line}</li>
+          ))}
+        </ol>
+        <p className="text-[11px] italic text-on-surface-variant">
+          {reorder_recommendation.explanation_details.disclaimer}
+        </p>
+      </div>
+    </>
   );
 };
