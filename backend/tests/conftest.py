@@ -3,6 +3,12 @@ import uuid
 import pytest
 from fastapi.testclient import TestClient
 
+from tests.db_guard import enforce_test_database
+
+# Must run before app.main is imported: importing the app constructs the real
+# database engine, and bootstrap() writes through it.
+enforce_test_database()
+
 from app.main import app
 from scripts.bootstrap import run as bootstrap
 

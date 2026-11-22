@@ -21,11 +21,13 @@ def verify_password(plain: str, hashed: str) -> bool:
 
 def create_token(user_id: int) -> str:
     exp = datetime.now(timezone.utc) + timedelta(minutes=settings.jwt_expire_minutes)
-    return jwt.encode({"sub": str(user_id), "exp": exp}, settings.jwt_secret, algorithm=ALGO)
+    return jwt.encode(
+        {"sub": str(user_id), "exp": exp}, settings.jwt_secret_value, algorithm=ALGO
+    )
 
 
 def decode_token(token: str) -> int | None:
     try:
-        return int(jwt.decode(token, settings.jwt_secret, algorithms=[ALGO])["sub"])
+        return int(jwt.decode(token, settings.jwt_secret_value, algorithms=[ALGO])["sub"])
     except (jwt.PyJWTError, KeyError, ValueError):
         return None

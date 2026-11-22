@@ -86,7 +86,7 @@ def run_full_system_audit():
         "business_id": 1,
         "exp": datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=1)
     }
-    expired_token = jwt.encode(expired_payload, settings.jwt_secret, algorithm="HS256")
+    expired_token = jwt.encode(expired_payload, settings.jwt_secret_value, algorithm="HS256")
     res_expired = client.get("/auth/me", headers={"Authorization": f"Bearer {expired_token}"})
     if res_expired.status_code == 401:
         record_pass("Expired JWT rejected", f"Status 401: {res_expired.json()['detail']}")
