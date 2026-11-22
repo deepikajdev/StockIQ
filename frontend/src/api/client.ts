@@ -1,4 +1,6 @@
-// Centralized API Client using VITE_API_URL
+// Centralized API Client using VITE_API_URL.
+// The bearer token stays in tab-scoped sessionStorage and is cleared on logout/401.
+// XSS is the main residual risk; the CSP is defined in src/utils/csp.ts.
 
 export const API_BASE_URL =
   import.meta.env.VITE_API_URL?.replace(/\/$/, '') || 'http://localhost:8000';

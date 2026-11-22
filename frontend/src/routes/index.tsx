@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { AppLayout } from '../layouts/AppLayout';
 import { Login } from '../pages/Login';
-import { Dashboard } from '../pages/Dashboard';
-import { Products } from '../pages/Products';
-import { ProductDetail } from '../pages/ProductDetail';
-import { Inventory } from '../pages/Inventory';
-import { NewSale } from '../pages/NewSale';
-import { SalesHistory } from '../pages/SalesHistory';
-import { Purchases } from '../pages/Purchases';
-import { Suppliers } from '../pages/Suppliers';
-import { AlertsReorder } from '../pages/AlertsReorder';
-import { MovementHistory } from '../pages/MovementHistory';
-import { Reports } from '../pages/Reports';
-import { RoleVariants } from '../pages/RoleVariants';
 import { NotFound } from '../pages/NotFound';
+
+// Heavy pages load on demand. Dashboard, ProductDetail and Reports pull in the
+// charting vendor chunk, so the login and application shell stay lightweight.
+const Dashboard = lazy(() =>
+  import('../pages/Dashboard').then((m) => ({ default: m.Dashboard }))
+);
+const Products = lazy(() => import('../pages/Products').then((m) => ({ default: m.Products })));
+const ProductDetail = lazy(() =>
+  import('../pages/ProductDetail').then((m) => ({ default: m.ProductDetail }))
+);
+const Inventory = lazy(() => import('../pages/Inventory').then((m) => ({ default: m.Inventory })));
+const NewSale = lazy(() => import('../pages/NewSale').then((m) => ({ default: m.NewSale })));
+const SalesHistory = lazy(() =>
+  import('../pages/SalesHistory').then((m) => ({ default: m.SalesHistory }))
+);
+const Purchases = lazy(() => import('../pages/Purchases').then((m) => ({ default: m.Purchases })));
+const Suppliers = lazy(() => import('../pages/Suppliers').then((m) => ({ default: m.Suppliers })));
+const AlertsReorder = lazy(() =>
+  import('../pages/AlertsReorder').then((m) => ({ default: m.AlertsReorder }))
+);
+const MovementHistory = lazy(() =>
+  import('../pages/MovementHistory').then((m) => ({ default: m.MovementHistory }))
+);
+const Reports = lazy(() => import('../pages/Reports').then((m) => ({ default: m.Reports })));
+const RoleVariants = lazy(() =>
+  import('../pages/RoleVariants').then((m) => ({ default: m.RoleVariants }))
+);
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
