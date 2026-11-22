@@ -1,6 +1,8 @@
 # StockIQ API contract (v1)
 
-Base URL: `VITE_API_URL` (dev: http://localhost:8000). Interactive docs: `/docs`. Full schema: `docs/openapi.json`.
+Base URL: `VITE_API_URL` (dev: http://localhost:8000). Interactive docs are available at `/docs`
+only when `DOCS_ENABLED=true` (default in development, disabled in production). The OpenAPI
+schema at `/openapi.json` is controlled independently by `OPENAPI_ENABLED`.
 
 **Auth:** `POST /auth/login {email,password}` → `{access_token, token_type, user:{id,email,full_name,role,business_id}}`.
 Send `Authorization: Bearer <token>` on everything else. Roles: `admin`, `staff`.

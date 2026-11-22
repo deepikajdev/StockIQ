@@ -1,19 +1,29 @@
 # Render blueprint (backend). MySQL is not offered by Render managed DBs — use a hosted MySQL
-# (Aiven free tier, PlanetScale, Railway MySQL, TiDB Serverless) and paste its URL as DATABASE_URL.
+# (Aiven, PlanetScale, Railway MySQL, TiDB Serverless) and paste its URL as DATABASE_URL.
+# DATABASE_URL must include verified TLS options in production; see docs/deploy.md.
 services:
   - type: web
     name: stockiq-api
     runtime: docker
     rootDir: backend
-    healthCheckPath: /health
+    healthCheckPath: /health/ready
     envVars:
+      - key: ENVIRONMENT
+        value: production
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
         generateValue: true
+      - key: JWT_EXPIRE_MINUTES
+        sync: false
       - key: CORS_ORIGINS
         sync: false
       - key: ADMIN_PASSWORD
         sync: false
       - key: STAFF_PASSWORD
         sync: false
+      # API docs and OpenAPI stay disabled unless explicitly flipped to "true".
+      - key: DOCS_ENABLED
+        value: "false"
+      - key: OPENAPI_ENABLED
+        value: "false"
