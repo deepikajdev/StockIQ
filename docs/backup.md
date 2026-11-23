@@ -1,6 +1,9 @@
 # StockIQ Database Backup & Restore Guide
 
-This guide documents operational procedures for backing up and restoring the StockIQ MySQL 8 / MariaDB 10.11 database using `mysqldump` and native database client tools.
+This guide documents operational procedures for backing up and restoring StockIQ on either
+**MySQL 8 / MariaDB 10.11** (sections 1–5, `mysqldump`) or **PostgreSQL 14+** (section 6,
+`pg_dump`/`pg_restore`). Both back up tables, views, the reconciliation routine and the
+append-only triggers. Never back up or restore into Supabase, staging or production while testing.
 
 ---
 
@@ -148,4 +151,78 @@ echo "StockIQ backup completed: ${BACKUP_FILE}"
 Ensure permissions are restricted:
 ```bash
 chmod 700 /etc/cron.daily/stockiq_backup.sh
+```
+
+---
+
+## 6. PostgreSQL backup and restore
+
+PostgreSQL dumps include the 15 tables, 4 views, the `sp_reconcile_inventory()` set-returning
+function and both append-only ledger triggers. Supply credentials through `PGPASSWORD` or a
+`.pgpass` file; never embed them in scripts committed to this repository.
+
+### Full consistent logical backup
+
+```bash
+PGPASSWORD="${DB_PASSWORD}" pg_dump \
+  --host=localhost \
+  --port=5432 \
+  --username=stockiq \
+  --format=custom \
+  --no-owner \
+  --no-privileges \
+  --file="stockiq_backup_$(date +%Y%m%d_%H%M%S).dump" \
+  stockiq
+```
+
+`--format=custom` supports point-in-time-consistent dumps and selective restore.
+Plain SQL is also valid: omit `--format=custom/--file` and redirect stdout to a `.sql` file.
+
+### Schema-only / data-only dumps
+
+```bash
+PGPASSWORD="${DB_PASSWORD}" pg_dump --schema-only --no-owner stockiq > stockiq_schema_only.sql
+PGPASSWORD="${DB_PASSWORD}" pg_dump --data-only --no-owner stockiq > stockiq_data_only.sql
+```
+
+### Create an empty target database
+
+```sql
+CREATE DATABASE stockiq ENCODING 'UTF8';
+```
+
+Do not reuse an existing non-empty database: `db/postgresql/schema.sql` drops and recreates
+the StockIQ objects in dependency order.
+
+### Restore
+
+```bash
+PGPASSWORD="${DB_PASSWORD}" pg_restore \
+  --host=localhost --port=5432 --username=stockiq \
+  --clean --if-exists --no-owner --dbname=stockiq stockiq_backup.dump
+```
+
+For a plain SQL dump: `psql "$DATABASE_URL" -f stockiq_backup.sql`.
+
+### Verify ledger reconciliation post-restore
+
+```bash
+psql "$DATABASE_URL" -c "SELECT * FROM sp_reconcile_inventory();"
+```
+
+Zero rows returned confirms 100% data integrity. The MySQL equivalent is
+`CALL sp_reconcile_inventory();` shown in section 3.
+
+### Automated daily backup (cron example)
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+BACKUP_DIR="/var/backups/stockiq"
+mkdir -p "${BACKUP_DIR}"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="${BACKUP_DIR}/stockiq_${TIMESTAMP}.dump"
+PGPASSWORD="${DB_PASSWORD}" pg_dump -h localhost -U stockiq -Fc --no-owner -f "${BACKUP_FILE}" stockiq
+find "${BACKUP_DIR}" -name "stockiq_*.dump" -mtime +30 -delete
+echo "StockIQ PostgreSQL backup completed: ${BACKUP_FILE}"
 ```

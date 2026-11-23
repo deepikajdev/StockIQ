@@ -266,5 +266,7 @@ cd backend && python -m pytest tests/test_intelligence.py -q
 cd frontend && npm run typecheck && npm test && npm run build
 ```
 
-The remaining `backend/tests/test_stock_workflows.py` suite requires a running
-MySQL instance (configure `DATABASE_URL`); those tests are unchanged by this work.
+The remaining `backend/tests/test_stock_workflows.py` suite requires a running test
+database (MySQL or PostgreSQL via `DATABASE_URL` plus matching `STOCKIQ_TEST_DB`); those tests
+are unchanged by this work. PostgreSQL integration coverage is gated on the dedicated local
+`stockiq_pg_test` database in `tests/test_postgresql_integration.py`.

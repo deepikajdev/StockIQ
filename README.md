@@ -1,6 +1,6 @@
 # StockIQ — Inventory & Reorder Recommendation Platform
 
-React · FastAPI · MySQL 8. Built in phases:
+React · FastAPI · MySQL 8 or PostgreSQL 14+. Built in phases:
 
 | Phase | What | Status | Who |
 |---|---|---|---|
@@ -15,12 +15,33 @@ React · FastAPI · MySQL 8. Built in phases:
 cd backend
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env            # set DATABASE_URL (MySQL 8) and JWT_SECRET
+cp .env.example .env            # set DATABASE_URL and JWT_SECRET
 python -m scripts.bootstrap     # creates tables, business, warehouse, admin + staff users
 uvicorn app.main:app --reload   # http://localhost:8000/docs
 pytest                          # needs the DB from .env; run against a scratch database
 ```
+`DATABASE_URL` accepts `mysql+pymysql://…` (the development default) or
+`postgresql+psycopg://…`. For a fresh PostgreSQL database, load the equivalent
+DDL/views/function/triggers with `psql "$DATABASE_URL" -f db/postgresql/install.sql`;
+`python -m scripts.bootstrap` also installs them idempotently. See
+[`db/postgresql/README.md`](db/postgresql/README.md) and [`docs/database.md`](docs/database.md).
+
 Demo logins (change via ADMIN_PASSWORD / STAFF_PASSWORD): `admin@stockiq.example.com / admin12345`, `staff@stockiq.example.com / staff12345`.
+
+### PostgreSQL integration tests
+The real PostgreSQL tests never connect unless the target is the dedicated local
+database `stockiq_pg_test` with matching confirmation:
+
+```bash
+cd backend
+DATABASE_URL='postgresql+psycopg://USER:PASSWORD@127.0.0.1:5432/stockiq_pg_test' \
+STOCKIQ_TEST_DB=stockiq_pg_test \
+python -m pytest tests/test_postgresql_integration.py -q
+```
+
+Without these variables the module reports `skipped`; the MySQL test suite is
+unchanged (`STOCKIQ_TEST_DB=stockiq_test`). Never point tests at Supabase, staging
+or production.
 
 Or all-in-one: `JWT_SECRET=$(openssl rand -hex 32) docker compose up --build`.
 

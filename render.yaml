@@ -1,5 +1,6 @@
-# Render blueprint (backend). MySQL is not offered by Render managed DBs — use a hosted MySQL
-# (Aiven, PlanetScale, Railway MySQL, TiDB Serverless) and paste its URL as DATABASE_URL.
+# Render blueprint (backend). Render managed DBs offer PostgreSQL; MySQL must be hosted
+# externally (Aiven, PlanetScale, Railway MySQL, TiDB Serverless). Paste either a
+# mysql+pymysql:// or postgresql+psycopg:// URL as DATABASE_URL.
 # DATABASE_URL must include verified TLS options in production; see docs/deploy.md.
 services:
   - type: web

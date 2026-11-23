@@ -113,7 +113,7 @@ export const Login: React.FC = () => {
 
             <div className="relative z-10 pt-6 text-[12px] text-on-surface-variant flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span>Production FastApi & MySQL Engine</span>
+              <span>Production FastAPI & SQL Engine</span>
             </div>
           </div>
 
