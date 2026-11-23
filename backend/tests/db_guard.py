@@ -8,10 +8,11 @@ before ``app.main`` is imported and the engine is constructed.
 A target is accepted only when all of the following are true:
 
 * ``DATABASE_URL`` is present and parseable.
-* The dialect is MySQL/MariaDB.
+* The dialect is MySQL/MariaDB or PostgreSQL.
 * The host is local (remote targets require an explicit override).
-* The database name is explicitly test-shaped, e.g. ``stockiq_test`` or
-  ``test_stockiq``.
+* For MySQL/MariaDB, the database name is explicitly test-shaped, e.g.
+  ``stockiq_test`` or ``test_stockiq``. For PostgreSQL, the name must be
+  exactly ``stockiq_pg_test``.
 * ``STOCKIQ_TEST_DB`` exactly matches the database name.
 """
 
@@ -25,6 +26,8 @@ from sqlalchemy.engine import make_url
 
 CONFIRMATION_ENV = "STOCKIQ_TEST_DB"
 REMOTE_OVERRIDE_ENV = "STOCKIQ_TEST_DB_ALLOW_REMOTE"
+POSTGRESQL_TEST_DB_NAME = "stockiq_pg_test"
+ALLOWED_TEST_DIALECTS = {"mysql", "mariadb", "postgresql"}
 
 TEST_DB_PATTERN = re.compile(
     r"^(?:test_[a-z0-9_]+|[a-z0-9]+_test|[a-z0-9]+_tests)$", re.IGNORECASE
@@ -98,9 +101,10 @@ def validate_test_database_url(
         raise RuntimeError("DATABASE_URL is not a valid SQLAlchemy URL.") from exc
 
     dialect = url.get_backend_name()
-    if dialect not in {"mysql", "mariadb"}:
+    if dialect not in ALLOWED_TEST_DIALECTS:
         raise RuntimeError(
-            f"pytest requires a MySQL/MariaDB test database, got dialect {dialect!r}."
+            "pytest requires a MySQL/MariaDB or PostgreSQL test database, "
+            f"got dialect {dialect!r}."
         )
 
     host = (url.host or "").strip().lower()
@@ -115,7 +119,13 @@ def validate_test_database_url(
     name = (url.database or "").strip()
     if not name:
         raise RuntimeError("DATABASE_URL must explicitly name a test database.")
-    if name.lower() in FORBIDDEN_DB_NAMES or not TEST_DB_PATTERN.fullmatch(name):
+    if dialect == "postgresql":
+        if name.lower() != POSTGRESQL_TEST_DB_NAME:
+            raise RuntimeError(
+                f"Refusing to run PostgreSQL tests against database {name!r}. "
+                f"Expected exactly {POSTGRESQL_TEST_DB_NAME!r}."
+            )
+    elif name.lower() in FORBIDDEN_DB_NAMES or not TEST_DB_PATTERN.fullmatch(name):
         raise RuntimeError(
             f"Refusing to run tests against unsafe database {name!r}. "
             "Expected an explicit test name such as 'stockiq_test' or 'test_stockiq'."

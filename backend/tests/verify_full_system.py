@@ -5,15 +5,25 @@ import datetime
 from decimal import Decimal
 import jwt
 from fastapi.testclient import TestClient
+from sqlalchemy import select, text
 
 # Ensure backend directory is in sys.path
 backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
 
+from tests.db_guard import enforce_test_database
+
+# Must run before app.main is imported: importing the app constructs the real
+# database engine, and this audit script writes through it.
+enforce_test_database()
+
 from app.main import app
 from app.db import SessionLocal
-from app.models import Product, Inventory, StockMovement, Sale, Purchase, AuditLog, Supplier, ProductSupplier
+from app.models import (
+    AuditLog, Category, Inventory, Product, Purchase, Sale, StockMovement,
+    Supplier, ProductSupplier,
+)
 from app.config import settings
 
 def run_full_system_audit():
@@ -41,8 +51,9 @@ def run_full_system_audit():
     res = client.post("/auth/login", json={"email": "admin@stockiq.example.com", "password": "admin12345"})
     if res.status_code == 200 and "access_token" in res.json() and res.json()["user"]["role"] == "admin":
         admin_token = res.json()["access_token"]
+        admin_user = res.json()["user"]
         admin_headers = {"Authorization": f"Bearer {admin_token}"}
-        record_pass("Admin login", f"Received JWT token, role={res.json()['user']['role']}")
+        record_pass("Admin login", f"Received JWT token, role={admin_user['role']}")
     else:
         record_fail("Admin login", f"Status {res.status_code}, response: {res.text}")
         return
@@ -79,11 +90,13 @@ def run_full_system_audit():
         record_fail("Session persistence (GET /auth/me)", f"Admin={res_admin.status_code}, Staff={res_staff.status_code}")
 
     # 5. Expired JWT
+    # Derive identity from the live login response instead of assuming ID 1;
+    # PostgreSQL sequences keep advancing after a DELETE-based reseed.
     expired_payload = {
-        "sub": "1",
-        "email": "admin@stockiq.example.com",
-        "role": "admin",
-        "business_id": 1,
+        "sub": str(admin_user["id"]),
+        "email": admin_user["email"],
+        "role": admin_user["role"],
+        "business_id": admin_user["business_id"],
         "exp": datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=1)
     }
     expired_token = jwt.encode(expired_payload, settings.jwt_secret_value, algorithm="HS256")
@@ -93,10 +106,18 @@ def run_full_system_audit():
     else:
         record_fail("Expired JWT rejected", f"Status {res_expired.status_code}")
 
+    # Discover real IDs instead of assuming auto-increment starts at 1. This
+    # matters on PostgreSQL, where a DELETE-based reseed does not rewind the
+    # identity sequences.
+    with SessionLocal() as db:
+        sample_category_id = db.scalar(select(Category.id).order_by(Category.id).limit(1))
+        sample_product_id = db.scalar(select(Product.id).order_by(Product.id).limit(1))
+        sample_supplier_id = db.scalar(select(Supplier.id).order_by(Supplier.id).limit(1))
+
     # 6. Unauthorized admin operations blocked for staff (403)
     res_prod = client.post("/products", headers=staff_headers, json={"sku": f"STAFF-{uuid.uuid4().hex[:4]}", "name": "Staff Item", "selling_price": "10.00", "cost_price": "5.00"})
-    res_adj = client.post("/inventory/adjustments", headers=staff_headers, json={"product_id": 1, "quantity_change": 5, "reason": "correction"})
-    res_po = client.post("/purchases", headers=staff_headers, json={"supplier_id": 1, "items": [{"product_id": 1, "quantity": 10, "unit_cost": "5.00"}]})
+    res_adj = client.post("/inventory/adjustments", headers=staff_headers, json={"product_id": sample_product_id, "quantity_change": 5, "reason": "correction"})
+    res_po = client.post("/purchases", headers=staff_headers, json={"supplier_id": sample_supplier_id, "items": [{"product_id": sample_product_id, "quantity": 10, "unit_cost": "5.00"}]})
     res_sup = client.post("/suppliers", headers=staff_headers, json={"name": "Staff Supplier"})
 
     if all(r.status_code == 403 for r in [res_prod, res_adj, res_po, res_sup]):
@@ -116,7 +137,7 @@ def run_full_system_audit():
     prod_payload = {
         "sku": test_sku,
         "name": f"Audit Ballpoint Pen {test_suffix}",
-        "category_id": 1,
+        "category_id": sample_category_id,
         "unit": "pcs",
         "selling_price": "50.00",
         "cost_price": "25.00",
@@ -234,8 +255,11 @@ def run_full_system_audit():
     res = client.get(f"/inventory/movements?product_id={product_id}", headers=admin_headers)
     if res.status_code == 200:
         moves = res.json()["items"]
-        if len(moves) == 2 and moves[0]["movement_type"] == "sale" and moves[1]["movement_type"] == "purchase_receipt":
-            record_pass("10. Inspect stock movement history", f"Found 2 movements: 1st={moves[1]['movement_type']} (+{moves[1]['quantity_change']}), 2nd={moves[0]['movement_type']} ({moves[0]['quantity_change']})")
+        # SQL result order is not guaranteed: sort by ledger ID on both engines.
+        ordered = sorted(moves, key=lambda m: m["id"])
+        if (len(ordered) == 2 and ordered[0]["movement_type"] == "purchase_receipt"
+                and ordered[1]["movement_type"] == "sale"):
+            record_pass("10. Inspect stock movement history", f"Found 2 movements: 1st={ordered[0]['movement_type']} (+{ordered[0]['quantity_change']}), 2nd={ordered[1]['movement_type']} ({ordered[1]['quantity_change']})")
         else:
             record_fail("10. Inspect stock movement history", f"Unexpected movements count or types: {moves}")
     else:
@@ -287,9 +311,10 @@ def run_full_system_audit():
     else:
         record_fail("Reversal ledger entry verified", f"Latest move is {latest_move}")
 
-    # 15. Verify audit history
+    # 15. Verify audit history. entity_id is an INTEGER column; binding a string
+    # works in MySQL via implicit coercion but fails on PostgreSQL.
     with SessionLocal() as db:
-        audits = db.query(AuditLog).filter(AuditLog.entity_id == str(product_id)).all()
+        audits = db.query(AuditLog).filter(AuditLog.entity_id == int(product_id)).all()
         if len(audits) >= 1:
             record_pass("15. Verify audit history", f"Found {len(audits)} audit records for entity_id={product_id} in audit_logs table.")
         else:
@@ -301,11 +326,17 @@ def run_full_system_audit():
     print("\n--- PHASE 4: DATA INTEGRITY VERIFICATION ---")
 
     with SessionLocal() as db:
-        # Check 1: sp_reconcile_inventory() returns 0 discrepancies
-        from sqlalchemy import text
-        reconcile_res = db.execute(text("CALL sp_reconcile_inventory()")).fetchall()
+        # Check 1: sp_reconcile_inventory() returns 0 discrepancies.
+        # MySQL exposes it as a stored procedure (CALL); PostgreSQL as a
+        # set-returning function (SELECT * FROM ...).
+        is_postgresql = db.bind.dialect.name == "postgresql"
+        reconcile_sql = (
+            "SELECT * FROM sp_reconcile_inventory()"
+            if is_postgresql else "CALL sp_reconcile_inventory()"
+        )
+        reconcile_res = db.execute(text(reconcile_sql)).fetchall()
         if len(reconcile_res) == 0:
-            record_pass("Reconciliation SP", "CALL sp_reconcile_inventory() returned 0 rows (Ledger == On-hand for all products)")
+            record_pass("Reconciliation SP", f"{reconcile_sql} returned 0 rows (Ledger == On-hand for all products)")
         else:
             record_fail("Reconciliation SP", f"Discrepancies found: {reconcile_res}")
 
@@ -316,24 +347,32 @@ def run_full_system_audit():
         else:
             record_fail("Negative inventory check", f"Found negative inventory rows: {[i.id for i in negative_inv]}")
 
-        # Check 3: Append-only trigger test (Attempt UPDATE and DELETE on stock_movements)
+        # Check 3: Append-only trigger test (Attempt UPDATE and DELETE on stock_movements).
+        # The UPDATE only changes `reason` so it does not also violate ck_sm_math;
+        # this isolates the append-only invariant on both MySQL and PostgreSQL.
         test_mv = db.query(StockMovement).first()
         if test_mv:
             try:
-                db.execute(text(f"UPDATE stock_movements SET quantity_change = 999 WHERE id = {test_mv.id}"))
+                db.execute(
+                    text("UPDATE stock_movements SET reason = :reason WHERE id = :id"),
+                    {"reason": "append-only trigger probe", "id": test_mv.id},
+                )
                 db.commit()
                 record_fail("Append-only trigger UPDATE", "UPDATE succeeded unexpectedly! Trigger bypassed.")
             except Exception as e:
                 db.rollback()
-                record_pass("Append-only trigger UPDATE blocked", "Trigger blocked UPDATE with SQLSTATE 45000.")
+                record_pass("Append-only trigger UPDATE blocked", f"UPDATE rejected ({type(e).__name__}); ledger remains append-only.")
 
             try:
-                db.execute(text(f"DELETE FROM stock_movements WHERE id = {test_mv.id}"))
+                db.execute(
+                    text("DELETE FROM stock_movements WHERE id = :id"),
+                    {"id": test_mv.id},
+                )
                 db.commit()
                 record_fail("Append-only trigger DELETE", "DELETE succeeded unexpectedly! Trigger bypassed.")
             except Exception as e:
                 db.rollback()
-                record_pass("Append-only trigger DELETE blocked", "Trigger blocked DELETE with SQLSTATE 45000.")
+                record_pass("Append-only trigger DELETE blocked", f"DELETE rejected ({type(e).__name__}); ledger remains append-only.")
 
         # Check 4: Check before/after delta consistency across all movements
         inconsistent_moves = db.query(StockMovement).filter(
