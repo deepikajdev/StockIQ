@@ -16,6 +16,7 @@ from app.config import INSECURE_BOOTSTRAP_PASSWORDS, settings
 from app.db import Base, SessionLocal, engine
 from app.logging_config import configure_logging
 from app.security import hash_password
+from scripts.postgresql_objects import install_postgresql_objects
 
 configure_logging()
 logger = logging.getLogger("stockiq.bootstrap")
@@ -41,6 +42,10 @@ def _resolve_bootstrap_password(
 
 def run():
     Base.metadata.create_all(engine)
+    # MySQL keeps its own SQL artifacts. PostgreSQL needs equivalent views,
+    # reconciliation function and ledger/updated_at triggers installed here so
+    # create_all() alone does not leave a partially configured database.
+    install_postgresql_objects(engine)
     with SessionLocal() as db:
         biz = db.scalar(select(models.Business))
         if not biz:
