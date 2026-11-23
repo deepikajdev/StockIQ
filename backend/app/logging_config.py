@@ -24,7 +24,9 @@ _KEY_VALUE_SECRET = re.compile(
     r"\s*[:=]\s*([^\s,;]+)"
 )
 _BEARER_TOKEN = re.compile(r"(?i)bearer\s+\S+")
-_DB_URL_CREDENTIALS = re.compile(r"(?i)(mysql(?:\+pymysql)?://)[^\s@/]+:[^\s@/]+@")
+_DB_URL_CREDENTIALS = re.compile(
+    r"(?i)((?:mysql(?:\+pymysql)?|postgres(?:ql)?(?:\+psycopg2?)?)://)[^\s@/]+:[^\s@/]+@"
+)
 _STRUCTURED_FIELDS = (
     "event",
     "request_id",

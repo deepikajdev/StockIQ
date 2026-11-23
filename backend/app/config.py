@@ -11,6 +11,7 @@ from pydantic import SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine import make_url
 
+from .postgres_tls import validate_postgresql_tls
 from .tls import (
     TLS_TRUE_VALUES,
     UNVERIFIED_TLS_MODES,
@@ -34,7 +35,7 @@ INSECURE_JWT_SECRETS = {
 }
 INSECURE_JWT_MARKERS = ("change-me", "changeme", "dev-only", "example", "password", "secret")
 
-INSECURE_DB_USERNAMES = {"stockiq", "root", "admin", "test", "sa"}
+INSECURE_DB_USERNAMES = {"stockiq", "root", "admin", "test", "sa", "postgres"}
 INSECURE_DB_PASSWORDS = {
     "stockiq",
     "root",
@@ -155,8 +156,11 @@ class Settings(BaseSettings):
 
         if not raw.strip() or raw == DEV_DATABASE_URL:
             raise ValueError("DATABASE_URL must be explicitly set in production")
-        if url.get_backend_name() not in {"mysql", "mariadb"}:
-            raise ValueError("Production DATABASE_URL must use MySQL or MariaDB")
+        backend = url.get_backend_name()
+        if backend not in {"mysql", "mariadb", "postgresql"}:
+            raise ValueError(
+                "Production DATABASE_URL must use MySQL, MariaDB, or PostgreSQL"
+            )
         if not url.host or not url.database:
             raise ValueError("Production DATABASE_URL must include a host and database name")
         if not url.username or not url.password:
@@ -170,12 +174,17 @@ class Settings(BaseSettings):
             or username == password
         ):
             raise ValueError("DATABASE_URL uses default or unsafe credentials")
-        self._validate_production_tls(url)
+
+        if backend == "postgresql":
+            validate_postgresql_tls(url)
+        else:
+            self._validate_production_tls(url)
 
     def _validate_production_tls(self, url) -> None:
         """Require certificate-verified TLS for managed production MySQL.
 
-        PyMySQL only checks hostnames when an explicit CA file or CA directory is
+        PostgreSQL uses ``validate_postgresql_tls`` instead. PyMySQL only checks
+        hostnames when an explicit CA file or CA directory is
         supplied, so production requires one even when ``ssl_mode`` is present.
         """
         query = tls_query_options(url)
