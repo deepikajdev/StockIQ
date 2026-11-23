@@ -7,9 +7,10 @@ from datetime import datetime, timezone
 from decimal import Decimal
 
 from sqlalchemy import (
-    CheckConstraint, DateTime, ForeignKey, Index, Integer, JSON, Numeric, String,
-    Text, UniqueConstraint, Boolean,
+    Boolean, CheckConstraint, DateTime, ForeignKey, Identity, Index, Integer,
+    JSON, Numeric, String, Text, UniqueConstraint, false, func, true,
 )
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .db import Base
@@ -21,34 +22,38 @@ def utcnow() -> datetime:
 
 class Business(Base):
     __tablename__ = "businesses"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(String(150), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
 
 
 class Role(Base):
     __tablename__ = "roles"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(String(30), unique=True, nullable=False)  # admin | staff
 
 
 class User(Base):
     __tablename__ = "users"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     role_id: Mapped[int] = mapped_column(ForeignKey("roles.id"), nullable=False)
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     full_name: Mapped[str] = mapped_column(String(120), nullable=False)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
-    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default=true(), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
     role: Mapped[Role] = relationship(lazy="joined")
     __table_args__ = (Index("ix_users_business", "business_id"),)
 
 
 class Category(Base):
     __tablename__ = "categories"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     __table_args__ = (UniqueConstraint("business_id", "name", name="uq_category_name"),)
@@ -56,7 +61,7 @@ class Category(Base):
 
 class Product(Base):
     __tablename__ = "products"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     category_id: Mapped[int | None] = mapped_column(ForeignKey("categories.id"))
     sku: Mapped[str] = mapped_column(String(64), nullable=False)
@@ -66,9 +71,14 @@ class Product(Base):
     cost_price: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
     reorder_point: Mapped[int] = mapped_column(Integer, nullable=False, default=0)   # manual floor
     safety_stock: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
-    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, onupdate=utcnow, nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True, server_default=true())
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, onupdate=utcnow,
+        server_default=func.current_timestamp(), nullable=False,
+    )
     category: Mapped[Category | None] = relationship(lazy="joined")
     __table_args__ = (
         UniqueConstraint("business_id", "sku", name="uq_product_sku"),
@@ -81,15 +91,17 @@ class Product(Base):
 
 class Supplier(Base):
     __tablename__ = "suppliers"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     name: Mapped[str] = mapped_column(String(150), nullable=False)
     contact_name: Mapped[str | None] = mapped_column(String(120))
     email: Mapped[str | None] = mapped_column(String(255))
     phone: Mapped[str | None] = mapped_column(String(40))
     address: Mapped[str | None] = mapped_column(Text)
-    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True, server_default=true())
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
     __table_args__ = (
         UniqueConstraint("business_id", "name", name="uq_supplier_name"),
         Index("ix_suppliers_business", "business_id"),
@@ -98,13 +110,13 @@ class Supplier(Base):
 
 class ProductSupplier(Base):
     __tablename__ = "product_suppliers"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     supplier_id: Mapped[int] = mapped_column(ForeignKey("suppliers.id"), nullable=False)
     unit_cost: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))        # unknown allowed
     lead_time_days: Mapped[int | None] = mapped_column(Integer)              # unknown allowed
     min_order_qty: Mapped[int | None] = mapped_column(Integer)
-    is_preferred: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    is_preferred: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default=false())
     supplier: Mapped[Supplier] = relationship(lazy="joined")
     __table_args__ = (
         UniqueConstraint("product_id", "supplier_id", name="uq_product_supplier"),
@@ -116,20 +128,23 @@ class ProductSupplier(Base):
 
 class Warehouse(Base):
     __tablename__ = "warehouses"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
-    is_default: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    is_default: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default=false())
     __table_args__ = (UniqueConstraint("business_id", "name", name="uq_warehouse_name"),)
 
 
 class Inventory(Base):
     __tablename__ = "inventory"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, onupdate=utcnow, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, onupdate=utcnow,
+        server_default=func.current_timestamp(), nullable=False,
+    )
     __table_args__ = (
         UniqueConstraint("product_id", "warehouse_id", name="uq_inventory_product_wh"),
         CheckConstraint("quantity >= 0", name="ck_inventory_non_negative"),
@@ -139,7 +154,7 @@ class Inventory(Base):
 
 class Purchase(Base):
     __tablename__ = "purchases"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     supplier_id: Mapped[int] = mapped_column(ForeignKey("suppliers.id"), nullable=False)
     warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
@@ -161,7 +176,7 @@ class Purchase(Base):
 
 class PurchaseItem(Base):
     __tablename__ = "purchase_items"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     purchase_id: Mapped[int] = mapped_column(ForeignKey("purchases.id"), nullable=False)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -178,7 +193,7 @@ class PurchaseItem(Base):
 
 class Sale(Base):
     __tablename__ = "sales"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
     status: Mapped[str] = mapped_column(String(20), nullable=False, default="completed")  # completed|cancelled
@@ -196,7 +211,7 @@ class Sale(Base):
 
 class SaleItem(Base):
     __tablename__ = "sale_items"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     sale_id: Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     quantity: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -215,7 +230,7 @@ class SaleItem(Base):
 class StockMovement(Base):
     """Append-only ledger. The app never updates or deletes rows here."""
     __tablename__ = "stock_movements"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
     warehouse_id: Mapped[int] = mapped_column(ForeignKey("warehouses.id"), nullable=False)
@@ -227,7 +242,9 @@ class StockMovement(Base):
     reference_id: Mapped[int | None] = mapped_column(Integer)
     reason: Mapped[str | None] = mapped_column(String(255))
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
     product: Mapped[Product] = relationship(lazy="joined")
     user: Mapped[User] = relationship(lazy="joined")
     __table_args__ = (
@@ -241,12 +258,14 @@ class StockMovement(Base):
 
 class AuditLog(Base):
     __tablename__ = "audit_logs"
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(Identity(), primary_key=True)
     business_id: Mapped[int] = mapped_column(ForeignKey("businesses.id"), nullable=False)
     user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"))
     action: Mapped[str] = mapped_column(String(60), nullable=False)
     entity_type: Mapped[str] = mapped_column(String(40), nullable=False)
     entity_id: Mapped[int | None] = mapped_column(Integer)
-    details: Mapped[dict | None] = mapped_column(JSON)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+    details: Mapped[dict | None] = mapped_column(JSON().with_variant(JSONB, "postgresql"))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utcnow, server_default=func.current_timestamp(), nullable=False
+    )
     __table_args__ = (Index("ix_audit_business_date", "business_id", "created_at"),)

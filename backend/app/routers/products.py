@@ -54,6 +54,7 @@ def create_category(body: CategoryIn, db: Session = Depends(get_db), user: User 
     try:
         db.flush()
     except IntegrityError:
+        db.rollback()
         raise HTTPException(409, "Category already exists")
     audit(db, user, "category.create", "category", c.id)
     db.commit()
