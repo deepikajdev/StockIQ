@@ -98,8 +98,25 @@ class Settings(BaseSettings):
         return self.database_url.get_secret_value()
 
     @property
+    def database_url_object(self):
+        """Return the parsed URL so callers never stringify a masked secret."""
+        return make_url(self.database_url_value)
+
+    @property
     def jwt_secret_value(self) -> str:
         return self.jwt_secret.get_secret_value()
+
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def normalize_database_url(cls, value: str | SecretStr | None):
+        """Trim accidental outer whitespace and reject embedded control characters."""
+        if value is None:
+            return SecretStr(DEV_DATABASE_URL)
+        raw = value.get_secret_value() if isinstance(value, SecretStr) else str(value)
+        cleaned = raw.strip()
+        if any(ord(character) < 32 or ord(character) == 127 for character in cleaned):
+            raise ValueError("DATABASE_URL must not contain control characters")
+        return SecretStr(cleaned)
 
     @field_validator("environment", mode="before")
     @classmethod

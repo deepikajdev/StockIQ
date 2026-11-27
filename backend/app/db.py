@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.engine import make_url
+from sqlalchemy.engine import URL, make_url
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from .config import settings
@@ -16,7 +16,7 @@ def _tls_query_keys(backend: str) -> set[str]:
     return set()
 
 
-def database_engine_url(database_url: str):
+def database_engine_url(database_url: str | URL):
     """Return a URL with TLS options moved out of the query string.
 
     MySQL and PostgreSQL use different TLS query keys; only the keys for the
@@ -33,7 +33,7 @@ def database_engine_url(database_url: str):
     return url.set(query=remaining_query)
 
 
-def database_connect_args(database_url: str) -> dict[str, object]:
+def database_connect_args(database_url: str | URL) -> dict[str, object]:
     """Translate URL TLS options into dialect-specific connection arguments.
 
     MySQL/PyMySQL and PostgreSQL/psycopg use different TLS options, so each
@@ -46,7 +46,7 @@ def database_connect_args(database_url: str) -> dict[str, object]:
     return _mysql_database_connect_args(database_url)
 
 
-def _mysql_database_connect_args(database_url: str) -> dict[str, object]:
+def _mysql_database_connect_args(database_url: str | URL) -> dict[str, object]:
     """Translate MySQL TLS URL options into PyMySQL connection arguments.
 
     PyMySQL 2.x does not accept ``ssl_mode`` directly and does not expose
@@ -91,9 +91,11 @@ def _mysql_database_connect_args(database_url: str) -> dict[str, object]:
     return {"ssl": ssl_context}
 
 
+configured_url = settings.database_url_object
+
 engine = create_engine(
-    database_engine_url(settings.database_url_value),
-    connect_args=database_connect_args(settings.database_url_value),
+    database_engine_url(configured_url),
+    connect_args=database_connect_args(configured_url),
     pool_pre_ping=True,
     pool_recycle=1800,
 )
