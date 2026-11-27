@@ -506,3 +506,85 @@ for pid in sorted(qty_by_product):  # consistent lock order avoids deadlocks
 ```
 
 By imposing a global strict total ordering ($\text{Lock}(ID_1) < \text{Lock}(ID_2) < \dots < \text{Lock}(ID_n)$), **circular wait conditions (one of the four Coffman conditions for deadlocks) are mathematically eliminated**.
+
+---
+
+## 6. Dual-database workflow
+
+StockIQ uses one ORM/API codebase with two supported engines. MySQL 8 remains the
+local development default; PostgreSQL 14+ is the cloud deployment target. The
+application never chooses an engine from a framework setting or a `.env` side
+file — **`DATABASE_URL` is the only selector.**
+
+### 6.1 Select the engine per process
+
+```bash
+# Local MySQL development (the default when DATABASE_URL is unset)
+export DATABASE_URL='mysql+pymysql://<user>:<password>@127.0.0.1:3306/stockiq'
+
+# PostgreSQL deployment or dedicated PostgreSQL test database
+export DATABASE_URL='postgresql+psycopg://<user>:<password>@<host>:5432/<database>'
+```
+
+For a one-off local run, set `DATABASE_URL` in the process environment instead
+of rewriting `backend/.env`. The parsed `Settings.database_url_object` is passed
+to SQLAlchemy as a `URL` object; never call `str(url)` because SQLAlchemy masks
+the password in that representation. Query parameters are normalized per
+dialect: MySQL uses `ssl_ca`/`ssl_mode`, PostgreSQL uses `sslmode`/`sslrootcert`,
+and unrelated parameters are preserved rather than being consumed by the wrong
+driver.
+
+### 6.2 Installation paths
+
+| Task | MySQL 8 | PostgreSQL 14+ |
+| --- | --- | --- |
+| Tables | `db/schema.sql` | `Base.metadata.create_all()` via `python -m scripts.bootstrap`, or `db/postgresql/schema.sql` |
+| Views / function / triggers | `db/views.sql`, `db/routines.sql`, `db/triggers.sql` | Centralized in `backend/app/postgresql_objects.py`; also available as `db/postgresql/*.sql` |
+| Idempotent bootstrap | `python -m scripts.bootstrap` | Same command; installer skips non-PostgreSQL engines |
+| Full SQL artifact load | `mysql stockiq < db/schema.sql` (then the other files) | `psql "$DATABASE_URL" -f db/postgresql/install.sql` |
+
+The canonical PostgreSQL object list lives in `app/postgresql_objects.py` and
+is re-exported from `scripts/postgresql_objects.py` for compatibility. Keep that
+list and `db/postgresql/*.sql` in sync when adding a view, function or trigger.
+
+### 6.3 Test isolation
+
+`backend/tests/db_guard.py` refuses pytest unless `DATABASE_URL` points to a
+local, explicitly test-shaped database:
+
+- MySQL/MariaDB: `stockiq_test`, `test_stockiq`, or another `*_test`/`test_*` name.
+- PostgreSQL: exactly `stockiq_pg_test`.
+- `STOCKIQ_TEST_DB` must match the database name exactly.
+- Remote hosts require the explicit `STOCKIQ_TEST_DB_ALLOW_REMOTE` override.
+
+Never run the suite against the populated local `stockiq` database or a
+Supabase connection. `.github/workflows/db-compatibility.yml` runs the MySQL and
+PostgreSQL jobs against disposable service containers with throwaway credentials.
+
+### 6.4 Compatibility checks before a dual-engine change
+
+Run the static checks even when no database is available:
+
+```bash
+cd backend
+python -m pytest tests/test_dialect_compatibility.py \
+  tests/test_orm_metadata.py \
+  tests/test_database_url_hardening.py \
+  tests/test_postgresql_object_installation.py -q
+```
+
+Then run the dialect-specific job from the compatibility workflow. New raw SQL
+must avoid engine-only syntax: use `IS TRUE` for booleans, keep `FOR UPDATE`
+off nullable outer-join sides, and call the reconciliation routine as `CALL`
+on MySQL but `SELECT * FROM ...` on PostgreSQL.
+
+### 6.5 Deployment guardrails
+
+- Keep real credentials in environment variables or a secret manager, never in Git.
+- Production validation requires explicit, non-default credentials and verified
+  TLS for both MySQL and PostgreSQL URLs.
+- Supabase is a cloud PostgreSQL deployment, not a local development database;
+  local-to-cloud data migration is a separate, explicitly approved operation.
+- Schema changes must be applied deliberately in each dialect; do not rely on
+  application startup to silently rewrite an existing production schema.
+
