@@ -54,6 +54,7 @@ jobs:
             tests/test_orm_metadata.py \
             tests/test_health.py \
             tests/test_stock_workflows.py \
+            tests/test_purchase_rbac.py \
             -q
 
   postgresql:
@@ -105,4 +106,5 @@ jobs:
             tests/test_postgresql_config.py \
             tests/test_postgresql_object_installation.py \
             tests/test_postgresql_integration.py \
+            tests/test_purchase_rbac.py \
             -q
