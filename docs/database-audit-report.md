@@ -5,6 +5,11 @@
 **Target Database:** MySQL 8.0.46 (with MariaDB 10.11 compatibility)  
 **Scope:** `backend/app/models.py`, `backend/app/services/`, `db/schema.sql`, `db/views.sql`, `db/routines.sql`, `db/triggers.sql`, `db/seed.py`, `db/queries/`, `db/transaction_demo.sql`, `docs/database.md`, `docs/backup.md`
 
+> **Historical scope note:** This report records measured results from a live **MySQL 8.0.46**
+> instance and is preserved as-is. It is not evidence of PostgreSQL behaviour. The PostgreSQL
+> port lives in `db/postgresql/` and is verified by `backend/tests/test_postgresql_integration.py`,
+> which runs only against the dedicated local `stockiq_pg_test` database. MySQL support is unchanged.
+
 ---
 
 ## 1. Executive Summary

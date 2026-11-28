@@ -1,5 +1,7 @@
 # Local development only. Copy docker-compose.env.example to .env and set values.
-# Production uses render.yaml with ENVIRONMENT=production and managed MySQL TLS.
+# Local development uses MySQL 8. Production uses render.yaml with ENVIRONMENT=production
+# and either managed PostgreSQL TLS or externally hosted MySQL TLS. PostgreSQL is run
+# locally outside compose against the dedicated stockiq_pg_test database for integration tests.
 services:
   db:
     image: mysql:8.0

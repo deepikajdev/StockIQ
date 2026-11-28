@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, lazyload
 
 from ..db import get_db
 from ..deps import admin_only, current_user, default_warehouse
@@ -24,7 +24,10 @@ def _out(p: Purchase) -> PurchaseOut:
 def _get(db: Session, user: User, pid: int, lock: bool = False) -> Purchase:
     q = select(Purchase).where(Purchase.id == pid, Purchase.business_id == user.business_id)
     if lock:
-        q = q.with_for_update()
+        # PostgreSQL rejects FOR UPDATE on the nullable side of the joined
+        # eager load for Purchase.supplier. Defer that relationship and lock
+        # only the purchase row on both engines.
+        q = q.options(lazyload(Purchase.supplier)).with_for_update(of=Purchase)
     p = db.scalar(q)
     if not p:
         raise HTTPException(404, "Purchase not found")

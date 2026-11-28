@@ -5,6 +5,29 @@ import { LoadingSkeleton } from '../components/common/LoadingSkeleton';
 import { EmptyState } from '../components/common/EmptyState';
 import { ErrorState } from '../components/common/ErrorState';
 import { useAuth } from '../hooks/useAuth';
+import {
+  canCreatePurchase,
+  canEditPurchase,
+  canReceivePurchase,
+  canViewPurchases,
+} from '../utils/purchaseRbac';
+
+const permissionClass = (allowed: boolean) =>
+  `py-3 px-4 text-center font-bold ${allowed ? 'text-emerald-600' : 'text-rose-600'}`;
+
+const permissionLabel = (allowed: boolean) =>
+  allowed ? '✓ Allowed' : '✕ Hidden (403)';
+
+const PURCHASE_MATRIX = {
+  staffView: canViewPurchases('staff'),
+  adminView: canViewPurchases('admin'),
+  staffCreate: canCreatePurchase('staff'),
+  adminCreate: canCreatePurchase('admin'),
+  staffReceive: canReceivePurchase('staff'),
+  adminReceive: canReceivePurchase('admin'),
+  staffEdit: canEditPurchase('staff'),
+  adminEdit: canEditPurchase('admin'),
+};
 
 export const RoleVariants: React.FC = () => {
   const { user } = useAuth();
@@ -83,6 +106,30 @@ export const RoleVariants: React.FC = () => {
                   <td className="py-3 px-4 text-center text-emerald-600 font-bold">✓ Allowed</td>
                   <td className="py-3 px-4 text-center text-emerald-600 font-bold">✓ Allowed</td>
                   <td className="py-3 px-4 font-mono text-[11px] text-on-surface-variant">POST /sales</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 font-medium">View Purchase Orders</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.staffView)}>{permissionLabel(PURCHASE_MATRIX.staffView)}</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.adminView)}>{permissionLabel(PURCHASE_MATRIX.adminView)}</td>
+                  <td className="py-3 px-4 font-mono text-[11px] text-on-surface-variant">GET /purchases (current_user)</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 font-medium">Create Purchase Orders</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.staffCreate)}>{permissionLabel(PURCHASE_MATRIX.staffCreate)}</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.adminCreate)}>{permissionLabel(PURCHASE_MATRIX.adminCreate)}</td>
+                  <td className="py-3 px-4 font-mono text-[11px] text-on-surface-variant">POST /purchases (admin_only)</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 font-medium">Receive Existing Draft POs</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.staffReceive)}>{permissionLabel(PURCHASE_MATRIX.staffReceive)}</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.adminReceive)}>{permissionLabel(PURCHASE_MATRIX.adminReceive)}</td>
+                  <td className="py-3 px-4 font-mono text-[11px] text-on-surface-variant">POST /purchases/&#123;id&#125;/receive (current_user)</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 font-medium">Edit / Cancel Purchase Orders</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.staffEdit)}>{permissionLabel(PURCHASE_MATRIX.staffEdit)}</td>
+                  <td className={permissionClass(PURCHASE_MATRIX.adminEdit)}>{permissionLabel(PURCHASE_MATRIX.adminEdit)}</td>
+                  <td className="py-3 px-4 font-mono text-[11px] text-on-surface-variant">POST /purchases/&#123;id&#125;/cancel (admin_only); no PATCH/PUT route</td>
                 </tr>
                 <tr>
                   <td className="py-3 px-4 font-medium">Create & Edit Products</td>

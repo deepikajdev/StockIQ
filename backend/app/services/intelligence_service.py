@@ -471,7 +471,7 @@ def _load_products(
         sql += " AND p.id = :pid"
         params["pid"] = product_id
     else:
-        sql += " AND p.is_active = 1"
+        sql += " AND p.is_active IS TRUE"
     sql += " ORDER BY p.name"
     rows = db.execute(text(sql), params).fetchall()
     return [dict(r._mapping) for r in rows]
@@ -555,7 +555,7 @@ def _load_stock(
         FROM inventory i
         JOIN products p ON p.id = i.product_id
         JOIN warehouses w ON w.id = i.warehouse_id
-        WHERE p.business_id = :bid AND w.business_id = :bid AND w.is_default = 1
+        WHERE p.business_id = :bid AND w.business_id = :bid AND w.is_default IS TRUE
     """
     params: dict[str, Any] = {"bid": business_id}
     if product_id is not None:
@@ -576,7 +576,7 @@ def _load_suppliers(
         JOIN suppliers s ON s.id = ps.supplier_id
         JOIN products p  ON p.id = ps.product_id
         WHERE p.business_id = :bid
-          AND s.is_active = 1
+          AND s.is_active IS TRUE
     """
     params: dict[str, Any] = {"bid": business_id}
     if product_id is not None:

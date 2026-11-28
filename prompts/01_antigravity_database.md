@@ -35,6 +35,15 @@ Do NOT rename or change existing tables/columns without listing every change at 
    `change_stock`, row-lock ordering by product_id).
 9. `db/backup.md` — mysqldump backup + restore commands.
 
+**PostgreSQL port (Phase 5.2):** the MySQL artifacts above remain the baseline and are not
+rewritten. Parallel PostgreSQL files live under `db/postgresql/`: `schema.sql` (identity columns,
+BOOLEAN, TIMESTAMP, JSONB, same 15 tables/constraints/indexes), `views.sql` (4 views),
+`routines.sql` (`SELECT * FROM sp_reconcile_inventory()`), `triggers.sql` (append-only ledger via
+`current_setting('stockiq.allow_ledger_mutation', true)` plus `ON UPDATE CURRENT_TIMESTAMP`
+equivalents), `queries/01`–`05`, `transaction_demo.sql`, `install.sql` and `README.md`. Seed and
+verification code branch on `db.bind.dialect.name`; MySQL's `SET @STOCKIQ_ALLOW_LEDGER_MUTATION`
+and `CALL sp_reconcile_inventory()` remain intact.
+
 ## Acceptance
 - `mysql < db/schema.sql && mysql < db/views.sql && mysql < db/routines.sql && mysql < db/triggers.sql` succeed on empty DB.
 - After `python db/seed.py` then `CALL sp_reconcile_inventory()` returns zero rows.

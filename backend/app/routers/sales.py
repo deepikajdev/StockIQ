@@ -81,7 +81,7 @@ def get_sale(sale_id: int, db: Session = Depends(get_db), user: User = Depends(c
 
 @router.post("/{sale_id}/cancel", response_model=SaleOut)
 def cancel_sale(sale_id: int, db: Session = Depends(get_db), user: User = Depends(admin_only)):
-    s = db.scalar(select(Sale).where(Sale.id == sale_id, Sale.business_id == user.business_id).with_for_update())
+    s = db.scalar(select(Sale).where(Sale.id == sale_id, Sale.business_id == user.business_id).with_for_update(of=Sale))
     if not s:
         raise HTTPException(404, "Sale not found")
     if s.status == "cancelled":

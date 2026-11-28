@@ -27,6 +27,7 @@ describe('RBAC (Role-Based Access Control) Rules', () => {
       'product:deactivate',
       'inventory:adjust',
       'purchase:create',
+      'purchase:edit',
       'purchase:cancel',
       'sale:cancel',
       'supplier:create',
@@ -53,6 +54,7 @@ describe('RBAC (Role-Based Access Control) Rules', () => {
     assert.equal(canPerformAction(adminUser, 'product:create'), true);
     assert.equal(canPerformAction(adminUser, 'inventory:adjust'), true);
     assert.equal(canPerformAction(adminUser, 'purchase:create'), true);
+    assert.equal(canPerformAction(adminUser, 'purchase:edit'), true);
     assert.equal(canPerformAction(adminUser, 'supplier:create'), true);
     assert.equal(canPerformAction(adminUser, 'sale:cancel'), true);
   });
@@ -61,6 +63,7 @@ describe('RBAC (Role-Based Access Control) Rules', () => {
     assert.equal(canPerformAction(staffUser, 'product:create'), false);
     assert.equal(canPerformAction(staffUser, 'inventory:adjust'), false);
     assert.equal(canPerformAction(staffUser, 'purchase:create'), false);
+    assert.equal(canPerformAction(staffUser, 'purchase:edit'), false);
     assert.equal(canPerformAction(staffUser, 'supplier:create'), false);
     assert.equal(canPerformAction(staffUser, 'sale:cancel'), false);
   });

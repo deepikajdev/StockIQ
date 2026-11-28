@@ -25,7 +25,7 @@ This frontend is a high-performance Single Page Application (SPA) built with Rea
 
 1. **Node.js**: v18.0.0 or higher
 2. **FastAPI Backend**: Running at `http://localhost:8000`
-3. **Database**: MySQL 8.0 instance with initialized StockIQ schema
+3. **Database**: MySQL 8.0 or PostgreSQL 14+ instance with initialized StockIQ schema
 
 ### Installation
 

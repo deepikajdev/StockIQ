@@ -10,6 +10,11 @@ import { Modal } from '../components/common/Modal';
 import { useAuth } from '../hooks/useAuth';
 import { api, ApiError } from '../api/client';
 import { formatCurrency, formatDateTime } from '../utils/format';
+import {
+  canCreatePurchase,
+  canEditPurchase,
+  canReceivePurchase,
+} from '../utils/purchaseRbac';
 import type { Page, Purchase, Supplier, Product } from '../types';
 
 interface NewPOItem {
@@ -19,7 +24,8 @@ interface NewPOItem {
 }
 
 export const Purchases: React.FC = () => {
-  const { isAdmin } = useAuth();
+  const { user } = useAuth();
+  const purchaseRole = user?.role;
   const queryClient = useQueryClient();
   const [offset, setOffset] = useState(0);
   const [isNewDrawerOpen, setIsNewDrawerOpen] = useState(false);
@@ -219,7 +225,7 @@ export const Purchases: React.FC = () => {
           >
             <Eye className="w-4 h-4" />
           </button>
-          {p.status === 'draft' && (
+          {p.status === 'draft' && canReceivePurchase(purchaseRole) && (
             <>
               <button
                 onClick={() => handleReceive(p.id)}
@@ -229,7 +235,7 @@ export const Purchases: React.FC = () => {
                 <CheckCircle className="w-3.5 h-3.5" />
                 <span>Receive</span>
               </button>
-              {isAdmin && (
+              {canEditPurchase(purchaseRole) && (
                 <button
                   onClick={() => handleCancel(p.id)}
                   title="Cancel PO"
@@ -251,7 +257,7 @@ export const Purchases: React.FC = () => {
         title="Purchase Orders & Replenishment"
         subtitle="Manage inbound vendor shipments, goods receipt verification, and stock additions."
         actions={
-          isAdmin && (
+          canCreatePurchase(purchaseRole) && (
             <button
               onClick={() => {
                 resetDrawer();
@@ -293,9 +299,9 @@ export const Purchases: React.FC = () => {
           selectedPurchase?.order_date ? formatDateTime(selectedPurchase.order_date) : ''
         }`}
         footer={
-          selectedPurchase?.status === 'draft' ? (
+          selectedPurchase?.status === 'draft' && canReceivePurchase(purchaseRole) ? (
             <div className="flex items-center justify-end gap-2 w-full">
-              {isAdmin && (
+              {canEditPurchase(purchaseRole) && (
                 <button
                   onClick={() => selectedPurchase && handleCancel(selectedPurchase.id)}
                   className="h-8 px-3 rounded-lg border border-rose-300 text-rose-700 text-[12px] hover:bg-rose-50"
@@ -356,7 +362,7 @@ export const Purchases: React.FC = () => {
 
       {/* New Purchase Drawer */}
       <Drawer
-        isOpen={isNewDrawerOpen}
+        isOpen={canCreatePurchase(purchaseRole) && isNewDrawerOpen}
         onClose={() => setIsNewDrawerOpen(false)}
         title="Draft Purchase Order"
         subtitle="Specify vendor, line items, and cost allocations."
